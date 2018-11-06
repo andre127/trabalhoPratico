@@ -25,7 +25,7 @@ and open the template in the editor.
           <div class="row">
             <div class="input-field col s12">
               <input  type="text" class="form validate">
-              <label for="nome">Digite seu Nome</label>
+              <label for="nome">Digite seu Nomehvjhvjh</label>
             </div>          
           </div>
 		  <div class="row">
