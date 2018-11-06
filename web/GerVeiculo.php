@@ -28,7 +28,8 @@
 							<select id="uf" name="uf" class="form">              
 								<option value="1" selected>MS</option>
 								<option value="2">MT</option>
-								<option value="3">SP</option>
+								<option value="3">MG</option>
+                                                                <option value="3">SP</option>
 							</select>
 							<label>UF</label>
 						</div>
