@@ -44,7 +44,8 @@
       <!--   Icon Section   -->
       <div class="row">
         <div class="col s12">
-<!--teste-->
+<!--Cards-->
+<!--Linha1-->
  <div class="row">
      
      <!Carro1-->
@@ -54,66 +55,15 @@
             <img src="img/carro1.png">
         </div>
         <div class="card-content">
-            <span class="card-title">Carro1</span>
-          <p>Um carro diferenciado com preço acessivel a todos os usuarios</p>
+            <span class="card-title">Honda Civic</span>
+            <p>R$1000</p>
         </div>
         <div class="card-action">
           <a href="#">Alugar</a>
         </div>
       </div>
     </div>
-     
-     <!Carro2-->
-     <div class="col s3 ">
-      <div class="card">
-        <div class="card-image">
-            <img src="img/carro1.png">
-        </div>
-        <div class="card-content">
-            <span class="card-title">Carro1</span>
-          <p>Um carro diferenciado com preço acessivel a todos os usuarios</p>
-        </div>
-        <div class="card-action">
-          <a href="#">Alugar</a>
-        </div>
-      </div>
-    </div>
-     
-     <!Carro3-->
-     <div class="col s3 ">
-      <div class="card">
-        <div class="card-image">
-            <img src="img/carro1.png">
-        </div>
-        <div class="card-content">
-            <span class="card-title">Carro1</span>
-          <p>Um carro diferenciado com preço acessivel a todos os usuarios</p>
-        </div>
-        <div class="card-action">
-          <a href="#">Alugar</a>
-        </div>
-      </div>
-    </div>
-    
-     <!Carro4-->
-     <div class="col s3 ">
-      <div class="card">
-        <div class="card-image">
-            <img src="img/carro1.png">
-        </div>
-        <div class="card-content">
-            <span class="card-title">Carro1</span>
-          <p>Um carro diferenciado com preço acessivel a todos os usuarios</p>
-        </div>
-        <div class="card-action">
-          <a href="#">Alugar</a>
-        </div>
-      </div>
-    </div>
-     
-     
   </div>
-
 
         </div>
 
