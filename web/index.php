@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Parallax Template - Materialize</title>
+  <title>Locadora LocaPlus</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -23,7 +23,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
+        <h1 class="header center teal-text text-lighten-2">Locadora Locaplus</h1>
         <div class="row center">
           <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
         </div>
@@ -34,7 +34,7 @@
 
       </div>
     </div>
-    <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div>
+      <div class="parallax"><img src="img/maxresdefault.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
 
@@ -43,25 +43,78 @@
 
       <!--   Icon Section   -->
       <div class="row">
-        <div class="col s12 m4">
+        <div class="col s12">
 <!--teste-->
  <div class="row">
-    <div class="col s12 m7">
+     
+     <!Carro1-->
+    <div class="col s3 ">
       <div class="card">
         <div class="card-image">
-          <img src="images/sample-1.jpg">
-          <span class="card-title">Card Title</span>
+            <img src="img/carro1.png">
         </div>
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+            <span class="card-title">Carro1</span>
+          <p>Um carro diferenciado com preço acessivel a todos os usuarios</p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <a href="#">Alugar</a>
         </div>
       </div>
     </div>
+     
+     <!Carro2-->
+     <div class="col s3 ">
+      <div class="card">
+        <div class="card-image">
+            <img src="img/carro1.png">
+        </div>
+        <div class="card-content">
+            <span class="card-title">Carro1</span>
+          <p>Um carro diferenciado com preço acessivel a todos os usuarios</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Alugar</a>
+        </div>
+      </div>
+    </div>
+     
+     <!Carro3-->
+     <div class="col s3 ">
+      <div class="card">
+        <div class="card-image">
+            <img src="img/carro1.png">
+        </div>
+        <div class="card-content">
+            <span class="card-title">Carro1</span>
+          <p>Um carro diferenciado com preço acessivel a todos os usuarios</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Alugar</a>
+        </div>
+      </div>
+    </div>
+    
+     <!Carro4-->
+     <div class="col s3 ">
+      <div class="card">
+        <div class="card-image">
+            <img src="img/carro1.png">
+        </div>
+        <div class="card-content">
+            <span class="card-title">Carro1</span>
+          <p>Um carro diferenciado com preço acessivel a todos os usuarios</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Alugar</a>
+        </div>
+      </div>
+    </div>
+     
+     
   </div>
+
+
         </div>
 
         </div>
