@@ -16,12 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name="unigran.projeto.br.gerenciamentoLocacao.GerenciamentoLocacao"></activity>
-=======
         <activity android:name=".Cliente" />
-        <activity android:name=".Veiculo"></activity>
->>>>>>> 6844db968c6fb97d0f7bd635b397326b8ac7a216
+        <activity android:name=".Funcionario"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
