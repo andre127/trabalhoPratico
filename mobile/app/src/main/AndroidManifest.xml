@@ -17,10 +17,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".Cliente" />
+<<<<<<< HEAD
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+=======
+        <activity android:name=".Veiculo"></activity>
+>>>>>>> 6844db968c6fb97d0f7bd635b397326b8ac7a216
     </application>
 
 </manifest>
