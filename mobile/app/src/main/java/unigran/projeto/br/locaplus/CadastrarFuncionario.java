@@ -3,7 +3,7 @@ package unigran.projeto.br.locaplus;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Funcionario extends AppCompatActivity {
+public class CadastrarFuncionario extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

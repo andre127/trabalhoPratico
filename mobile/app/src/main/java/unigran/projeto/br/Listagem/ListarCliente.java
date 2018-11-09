@@ -1,13 +1,15 @@
-package unigran.projeto.br.locaplus;
+package unigran.projeto.br.Listagem;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Cliente extends AppCompatActivity {
+import unigran.projeto.br.locaplus.R;
+
+public class ListarCliente extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cliente);
+        setContentView(R.layout.activity_listar_cliente);
     }
 }
