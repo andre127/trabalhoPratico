@@ -4,40 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cliente">
+    tools:context=".CadastrarCliente">
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="352dp"
+        android:id="@+id/editCpf"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="153dp"
         android:layout_marginStart="17dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="Digite o nome "
+        android:hint="Digite o CPF"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.007"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editNome" />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="357dp"
+        android:id="@+id/editNome"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="95dp"
         android:layout_marginStart="74dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="Digite o CPF"
+        android:hint="Digite o nome"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editRG"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="18dp"
@@ -47,11 +47,12 @@
         android:hint="Digite o RG"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editCpf" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editCNH"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="101dp"
@@ -63,11 +64,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/editRG" />
 
     <EditText
-        android:id="@+id/editText7"
-        android:layout_width="354dp"
+        android:id="@+id/editEndereco"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="143dp"
         android:layout_marginStart="26dp"
@@ -76,13 +77,13 @@
         android:hint="Digite o Endereço"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/editCNH" />
 
     <EditText
-        android:id="@+id/editText8"
-        android:layout_width="358dp"
+        android:id="@+id/editNumDependente"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="16dp"
@@ -91,8 +92,9 @@
         android:hint="Digite Numeros de Dependentes"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText7" />
+        app:layout_constraintTop_toBottomOf="@+id/editEndereco" />
 
     <Button
         android:id="@+id/button"
@@ -106,6 +108,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText8" />
+        app:layout_constraintTop_toBottomOf="@+id/editNumDependente" />
 
 </android.support.constraint.ConstraintLayout>
