@@ -7,29 +7,29 @@
     tools:context=".CadastrarCliente">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editCpf"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="153dp"
         android:layout_marginStart="17dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="Digite o nome "
+        android:hint="Digite o CPF"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.007"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editNome" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editNome"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="95dp"
         android:layout_marginStart="74dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="Digite o CPF"
+        android:hint="Digite o nome"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.422"
@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/editCpf" />
 
     <EditText
         android:id="@+id/editCNH"

@@ -1,16 +1,17 @@
 package unigran.projeto.br.Classes;
 
 public class Pessoa {
-    private String id;
+    private Integer id;
     private String rg;
+    private String cpf;
     private String nome;
     private String endereco;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -20,6 +21,14 @@ public class Pessoa {
 
     public void setRg(String rg) {
         this.rg = rg;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getNome() {
