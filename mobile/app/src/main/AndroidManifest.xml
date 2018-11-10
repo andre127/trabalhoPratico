@@ -16,7 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="unigran.projeto.br.gerenciamentoLocacao.GerenciamentoLocacao" />
         <activity android:name=".CadastrarCliente" />
         <activity android:name=".CadastrarFuncionario" />
         <activity
@@ -25,6 +24,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CadastrarVeiculo" />
         <activity android:name="unigran.projeto.br.Listagem.ListarCliente"></activity>
+        <activity android:name="unigran.projeto.br.gerenciamentoLocacao.GerenciamentoLocacao"></activity>
+        <activity android:name="unigran.projeto.br.gerenciamentoLocacao.LocacaoDevolucao"></activity>
+        <activity android:name="unigran.projeto.br.gerenciamentoLocacao.LocacaoRetirada"></activity>
     </application>
 
 </manifest>
