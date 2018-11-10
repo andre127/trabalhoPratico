@@ -23,10 +23,11 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CadastrarVeiculo" />
-        <activity android:name="unigran.projeto.br.Listagem.ListarCliente"></activity>
-        <activity android:name="unigran.projeto.br.gerenciamentoLocacao.GerenciamentoLocacao"></activity>
-        <activity android:name="unigran.projeto.br.gerenciamentoLocacao.LocacaoDevolucao"></activity>
-        <activity android:name="unigran.projeto.br.gerenciamentoLocacao.LocacaoRetirada"></activity>
+        <activity android:name="unigran.projeto.br.Listagem.ListarCliente" />
+        <activity android:name="unigran.projeto.br.gerenciamentoLocacao.GerenciamentoLocacao" />
+        <activity android:name="unigran.projeto.br.gerenciamentoLocacao.LocacaoDevolucao" />
+        <activity android:name="unigran.projeto.br.gerenciamentoLocacao.LocacaoRetirada" />
+        <activity android:name="unigran.projeto.br.Listagem.ListarLocacao"></activity>
     </application>
 
 </manifest>
