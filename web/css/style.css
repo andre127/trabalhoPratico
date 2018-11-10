@@ -55,3 +55,17 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+.modal {
+  max-height: 90%;
+}
+
+.modal-form-row {
+  margin-bottom: 0px;
+}
+.modal{ 
+    width: 33% !important ; height: 85% !important ; 
+}
+.navbar{
+    color: #FFFFFF;
+}
