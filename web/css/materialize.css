@@ -648,7 +648,7 @@
 }
 
 .blue-text {
-  color: #2196F3 !important;
+  color: #01579b !important;
 }
 
 .blue.lighten-5 {
@@ -1652,11 +1652,11 @@
 }
 
 .orange {
-  background-color: #ff9800 !important;
+  background-color: #e65100 !important;
 }
 
 .orange-text {
-  color: #ff9800 !important;
+  color: #e65100 !important;
 }
 
 .orange.lighten-5 {
@@ -8298,6 +8298,9 @@ input[type=range]::-ms-thumb {
   width: 100%;
   height: inherit;
   overflow: hidden;
+}
+.slider .slides li h3{
+    color: #e0e0e0;
 }
 
 .slider .slides li img {

@@ -10358,8 +10358,7 @@ $jscomp.polyfill = function (e, r, p, m) {
        */
 
     }, {
-      key: "_validateInput",
-      value: function _validateInput() {
+      key: "_validateInput", value: function _validateInput() {
         if (this.isValidLength && this.isInvalid) {
           this.isInvalid = false;
           this.$el.removeClass('invalid');

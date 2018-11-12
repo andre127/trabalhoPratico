@@ -11,69 +11,134 @@
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
     <body>
-        <nav class="light-blue lighten-1" role="navigation">
-            
-            <div class=""><a id="logo-container" href="#" class="brand-logo"><img src="img/logoPequeno.png"></a>
+        <nav class ="color-navbar-footer" role="navigation"">
+            <div><a id="logo-container" href="#" class="brand-logo"><img src="img/logoEscritoNavbar.png" width="80%" height="80%"></a>
                 <ul class="right hide-on-med-and-down">
                     <li class="modal-trigger" data-target="modalLogin"><a href="$">Entrar</a></li>
                     <li><a href="CadastroCliente.php">Registrar-se</a></li>
                 </ul>
-                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             </div>
         </nav>
+
+        <!-- Slider Topo -->
+        <div class="slider">
+            <ul class="slides">
+                <li>
+                    <img src="img/logoRender.png" style="opacity: 1">
+                    <div class="caption center-align">
+                    </div>
+                </li>
+                <li>
+                    <img src="img/hondacivic.jpg">
+                    <div class="caption center-align">
+                        <h3>Os melhores carros</h3>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/corola2.jpg">
+                    <div class="caption left-align">
+                        <h3>Com os melhores preços</h3>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/impala.jpg"> <!-- random image -->
+                    <div class="caption right-align">
+                        <h3>Nas melhores condições</h3>
+                    </div>
+                </li>
+            </ul>
+        </div>     
+
         <div class="section no-pad-bot" id="index-banner">
-            <div class="container">
+            <div class="container center">
                 <br><br>
-                <h1 class="header center orange-text">Starter Template</h1>
+                <img src="img/logoEscrito.png" class="header center orange-text">
                 <div class="row center">
-                    <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                    <h5 class="header col s12 light">Texto decorativo pra encher de bla bla bla (Ainda vou editar)</h5>
                 </div>
                 <br><br>
 
             </div>
         </div>
-        <!-- Teste-->
-        
 
-
-        <div class="container">
-            <div class="section">
-                <!--   Icon Section   -->
-                <div class="row">
-                    <div class="col s12 m4">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-                            <h5 class="center">Speeds up development</h5>
-
-                            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-                        </div>
-                    </div>
-
-                    <div class="col s12 m4">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                            <h5 class="center">User Experience Focused</h5>
-
-                            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-                        </div>
-                    </div>
-
-                    <div class="col s12 m4">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-                            <h5 class="center">Easy to work with</h5>
-
-                            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            
-            <br><br>
+        <div>
+            <h3>Blablablabla</h3>
         </div>
+
+        <!-- Anuncios -->
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">aff</i></a>
+        <div class="row center">
+            <ul class = "listaAnuncios">
+                <a href="#>"<li class = "card-panel anuncios col s3">
+                        <div class="div-img-anuncio">
+                            <img class="img-anuncio" src ="img/carro1.png">
+                        </div>
+                        <div class ="info-anuncio">
+                            <h5>R$500</h5>
+                        </div>
+                    </li></a>
+                <a href="#>"<li class = "card-panel anuncios col s3">
+                        <div class="div-img-anuncio">
+                            <img class="img-anuncio" src ="img/carro1.png">
+                        </div>
+                        <div class ="info-anuncio">
+                            <h5>R$500</h5>
+                        </div>
+                    </li></a>
+
+                <a href="#>"<li class = "card-panel anuncios col s3">
+                        <div class="div-img-anuncio">
+                            <img class="img-anuncio" src ="img/carro1.png">
+                        </div>
+                        <div class ="info-anuncio">
+                            <h5>R$500</h5>
+                        </div>
+                    </li></a>
+                <a href="#>"<li class = "card-panel anuncios col s3">
+                        <div class="div-img-anuncio">
+                            <img class="img-anuncio" src ="img/carro1.png">
+                        </div>
+                        <div class ="info-anuncio">
+                            <h5>R$500</h5>
+                        </div>
+                    </li></a>                  
+                <a href="#>"<li class = "card-panel anuncios col s3">
+                        <div class="div-img-anuncio">
+                            <img class="img-anuncio" src ="img/carro1.png">
+                        </div>
+                        <div class ="info-anuncio">
+                            <h5>R$500</h5>
+                        </div>
+                    </li></a>
+                <a href="#>"<li class = "card-panel anuncios col s3">
+                        <div class="div-img-anuncio">
+                            <img class="img-anuncio" src ="img/carro1.png">
+                        </div>
+                        <div class ="info-anuncio">
+                            <h5>R$500</h5>
+                        </div>
+                    </li></a>
+                <a href="#>"<li class = "card-panel anuncios col s3">
+                        <div class="div-img-anuncio">
+                            <img class="img-anuncio" src ="img/carro1.png">
+                        </div>
+                        <div class ="info-anuncio">
+                            <h5>R$500</h5>
+                        </div>
+                    </li></a>
+                <a href="#>"<li class = "card-panel anuncios col s3">
+                        <div class="div-img-anuncio">
+                            <img class="img-anuncio" src ="img/carro1.png">
+                        </div>
+                        <div class ="info-anuncio">
+                            <h5>R$500</h5>
+                        </div>
+                    </li></a>
+            </ul>
+        </div>
+
         <!-- Footer -->
-        <footer class="page-footer orange">
+        <footer class="page-footer color-navbar-footer">
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
@@ -102,7 +167,7 @@
         <div id="modalLogin" class="modal modal-dialog modal-lg">
             <div class="modal-content">
                 <div align="center">
-                    <img src="img/logoRender.png" height="60%" width="60%" align="top">
+                    <img src="img/logoRender.png" height="100%" width="100%" align="top">
                 </div>
                 <!-- campos-->
                 <div class="row"> 
@@ -126,14 +191,14 @@
                 </div>
                 <!-- botoes-->
                 <div class ="row" align = "center">
-                    <button class="waves-light btn modal-trigger">Login</button>
-                    <button class="waves-light btn modal-trigger modal-close">Fechar</button>
+                    <button class="light-blue darken-4 btn modal-trigger">Login</button>
+                    <button class="light-blue darken-4 btn modal-trigger modal-close">Fechar</button>
                 </div>
             </div>
         </div>
 
 
-</div>
+    </div>
 </div>
 
 

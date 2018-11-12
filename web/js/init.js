@@ -1,8 +1,8 @@
 (function ($) {
     $(function () {
         $('.modal-trigger').leanModal();
-        $('.sidenav').sidenav();
         $('.parallax').parallax();
-
-    }); // end of document ready
+        $('.carousel').carousel();
+        $('.slider').slider();
+    }) // end of document ready
 })(jQuery); // end of jQuery name space

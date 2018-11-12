@@ -66,3 +66,27 @@ footer.page-footer {
 .modal{ 
     width: 33% !important ; height: 85% !important ; 
 }
+.img-anuncio{
+    width:60%;
+    height:60%;
+}
+.div-img-anuncio{
+}
+listaAnuncios ol{
+    list-style: none;
+}
+.slides li img{
+    opacity: 0.2;
+}
+.anuncios{
+    
+}
+.color-navbar-footer{
+    background-color:#29b6f6;
+}
+body{
+    background-color:#ebebeb;
+}
+.listaAnuncios a{
+   color: black;
+}
