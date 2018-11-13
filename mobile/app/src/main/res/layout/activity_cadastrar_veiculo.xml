@@ -11,25 +11,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="445dp"
-        android:layout_marginBottom="23dp"
+        android:layout_marginBottom="18dp"
         android:text="cadastrar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="445dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="18dp"
         android:text="cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/etPlaca"
@@ -50,11 +45,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Nome"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etMarca"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPlaca" />
 
@@ -62,51 +55,61 @@
         android:id="@+id/etMarca"
         android:layout_width="352dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="9dp"
         android:ems="10"
         android:hint="Marca"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNome" />
 
     <EditText
         android:id="@+id/etModelo"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Modelo"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="193dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etMarca" />
 
     <EditText
         android:id="@+id/etCor"
         android:layout_width="153dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Cor"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="215dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintStart_toEndOf="@+id/etPlaca"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etSeguro"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="11dp"
         android:ems="10"
         android:hint="Valor Seguro"
         android:inputType="number"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="250dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etModelo" />
 
     <EditText
         android:id="@+id/etLocacao"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="Valor Locação"
         android:inputType="number"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="309dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSeguro" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="196dp"
@@ -120,8 +123,12 @@
         android:id="@+id/stStatus"
         android:layout_width="90dp"
         android:layout_height="53dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="79dp"
+        android:text="Ativo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLocacao"
         tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="369dp"
         tools:text="Ativo" />
 
 </android.support.constraint.ConstraintLayout>

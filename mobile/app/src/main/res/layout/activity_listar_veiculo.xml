@@ -22,83 +22,101 @@
         android:id="@+id/btPesquisar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="9dp"
         android:text="pesquisa veiculo"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="9dp" />
+        app:layout_constraintStart_toEndOf="@+id/etPlaca"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etModelo"
         android:layout_width="352dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="17dp"
         android:ems="10"
         android:hint="Modelo"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="145dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNome" />
 
     <EditText
         android:id="@+id/etMarca"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="Marca"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="205dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etModelo" />
 
     <EditText
         android:id="@+id/etNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Nome"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="82dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPlaca" />
 
     <EditText
         android:id="@+id/etCor"
         android:layout_width="123dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Cor"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="245dp"
-        tools:layout_editor_absoluteY="82dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btPesquisar" />
 
     <EditText
         android:id="@+id/editText13"
         android:layout_width="352dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="Valor Seguro"
         android:inputType="number"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="265dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etMarca" />
 
     <EditText
         android:id="@+id/editText14"
         android:layout_width="352dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="13dp"
         android:ems="10"
         android:hint="Valor Locação"
         android:inputType="number"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="323dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText13" />
 
     <TextView
         android:id="@+id/tvStatus"
         android:layout_width="350dp"
         android:layout_height="45dp"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="377dp" />
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText14" />
 
     <Button
         android:id="@+id/btEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="279dp"
+        android:layout_marginTop="25dp"
         android:text="Editar"
-        tools:layout_editor_absoluteX="279dp"
-        tools:layout_editor_absoluteY="446dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvStatus" />
 
 </android.support.constraint.ConstraintLayout>
