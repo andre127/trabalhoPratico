@@ -1,7 +1,18 @@
 package unigran.projeto.br.Classes;
 
 public class Locacao {
-    private Integer dataRetirada, dataDevolucao;
+    private Integer dataRetirada;
+    private Integer dataDevolucao;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    private Integer id;
     private Float kmFinal;
 
     public Float getKmFinal() {
