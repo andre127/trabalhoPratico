@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+   include "utils.php";
+?>
 <html>
     <head>
          <title>Gerenciamento de Cliente</title>
@@ -24,6 +21,65 @@ and open the template in the editor.
                 </ul>
             </div>
         </nav>
-        <br><br><br>  
+        <br><br><br> 
+        
+        <div class="container">
+            <br><br>
+            <a class="waves-effect waves-light btn" href="CadastroCliente.php">Cadastrar</a>
+            <a class="waves-effect waves-light btn">Editar</a>
+            <br><br>
+            <div class="row">
+                <div class="col s12">
+                <table  class="bordered" class="responsive-table">
+                    <thead>
+                      <tr>
+                          <th>ID</th>
+                          <th>NOME</th>
+                          <th>RG</th>
+                          <th>CPF</th>
+                          <th>CNH</th>
+                          <th>ENDERECO</th>
+                          
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                    <?php
+                        $sql = "SELECT `pessoa`.`id`,`pessoa`.`nome`,`pessoa`.`rg`,`pessoa`.`cpf`,`pessoa`.`endereco`,`cliente`.`cnh` FROM `pessoa` INNER JOIN `cliente` ON `pessoa`.`id`=`cliente`.`idPessoa`";
+                        $result = $conn->query($sql);
+
+                        if($result->num_rows>0){
+                            while($row = $result->fetch_assoc()){
+                                echo "<tr data-id='".$row['id']."' class='linhas'>";
+                                echo "<td>".$row['id']."</td>";
+                                echo "<td>".$row['nome']."</td>";
+                                echo "<td>".$row['rg']."</td>";
+                                echo "<td>".$row['cpf']."</td>";
+                                echo "<td>".$row['cnh']."</td>";
+                                echo "<td>".$row['endereco']."</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    ?>
+                    </tbody>
+                  </table>
+            
+            </div>
+           </div>
+       </div> 
+        
+        
+        
+        
+        
+        
+        
+        
+        <!--  Scripts-->
+                <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+                <!--<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
+                <script src="js/materialize.js"></script>
+                <script src="js/init.js"></script>
     </body>
 </html>
