@@ -6,6 +6,7 @@ public class Locacao {
     private Float kmFinal;
     private Cliente cliente;
     private Veiculo veiculo;
+    //private  funcio
 
     public Veiculo getVeiculo() {
         return veiculo;
