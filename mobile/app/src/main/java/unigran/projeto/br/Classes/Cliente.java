@@ -2,7 +2,15 @@ package unigran.projeto.br.Classes;
 
 public class Cliente extends Pessoa {
    private String cnh;
-   private Integer numeroDeDependente;
+   private Integer numeroDeDependente, id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getCnh() {
         return cnh;

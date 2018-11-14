@@ -16,6 +16,7 @@
         android:ems="10"
         android:hint="Numero"
         android:inputType="number"
+        android:onClick="listarCliente"
         app:layout_constraintEnd_toStartOf="@+id/etPlacaRetirada"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRetirada" />
@@ -29,6 +30,7 @@
         android:ems="10"
         android:hint="Placa do carro"
         android:inputType="textPersonName"
+        android:onClick="listarVeiculo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/etNumeroRetirada"
         app:layout_constraintTop_toBottomOf="@+id/tvRetirada" />
@@ -77,9 +79,9 @@
         android:id="@+id/btnConfirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="103dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:onClick="confirmar"
         android:text="Confirmar"
         app:layout_constraintEnd_toStartOf="@+id/btnCancelar"

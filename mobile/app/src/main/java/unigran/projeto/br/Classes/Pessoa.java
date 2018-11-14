@@ -1,19 +1,10 @@
 package unigran.projeto.br.Classes;
 
 public class Pessoa {
-    private Integer id;
     private String rg;
     private String cpf;
     private String nome;
     private String endereco;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getRg() {
         return rg;
@@ -49,6 +40,6 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "id: "+getId()+"Nome: "+getNome()+"RG: "+getRg() ;
+        return "Nome: "+getNome()+"RG: "+getRg() ;
     }
 }

@@ -11,11 +11,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import unigran.projeto.br.Classes.Locacao;
+import unigran.projeto.br.Listagem.ListarCliente;
+import unigran.projeto.br.Listagem.ListarVeiculo;
 import unigran.projeto.br.Pesistencia.Banco;
 import unigran.projeto.br.locaplus.R;
 
 public class LocacaoRetirada extends AppCompatActivity {
-    private EditText numeroRetirada, placaRetirada, dataRetirada, kmRetirada;
+    private EditText numeroRetirada, placaRetirada, dataRetirada, kmRetirada, horaRetirada;
     private SQLiteDatabase conexao;
     private Banco bd;
     private Locacao locacao;
@@ -30,18 +32,23 @@ public class LocacaoRetirada extends AppCompatActivity {
         placaRetirada = findViewById(R.id.etPlacaRetirada);
         dataRetirada = findViewById(R.id.etDataRetirada);
         kmRetirada = findViewById(R.id.etKmRetirada);
+        horaRetirada = findViewById(R.id.etHoraRetirada);
     }
     public void confirmar(View view){
         Toast.makeText(this, "foiiii", Toast.LENGTH_SHORT).show();
         if (locacao == null)
             locacao = new Locacao();
-        locacao.setDataRetirada(Integer.parseInt(dataRetirada.getText().toString()));
+        locacao.setDataRetirada(Float.parseFloat(dataRetirada.getText().toString()));
         locacao.setKmFinal(Float.parseFloat(kmRetirada.getText().toString()));
+        locacao.setHora(Float.parseFloat(horaRetirada.getText().toString()));
+        locacao.getCliente().setId(Integer.parseInt(numeroRetirada.getText().toString()));
+        //locacao.getVeiculo().set
 
         bd = new Banco(this);
         try{
             conexao = bd.getWritableDatabase();
             ContentValues values = new ContentValues();
+            values.put("ID_CLIENTE_LOCACAO",locacao.getCliente().getId());
             values.put("DATA_LOCACAO", locacao.getDataRetirada());
             values.put("KM_LOCACAO", locacao.getKmFinal());
             if(locacao.getId()<=0)
@@ -56,6 +63,14 @@ public class LocacaoRetirada extends AppCompatActivity {
     }
     public void cancelar(View view){
         Intent it = new Intent(this, GerenciamentoLocacao.class);
+        startActivity(it);
+    }
+    public void listarCliente(View view){
+        Intent it = new Intent(this, ListarCliente.class);
+        startActivity(it);
+    }
+    public void listarVeiculo(View view){
+        Intent it = new Intent(this, ListarVeiculo.class);
         startActivity(it);
     }
 }
