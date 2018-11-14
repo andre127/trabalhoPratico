@@ -6,33 +6,6 @@
     android:layout_height="match_parent"
     tools:context="unigran.projeto.br.gerenciamentoLocacao.LocacaoDevolucao">
 
-    <EditText
-        android:id="@+id/etNumeroDevolucao"
-        android:layout_width="182dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Numero"
-        android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/etPlacaDevolucao"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDevolucao" />
-
-    <EditText
-        android:id="@+id/etPlacaDevolucao"
-        android:layout_width="176dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Placa do carro"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etNumeroDevolucao"
-        app:layout_constraintTop_toBottomOf="@+id/tvDevolucao" />
-
     <TextView
         android:id="@+id/tvDevolucao"
         android:layout_width="wrap_content"
@@ -45,146 +18,28 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="2dp" />
 
-    <EditText
-        android:id="@+id/etDataDevolucao"
-        android:layout_width="126dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:enabled="true"
-        android:hint="Date"
-        android:inputType="date"
-        app:layout_constraintEnd_toStartOf="@+id/etHoraDevolucao"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNumeroDevolucao" />
-
-    <EditText
-        android:id="@+id/etHoraDevolucao"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Hora"
-        android:inputType="time"
-        app:layout_constraintEnd_toStartOf="@+id/etKmDevolucao"
-        app:layout_constraintStart_toEndOf="@+id/etDataDevolucao"
-        app:layout_constraintTop_toBottomOf="@+id/etNumeroDevolucao" />
-
-    <EditText
-        android:id="@+id/etKmDevolucao"
-        android:layout_width="121dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Km"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etHoraDevolucao"
-        app:layout_constraintTop_toBottomOf="@+id/etPlacaDevolucao" />
-
     <Button
         android:id="@+id/btnConfirma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:onClick="confirmar"
         android:text="Confirma"
         app:layout_constraintEnd_toStartOf="@+id/btnCancelar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etHoraDevolucao" />
-
-    <EditText
-        android:id="@+id/etDiasLocado"
-        android:layout_width="89dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:enabled="false"
-        android:inputType="textPersonName"
-        android:text="DIAS"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/etKmPercorridos"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInfo" />
-
-    <EditText
-        android:id="@+id/etKmPercorridos"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:enabled="false"
-        android:inputType="textPersonName"
-        android:text="KM PERCORIDOS"
-        android:textAlignment="center"
-        app:layout_constraintStart_toEndOf="@+id/etDiasLocado"
-        app:layout_constraintTop_toBottomOf="@+id/tvInfo"
-        tools:text="KM PERCORIDOS" />
-
-    <EditText
-        android:id="@+id/etObs"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Obs"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etKmPercorridos" />
-
-    <EditText
-        android:id="@+id/etPreco"
-        android:layout_width="99dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:enabled="false"
-        android:inputType="number"
-        android:text="VALOR"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toEndOf="@+id/etKmPercorridos"
-        app:layout_constraintTop_toBottomOf="@+id/tvInfo" />
-
-    <TextView
-        android:id="@+id/tvInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Informaçoes Finais"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnConfirma" />
+        tools:layout_editor_absoluteY="351dp" />
 
     <Button
         android:id="@+id/btnCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:onClick="cancelar"
         android:text="Cancelar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnConfirma"
-        app:layout_constraintTop_toBottomOf="@+id/etHoraDevolucao" />
+        tools:layout_editor_absoluteY="351dp" />
 
 </android.support.constraint.ConstraintLayout>
