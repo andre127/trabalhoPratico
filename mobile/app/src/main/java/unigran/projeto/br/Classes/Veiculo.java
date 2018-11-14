@@ -1,6 +1,7 @@
 package unigran.projeto.br.Classes;
 
 public class Veiculo {
+    private Integer id;
     private String placa;
     private String nome;
     private String marca;
@@ -9,6 +10,14 @@ public class Veiculo {
     private Float valorSeguro;
     private Float valorLocacao;
     private Boolean status;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getPlaca() {
         return placa;
