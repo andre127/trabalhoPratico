@@ -42,13 +42,14 @@ public class LocacaoRetirada extends AppCompatActivity {
         locacao.setKmFinal(Float.parseFloat(kmRetirada.getText().toString()));
         locacao.setHora(Float.parseFloat(horaRetirada.getText().toString()));
         locacao.getCliente().setId(Integer.parseInt(numeroRetirada.getText().toString()));
-        //locacao.getVeiculo().set
+        locacao.getVeiculo().setPlaca(placaRetirada.getText().toString());
 
         bd = new Banco(this);
         try{
             conexao = bd.getWritableDatabase();
             ContentValues values = new ContentValues();
             values.put("ID_CLIENTE_LOCACAO",locacao.getCliente().getId());
+            values.put("PLACA_CARRO", locacao.getVeiculo().getPlaca());
             values.put("DATA_LOCACAO", locacao.getDataRetirada());
             values.put("KM_LOCACAO", locacao.getKmFinal());
             if(locacao.getId()<=0)
