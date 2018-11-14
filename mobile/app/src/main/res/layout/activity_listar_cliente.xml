@@ -6,4 +6,21 @@
     android:layout_height="match_parent"
     tools:context="unigran.projeto.br.Listagem.ListarCliente">
 
+    <Button
+        android:id="@+id/LpBotaoCadastrarCliente"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="novoCadastroCliente"
+        android:text="Novo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listarCliente"
+        android:layout_width="368dp"
+        android:layout_height="462dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="72dp" />
 </android.support.constraint.ConstraintLayout>
