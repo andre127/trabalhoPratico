@@ -4,28 +4,24 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import unigran.projeto.br.locaplus.CadastrarCliente;
-
 public class Banco extends SQLiteOpenHelper {
-
-    public Banco(Context context) {
-        super(context, "BANCODADOS", null, 1);
-    }
-
+ public Banco (Context context){
+     super(context,"BANCOLOCAPLUS",null,1);
+ }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
-        StringBuilder stringBuilder= new StringBuilder();
-        stringBuilder.append("-- phpMyAdmin SQL Dump\n" +
-                "-- version 4.5.4.1deb2ubuntu2.1\n" +
-                "-- http://www.phpmyadmin.net\n" +
+        String sql ="-- phpMyAdmin SQL Dump\n" +
+                "-- version 4.8.3\n" +
+                "-- https://www.phpmyadmin.net/\n" +
                 "--\n" +
-                "-- Host: localhost\n" +
-                "-- Tempo de geração: 09/11/2018 às 06:19\n" +
-                "-- Versão do servidor: 5.7.23-0ubuntu0.16.04.1\n" +
-                "-- Versão do PHP: 7.0.32-0ubuntu0.16.04.1\n" +
+                "-- Host: 127.0.0.1:3306\n" +
+                "-- Generation Time: 15-Nov-2018 às 01:17\n" +
+                "-- Versão do servidor: 5.7.23\n" +
+                "-- versão do PHP: 7.2.10\n" +
                 "\n" +
                 "SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\n" +
+                "SET AUTOCOMMIT = 0;\n" +
+                "START TRANSACTION;\n" +
                 "SET time_zone = \"+00:00\";\n" +
                 "\n" +
                 "\n" +
@@ -34,10 +30,19 @@ public class Banco extends SQLiteOpenHelper {
                 "/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;\n" +
                 "/*!40101 SET NAMES utf8mb4 */;\n" +
                 "\n" +
+                "--\n" +
+                "-- Database: `locadora`\n" +
+                "--\n" +
                 "\n" +
+                "-- --------------------------------------------------------\n" +
                 "\n" +
-                "CREATE TABLE `carro` (\n" +
-                "  `id` int(11) NOT NULL,\n" +
+                "--\n" +
+                "-- Estrutura da tabela `carro`\n" +
+                "--\n" +
+                "\n" +
+                "DROP TABLE IF EXISTS `carro`;\n" +
+                "CREATE TABLE IF NOT EXISTS `carro` (\n" +
+                "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                 "  `placa` text NOT NULL,\n" +
                 "  `nome` text NOT NULL,\n" +
                 "  `modelo` text NOT NULL,\n" +
@@ -45,21 +50,45 @@ public class Banco extends SQLiteOpenHelper {
                 "  `valorLocacao` float NOT NULL,\n" +
                 "  `cor` text NOT NULL,\n" +
                 "  `ativo` tinyint(1) NOT NULL,\n" +
-                "  `marca` text NOT NULL\n" +
-                ") ENGINE=InnoDB DEFAULT CHARSET=latin1;\n" +
+                "  `marca` text NOT NULL,\n" +
+                "  UNIQUE KEY `id` (`id`)\n" +
+                ") ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;\n" +
                 "\n" +
+                "--\n" +
+                "-- Extraindo dados da tabela `carro`\n" +
+                "--\n" +
                 "\n" +
                 "INSERT INTO `carro` (`id`, `placa`, `nome`, `modelo`, `valorSeguro`, `valorLocacao`, `cor`, `ativo`, `marca`) VALUES\n" +
-                "(1, 'ABC-666', 'Jorge', 'Ben', 100, 500, 'Azul', 0, 'Fiatinho');\n" +
+                "(1, 'ABC-666', 'carro0', 'Ben', 100, 500, 'Azul', 0, 'Fiatinho'),\n" +
+                "(2, 'htt-2334', 'carro1', 'modelo1', 1000, 100, 'preto', 1, 'honda'),\n" +
+                "(3, 'htt-3433', 'carro2', 'hondacivic', 1000, 500, 'branco', 1, 'honda'),\n" +
+                "(4, 'htt-12', 'carro3', 'onix', 5000, 100, 'branco', 1, 'chevrolet'),\n" +
+                "(5, 'htt-12', 'carro4', 'onix', 5000, 200, 'branco', 1, 'chevrolet'),\n" +
+                "(6, 'htt-12', 'carro5', 'onix', 5000, 500, 'branco', 1, 'chevrolet'),\n" +
+                "(7, 'htt-12', 'carro6', 'onix', 5000, 600, 'branco', 1, 'chevrolet'),\n" +
+                "(8, 'htt-12', 'carro7', 'onix', 5000, 700, 'branco', 1, 'chevrolet'),\n" +
+                "(9, 'htt-12', 'carro8', 'onix', 5000, 800, 'branco', 1, 'chevrolet'),\n" +
+                "(10, 'htt-12', 'carro9', 'onix', 5000, 900, 'branco', 1, 'chevrolet');\n" +
                 "\n" +
+                "-- --------------------------------------------------------\n" +
                 "\n" +
-                "CREATE TABLE `cliente` (\n" +
-                "  `id` int(11) NOT NULL,\n" +
+                "--\n" +
+                "-- Estrutura da tabela `cliente`\n" +
+                "--\n" +
+                "\n" +
+                "DROP TABLE IF EXISTS `cliente`;\n" +
+                "CREATE TABLE IF NOT EXISTS `cliente` (\n" +
+                "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                 "  `cnh` text NOT NULL,\n" +
                 "  `numeroDependentes` int(11) NOT NULL,\n" +
-                "  `idPessoa` int(11) NOT NULL\n" +
-                ") ENGINE=InnoDB DEFAULT CHARSET=latin1;\n" +
+                "  `idPessoa` int(11) NOT NULL,\n" +
+                "  UNIQUE KEY `id` (`id`),\n" +
+                "  KEY `idPessoa` (`idPessoa`)\n" +
+                ") ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;\n" +
                 "\n" +
+                "--\n" +
+                "-- Extraindo dados da tabela `cliente`\n" +
+                "--\n" +
                 "\n" +
                 "INSERT INTO `cliente` (`id`, `cnh`, `numeroDependentes`, `idPessoa`) VALUES\n" +
                 "(1, '91553599', 2, 2),\n" +
@@ -74,19 +103,22 @@ public class Banco extends SQLiteOpenHelper {
                 "-- --------------------------------------------------------\n" +
                 "\n" +
                 "--\n" +
-                "-- Estrutura para tabela `funcionario`\n" +
+                "-- Estrutura da tabela `funcionario`\n" +
                 "--\n" +
                 "\n" +
-                "CREATE TABLE `funcionario` (\n" +
-                "  `id` int(11) NOT NULL,\n" +
+                "DROP TABLE IF EXISTS `funcionario`;\n" +
+                "CREATE TABLE IF NOT EXISTS `funcionario` (\n" +
+                "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                 "  `dataAdmissao` date NOT NULL,\n" +
                 "  `dataDemissao` date DEFAULT NULL,\n" +
                 "  `supervisor` tinyint(1) NOT NULL,\n" +
-                "  `idPessoa` int(11) NOT NULL\n" +
-                ") ENGINE=InnoDB DEFAULT CHARSET=latin1;\n" +
+                "  `idPessoa` int(11) NOT NULL,\n" +
+                "  UNIQUE KEY `id` (`id`),\n" +
+                "  KEY `idPessoa` (`idPessoa`)\n" +
+                ") ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;\n" +
                 "\n" +
                 "--\n" +
-                "-- Fazendo dump de dados para tabela `funcionario`\n" +
+                "-- Extraindo dados da tabela `funcionario`\n" +
                 "--\n" +
                 "\n" +
                 "INSERT INTO `funcionario` (`id`, `dataAdmissao`, `dataDemissao`, `supervisor`, `idPessoa`) VALUES\n" +
@@ -103,32 +135,42 @@ public class Banco extends SQLiteOpenHelper {
                 "-- --------------------------------------------------------\n" +
                 "\n" +
                 "--\n" +
-                "-- Estrutura para tabela `locacao`\n" +
+                "-- Estrutura da tabela `locacao`\n" +
                 "--\n" +
                 "\n" +
-                "CREATE TABLE `locacao` (\n" +
-                "  `id` int(11) NOT NULL,\n" +
+                "DROP TABLE IF EXISTS `locacao`;\n" +
+                "CREATE TABLE IF NOT EXISTS `locacao` (\n" +
+                "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                 "  `dataLocacao` date NOT NULL,\n" +
                 "  `dataDevolucao` date NOT NULL,\n" +
-                "  `quilometragem` float NOT NULL\n" +
+                "  `quilometragem` float NOT NULL,\n" +
+                "  `idPessoa` int(11) NOT NULL,\n" +
+                "  `idCliente` int(11) NOT NULL,\n" +
+                "  `idFuncionario` int(11) NOT NULL,\n" +
+                "  UNIQUE KEY `id` (`id`),\n" +
+                "  KEY `idPessoa` (`idPessoa`),\n" +
+                "  KEY `idCliente` (`idPessoa`),\n" +
+                "  KEY `idFuncionario` (`idPessoa`)\n" +
                 ") ENGINE=InnoDB DEFAULT CHARSET=latin1;\n" +
                 "\n" +
                 "-- --------------------------------------------------------\n" +
                 "\n" +
                 "--\n" +
-                "-- Estrutura para tabela `pessoa`\n" +
+                "-- Estrutura da tabela `pessoa`\n" +
                 "--\n" +
                 "\n" +
-                "CREATE TABLE `pessoa` (\n" +
-                "  `id` int(11) NOT NULL,\n" +
+                "DROP TABLE IF EXISTS `pessoa`;\n" +
+                "CREATE TABLE IF NOT EXISTS `pessoa` (\n" +
+                "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                 "  `nome` text NOT NULL,\n" +
                 "  `rg` text NOT NULL,\n" +
                 "  `cpf` text NOT NULL,\n" +
-                "  `endereco` text NOT NULL\n" +
-                ") ENGINE=InnoDB DEFAULT CHARSET=latin1;\n" +
+                "  `endereco` text NOT NULL,\n" +
+                "  UNIQUE KEY `id` (`id`)\n" +
+                ") ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;\n" +
                 "\n" +
                 "--\n" +
-                "-- Fazendo dump de dados para tabela `pessoa`\n" +
+                "-- Extraindo dados da tabela `pessoa`\n" +
                 "--\n" +
                 "\n" +
                 "INSERT INTO `pessoa` (`id`, `nome`, `rg`, `cpf`, `endereco`) VALUES\n" +
@@ -152,98 +194,31 @@ public class Banco extends SQLiteOpenHelper {
                 "(18, 'Giovani', '696969696969', '69696969', 'rua das picas, numero 69');\n" +
                 "\n" +
                 "--\n" +
-                "-- Índices de tabelas apagadas\n" +
+                "-- Constraints for dumped tables\n" +
                 "--\n" +
                 "\n" +
                 "--\n" +
-                "-- Índices de tabela `carro`\n" +
-                "--\n" +
-                "ALTER TABLE `carro`\n" +
-                "  ADD UNIQUE KEY `id` (`id`);\n" +
-                "\n" +
-                "--\n" +
-                "-- Índices de tabela `cliente`\n" +
-                "--\n" +
-                "ALTER TABLE `cliente`\n" +
-                "  ADD UNIQUE KEY `id` (`id`),\n" +
-                "  ADD KEY `idPessoa` (`idPessoa`);\n" +
-                "\n" +
-                "--\n" +
-                "-- Índices de tabela `funcionario`\n" +
-                "--\n" +
-                "ALTER TABLE `funcionario`\n" +
-                "  ADD UNIQUE KEY `id` (`id`),\n" +
-                "  ADD KEY `idPessoa` (`idPessoa`);\n" +
-                "\n" +
-                "--\n" +
-                "-- Índices de tabela `locacao`\n" +
-                "--\n" +
-                "ALTER TABLE `locacao`\n" +
-                "  ADD UNIQUE KEY `id` (`id`);\n" +
-                "\n" +
-                "--\n" +
-                "-- Índices de tabela `pessoa`\n" +
-                "--\n" +
-                "ALTER TABLE `pessoa`\n" +
-                "  ADD UNIQUE KEY `id` (`id`);\n" +
-                "\n" +
-                "--\n" +
-                "-- AUTO_INCREMENT de tabelas apagadas\n" +
-                "--\n" +
-                "\n" +
-                "--\n" +
-                "-- AUTO_INCREMENT de tabela `carro`\n" +
-                "--\n" +
-                "ALTER TABLE `carro`\n" +
-                "  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;\n" +
-                "--\n" +
-                "-- AUTO_INCREMENT de tabela `cliente`\n" +
-                "--\n" +
-                "ALTER TABLE `cliente`\n" +
-                "  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;\n" +
-                "--\n" +
-                "-- AUTO_INCREMENT de tabela `funcionario`\n" +
-                "--\n" +
-                "ALTER TABLE `funcionario`\n" +
-                "  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;\n" +
-                "--\n" +
-                "-- AUTO_INCREMENT de tabela `locacao`\n" +
-                "--\n" +
-                "ALTER TABLE `locacao`\n" +
-                "  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;\n" +
-                "--\n" +
-                "-- AUTO_INCREMENT de tabela `pessoa`\n" +
-                "--\n" +
-                "ALTER TABLE `pessoa`\n" +
-                "  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;\n" +
-                "--\n" +
-                "-- Restrições para dumps de tabelas\n" +
-                "--\n" +
-                "\n" +
-                "--\n" +
-                "-- Restrições para tabelas `cliente`\n" +
+                "-- Limitadores para a tabela `cliente`\n" +
                 "--\n" +
                 "ALTER TABLE `cliente`\n" +
                 "  ADD CONSTRAINT `id_cliente_pessoa` FOREIGN KEY (`idPessoa`) REFERENCES `pessoa` (`id`) ON UPDATE CASCADE;\n" +
                 "\n" +
                 "--\n" +
-                "-- Restrições para tabelas `funcionario`\n" +
+                "-- Limitadores para a tabela `funcionario`\n" +
                 "--\n" +
                 "ALTER TABLE `funcionario`\n" +
                 "  ADD CONSTRAINT `id_funcionario_pessoa` FOREIGN KEY (`idPessoa`) REFERENCES `pessoa` (`id`) ON UPDATE CASCADE;\n" +
+                "COMMIT;\n" +
                 "\n" +
                 "/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;\n" +
                 "/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;\n" +
-                "/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;\n");
+                "/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;\n";
 
-        sqLiteDatabase.execSQL(stringBuilder.toString());
-
+        sqLiteDatabase.execSQL(sql);
     }
 
-
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
 }

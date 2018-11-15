@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import unigran.projeto.br.Listagem.ListarCliente;
 import unigran.projeto.br.gerenciamento.GerVeiculo;
 
 public class Principal extends AppCompatActivity {
@@ -19,6 +20,10 @@ public class Principal extends AppCompatActivity {
 
     public void gerVei(View view){
         Intent it = new Intent(this, unigran.projeto.br.gerenciamento.GerVeiculo.class);
+        startActivity(it);
+    }
+    public void gerCliente(View view){
+        Intent it = new Intent(this, ListarCliente.class);
         startActivity(it);
     }
 }

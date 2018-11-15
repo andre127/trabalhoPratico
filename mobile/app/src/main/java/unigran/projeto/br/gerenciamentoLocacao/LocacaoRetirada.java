@@ -1,7 +1,6 @@
 package unigran.projeto.br.gerenciamentoLocacao;
 
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -11,8 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import unigran.projeto.br.Classes.Locacao;
-import unigran.projeto.br.Listagem.ListarCliente;
-import unigran.projeto.br.Listagem.ListarVeiculo;
 import unigran.projeto.br.Pesistencia.Banco;
 import unigran.projeto.br.locaplus.R;
 

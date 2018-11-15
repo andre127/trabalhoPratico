@@ -1,8 +1,11 @@
 package unigran.projeto.br.Classes;
 
-public class Cliente extends Pessoa {
-   private String cnh;
-   private Integer numeroDeDependente, id;
+import java.io.Serializable;
+
+public class Cliente extends Pessoa  {
+    private Integer id;
+    private String cnh;
+    private Integer numeroDependentes;
 
     public Integer getId() {
         return id;
@@ -20,16 +23,13 @@ public class Cliente extends Pessoa {
         this.cnh = cnh;
     }
 
-    public Integer getNumeroDeDependente() {
-        return numeroDeDependente;
+    public Integer getNumeroDependentes() {
+        return numeroDependentes;
     }
 
-    public void setNumeroDeDependente(Integer numeroDeDependente) {
-        this.numeroDeDependente = numeroDeDependente;
+    public void setNumeroDependentes(Integer numeroDependentes) {
+        this.numeroDependentes = numeroDependentes;
     }
 
-    @Override
-    public String toString() {
-        return "CNH: "+getCnh()+"Dependente: "+getNumeroDeDependente();
-    }
+
 }

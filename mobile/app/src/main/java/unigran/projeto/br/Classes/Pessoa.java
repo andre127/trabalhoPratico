@@ -1,6 +1,8 @@
 package unigran.projeto.br.Classes;
 
-public class Pessoa {
+import java.io.Serializable;
+
+public class Pessoa implements Serializable {
     private String rg;
     private String cpf;
     private String nome;
