@@ -1,6 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: Andre Luiz
  * Date: 11/11/2018
  * Time: 16:13
@@ -17,5 +16,4 @@ $conn = new mysqli($servername,$username,$password,$db_name);
 if($conn->connect_error){
     die("Falha na Conexão: ".$conn->connect_error);
 }
-
 

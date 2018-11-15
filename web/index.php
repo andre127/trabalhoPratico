@@ -1,3 +1,7 @@
+<?php
+include "utils.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,7 +15,7 @@
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
     <body>
-        <nav class ="color-navbar-footer" role="navigation"">
+        <nav class ="color-navbar-footer" role="navigation"" style="z-index: 1">
             <div><a id="logo-container" href="#" class="brand-logo"><img src="img/logoEscritoNavbar.png" width="80%" height="80%"></a>
                 <ul class="right hide-on-med-and-down">
                     <li class="modal-trigger" data-target="modalLogin"><a href="$">Entrar</a></li>
@@ -19,9 +23,9 @@
                 </ul>
             </div>
         </nav>
-
+        <br><br>
         <!-- Slider Topo -->
-        <div class="slider">
+        <div class="slider" style="z-index: 0">
             <ul class="slides">
                 <li>
                     <img src="img/logoRender.png" style="opacity: 1">
@@ -54,7 +58,7 @@
                 <br><br>
                 <img src="img/logoEscrito.png" class="header center orange-text">
                 <div class="row center">
-                    <h5 class="header col s12 light">Texto decorativo pra encher de bla bla bla (Ainda vou editar)</h5>
+                    <h5 class="header col s12 light">	Lorem ipsum curabitur rutrum elit vehicula, curabitur placerat netus class duis sem, placerat nibh posuere nisi. eleifend varius ligula integer netus metus porta morbi nullam justo litora rutrum blandit, platea neque semper mauris mattis bibendum vel libero imperdiet blandit. bibendum quisque orci metus primis quisque etiam odio pretium enim habitasse duis</h5>
                 </div>
                 <br><br>
 
@@ -68,73 +72,26 @@
         <!-- Anuncios -->
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">aff</i></a>
         <div class="row center">
-            <ul class = "listaAnuncios">
-                <a href="#>"<li class = "card-panel anuncios col s3">
-                        <div class="div-img-anuncio">
-                            <img class="img-anuncio" src ="img/carro1.png">
-                        </div>
-                        <div class ="info-anuncio">
-                            <h5>R$500</h5>
-                        </div>
-                    </li></a>
-                <a href="#>"<li class = "card-panel anuncios col s3">
-                        <div class="div-img-anuncio">
-                            <img class="img-anuncio" src ="img/carro1.png">
-                        </div>
-                        <div class ="info-anuncio">
-                            <h5>R$500</h5>
-                        </div>
-                    </li></a>
+            <?php
+            $sql = "SELECT * FROM `carro` WHERE 1";
+            $result = $conn->query($sql);
 
-                <a href="#>"<li class = "card-panel anuncios col s3">
-                        <div class="div-img-anuncio">
-                            <img class="img-anuncio" src ="img/carro1.png">
-                        </div>
-                        <div class ="info-anuncio">
-                            <h5>R$500</h5>
-                        </div>
-                    </li></a>
-                <a href="#>"<li class = "card-panel anuncios col s3">
-                        <div class="div-img-anuncio">
-                            <img class="img-anuncio" src ="img/carro1.png">
-                        </div>
-                        <div class ="info-anuncio">
-                            <h5>R$500</h5>
-                        </div>
-                    </li></a>                  
-                <a href="#>"<li class = "card-panel anuncios col s3">
-                        <div class="div-img-anuncio">
-                            <img class="img-anuncio" src ="img/carro1.png">
-                        </div>
-                        <div class ="info-anuncio">
-                            <h5>R$500</h5>
-                        </div>
-                    </li></a>
-                <a href="#>"<li class = "card-panel anuncios col s3">
-                        <div class="div-img-anuncio">
-                            <img class="img-anuncio" src ="img/carro1.png">
-                        </div>
-                        <div class ="info-anuncio">
-                            <h5>R$500</h5>
-                        </div>
-                    </li></a>
-                <a href="#>"<li class = "card-panel anuncios col s3">
-                        <div class="div-img-anuncio">
-                            <img class="img-anuncio" src ="img/carro1.png">
-                        </div>
-                        <div class ="info-anuncio">
-                            <h5>R$500</h5>
-                        </div>
-                    </li></a>
-                <a href="#>"<li class = "card-panel anuncios col s3">
-                        <div class="div-img-anuncio">
-                            <img class="img-anuncio" src ="img/carro1.png">
-                        </div>
-                        <div class ="info-anuncio">
-                            <h5>R$500</h5>
-                        </div>
-                    </li></a>
-            </ul>
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<ul data-id='" . $row['id'] ."'class = 'listaAnuncios linhas'>";
+                    echo "<a href='#'><li class = 'card-panel anuncios col s3'>".
+                            "<div class='div-img-anuncio'>"
+                           .    "<img class='img-anuncio' src ='img/carro1.png' "
+                           ."</div>".
+                            "<div class='info-anuncio'>".
+                                "<h4>".$row['nome']."</h4>".
+                                "<h5>R$".$row['valorLocacao']."</h5>".
+                            "</div>".
+                            "</li>";
+                    echo "</ul></a>";
+                }
+            }
+            ?>
         </div>
 
         <!-- Footer -->

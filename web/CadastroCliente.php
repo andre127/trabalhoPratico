@@ -30,7 +30,7 @@
                       <div class="col s6 offset-s3">                       
                         <div class="row">
                           <div class="input-field col s12">               
-                              <input id="nome" name="nome" type="text" value="nome"class="form validate">
+                              <input id="nome" name="nome" type="text" class="form validate">
                             <label for="nome">Digite seu Nome</label>
                           </div>          
                         </div>
