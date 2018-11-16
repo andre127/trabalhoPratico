@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+   include "utils.php";
+?>
 <html lang="en">
 <head>
   <meta http-equiv=Content-Type" content="text/html; "/>
@@ -15,29 +18,12 @@
 <div class="container">
 	<div class="section">
 	    <div class="row">
-		    <form id="Formulario" action="action.php">
+                <form id="FormularioVei" method="POST" id="FormVei">
 			    <div class="col s6 offset-s3">
 					<div class="row">
 						<div class="input-field col s12">
 							<input id="placa" name="placa" type="text" class="form validate">
 							<label for="placa">Placa</label>
-						</div>          
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<select id="uf" name="uf" class="form">              
-								<option value="1" selected>MS</option>
-								<option value="2">MT</option>
-								<option value="3">MG</option>
-                                                                <option value="3">SP</option>
-							</select>
-							<label>UF</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="cidade" name="cidade" type="text" class="form validate">
-							<label for="cidade">Cidade</label>
 						</div>          
 					</div>
 				    <div class="row">
@@ -56,6 +42,12 @@
 						<div class="input-field col s12">
 							<input id="modelo" name="modelo" type="text" class="form validate">
 							<label for="modelo">Modelo</label>
+						</div>          
+					</div>
+                                        <div class="row">
+						<div class="input-field col s12">
+							<input id="cor " name="cor " type="text" class="form validate">
+							<label for="cor">Cor</label>
 						</div>          
 					</div>
 					<div class="row">
@@ -77,9 +69,9 @@
 						</div>          
 					</div>
 					<div class="row">
-						<button class="btn waves-effect waves-light" type="submit" name="action">Salvar</button>
-						<button class="btn waves-effect waves-light" type="reset" name="action">Limpar</button>
-						<button class="btn waves-effect waves-light" type="back" name="action">Voltar</button>
+						<button class="btn waves-effect waves-light" type="submit" name="acao" value="salvarVei">Salvar</button>
+						<button class="btn waves-effect waves-light" type="reset" name="limparVei">Limpar</button>
+						<button class="btn waves-effect waves-light" type="back" name="voltarVei">Voltar</button>
 					</div>
 			    </div>
 		    </form>
