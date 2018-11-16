@@ -4,17 +4,18 @@
         $('.parallax').parallax();
         $('.carousel').carousel();
         $('.slider').slider();
-    }) // end of document ready
-	     $('.linhas').click(function (){
-          var linha = $(this);
-          if(confirm("Deseja mesmo exluir "+$(this).find(":nth-child(2)").html()+"?")){
+    });
+    // end of document ready
+    $('.linhas').click(function () {
+        var linha = $(this);
+        if (confirm("Deseja mesmo exluir " + $(this).find(":nth-child(2)").html() + "?")) {
             //Exclui a pessoa
-              $.post('acoes.php',{tipo:"cliente",acao:'excluir',id:$(this).children().first().html()}).done(function (data) {
-                  if(data==""){
+            $.post('acoes.php', {tipo: "cliente", acao: 'excluir', id: $(this).children().first().html()}).done(function (data) {
+                if (data == "") {
                     linha.remove();
-                  }
-              });
-          }
-      });
-	
+                }
+            });
+        }
+    });
+
 })(jQuery); // end of jQuery name space

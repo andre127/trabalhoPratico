@@ -52,19 +52,25 @@ include "utils.php";
                 </li>
             </ul>
         </div>     
-
+        <button id="teste">testes</button>
+        <script>alert("<?php echo$entrou?>");</script>
+        
+        
+        
+        
+        
         <div class="section no-pad-bot" id="index-banner">
             <div class="container center">
                 <br><br>
                 <img src="img/logoEscrito.png" class="header center orange-text">
                 <div class="row center">
-                    <h5 class="header col s12 light">	Lorem ipsum curabitur rutrum elit vehicula, curabitur placerat netus class duis sem, placerat nibh posuere nisi. eleifend varius ligula integer netus metus porta morbi nullam justo litora rutrum blandit, platea neque semper mauris mattis bibendum vel libero imperdiet blandit. bibendum quisque orci metus primis quisque etiam odio pretium enim habitasse duis</h5>
+                    <h5 align="justify" class="header col s12 light">	Lorem ipsum curabitur rutrum elit vehicula, curabitur placerat netus class duis sem, placerat nibh posuere nisi. eleifend varius ligula integer netus metus porta morbi nullam justo litora rutrum blandit, platea neque semper mauris mattis bibendum vel libero imperdiet blandit. bibendum quisque orci metus primis quisque etiam odio pretium enim habitasse duis</h5>
                 </div>
                 <br><br>
 
             </div>
         </div>
-
+        
         <div>
             <h3>Blablablabla</h3>
         </div>
@@ -73,21 +79,21 @@ include "utils.php";
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">aff</i></a>
         <div class="row center">
             <?php
-            $sql = "SELECT * FROM `carro` WHERE 1";
+            $sql = "SELECT * FROM carro WHERE 1";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo "<ul data-id='" . $row['id'] ."'class = 'listaAnuncios linhas'>";
-                    echo "<a href='#'><li class = 'card-panel anuncios col s3'>".
-                            "<div class='div-img-anuncio'>"
-                           .    "<img class='img-anuncio' src ='img/carro1.png' "
-                           ."</div>".
-                            "<div class='info-anuncio'>".
-                                "<h4>".$row['nome']."</h4>".
-                                "<h5>R$".$row['valorLocacao']."</h5>".
-                            "</div>".
-                            "</li>";
+                    echo "<ul data-id='" . $row['id'] . "'class = 'listaAnuncios linhas'>";
+                    echo "<a href='#'><li class = 'card-panel anuncios col s3'>" .
+                    "<div class='div-img-anuncio'>"
+                    . "<img class='img-anuncio' src ='img/" . $row['img'] . "'>"
+                    . "</div>" .
+                    "<div class='info-anuncio'>" .
+                    "<h4>" . $row['nome'] . "</h4>" .
+                    "<h5>R$" . $row['valorLocacao'] . "</h5>" .
+                    "</div>" .
+                    "</li>";
                     echo "</ul></a>";
                 }
             }
@@ -117,9 +123,7 @@ include "utils.php";
                 </div>
             </div>
         </footer>
-
-        <!-- Modal Structure -->
-
+        
         <!-- Modal para login -->
         <div id="modalLogin" class="modal modal-dialog modal-lg">
             <div class="modal-content">
@@ -128,28 +132,30 @@ include "utils.php";
                 </div>
                 <!-- campos-->
                 <div class="row"> 
-                    <form class="col s12">
+                    <form method= "post" action ="sessionStart.php" class="col s12" id="formLogin" name="formLogin">
                         <div class="row">
                             <div class="col s12">
-                                <input name="name" type="text" class="form-control" id="login" placeholder="Login" required>
+                                <input name="login" type="text" class="form-control" id="login" placeholder="Login" required>
                             </div>
                         </div> 
                         <div class="row">
                             <div class="col s12">
-                                <input name="name" type="text" class="form-control" id="senha" placeholder="Password" required>
+                                <input name="senha" type="text" class="form-control" id="senha" placeholder="Password" required>
+
                             </div>
+
                         </div>
                         <div class="row">
                             <div class="col s6">
                                 <a href="lostPassword">Esqueceu sua senha?</a>
                             </div>
-                        </div>  
+                        </div> 
+                        <!-- botoes-->
+                        <div class ="row" align = "center">
+                            <input id ="btn_login" type="submit" value="Entrar" class="light-blue darken-4 btn"/>
+                            <button class="light-blue darken-4 btn modal-trigger modal-close">Fechar</button>
+                        </div>
                     </form>
-                </div>
-                <!-- botoes-->
-                <div class ="row" align = "center">
-                    <button class="light-blue darken-4 btn modal-trigger">Login</button>
-                    <button class="light-blue darken-4 btn modal-trigger modal-close">Fechar</button>
                 </div>
             </div>
         </div>
