@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import unigran.projeto.br.Listagem.ListarCliente;
+import unigran.projeto.br.Listagem.ListarLocacao;
 import unigran.projeto.br.gerenciamento.GerVeiculo;
 
 public class Principal extends AppCompatActivity {
@@ -24,6 +25,10 @@ public class Principal extends AppCompatActivity {
     }
     public void gerCliente(View view){
         Intent it = new Intent(this, ListarCliente.class);
+        startActivity(it);
+    }
+    public void gerLocacao(View view){
+        Intent it = new Intent(this, ListarLocacao.class);
         startActivity(it);
     }
 }
