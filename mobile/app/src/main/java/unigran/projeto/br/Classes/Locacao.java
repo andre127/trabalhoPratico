@@ -1,7 +1,9 @@
 package unigran.projeto.br.Classes;
 
-public class Locacao {
-    private Float dataDevolucao, dataRetirada, hora;
+import java.io.Serializable;
+
+public class Locacao implements Serializable {
+    private Float dataDevolucao, dataRetirada;
     private Integer id;
     private Float kmFinal;
     private Cliente cliente;
@@ -31,12 +33,6 @@ public class Locacao {
     }
     public void setDataRetirada(Float dataRetirada) {
         this.dataRetirada = dataRetirada;
-    }
-    public Float getHora() {
-        return hora;
-    }
-    public void setHora(Float hora) {
-        this.hora = hora;
     }
     public Integer getId() {
         return id;

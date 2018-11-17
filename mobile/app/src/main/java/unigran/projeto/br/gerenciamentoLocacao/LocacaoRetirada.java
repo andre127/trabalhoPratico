@@ -1,6 +1,7 @@
 package unigran.projeto.br.gerenciamentoLocacao;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -14,7 +15,7 @@ import unigran.projeto.br.Pesistencia.Banco;
 import unigran.projeto.br.locaplus.R;
 
 public class LocacaoRetirada extends AppCompatActivity {
-    private EditText cpfCliente, cpfFuncionario, placaCarro, dataRetirada, kmRetirada, horaRetirada;
+    private EditText cpfCliente, cpfFuncionario, placaCarro, dataRetirada, kmRetirada;
     private SQLiteDatabase conexao;
     private Banco bd;
     private Locacao locacao;
@@ -30,36 +31,53 @@ public class LocacaoRetirada extends AppCompatActivity {
         placaCarro = findViewById(R.id.etPlacaCarro);
         dataRetirada = findViewById(R.id.etDataRetirada);
         kmRetirada = findViewById(R.id.etKmRetirada);
-        horaRetirada = findViewById(R.id.etHoraRetirada);
+
+        locacao =(Locacao) getIntent().getSerializableExtra("locacao");
+        if(locacao!=null){
+            cpfCliente.setText(locacao.getCliente().getCpf());
+            //cpfFuncionario.setText(locacao.get);
+            placaCarro.setText(locacao.getVeiculo().getPlaca());
+            dataRetirada.setText(locacao.getDataRetirada().toString());
+            kmRetirada.setText(locacao.getKmFinal().toString());
+
+        }
     }
     public void confirmar(View view){
         Toast.makeText(this, "foiiii", Toast.LENGTH_SHORT).show();
-        if (locacao == null)
-            locacao = new Locacao();
-        locacao.setDataRetirada(Float.parseFloat(dataRetirada.getText().toString()));
-        locacao.setKmFinal(Float.parseFloat(kmRetirada.getText().toString()));
-        locacao.setHora(Float.parseFloat(horaRetirada.getText().toString()));
-        locacao.getCliente().setId(Integer.parseInt(cpfCliente.getText().toString()));
-        locacao.getVeiculo().setPlaca(placaCarro.getText().toString());
+        if(valida()){
+            if(locacao==null)
+                locacao = new Locacao();
+            locacao.setDataRetirada(Float.parseFloat(dataRetirada.getText().toString()));
+            locacao.setKmFinal(Float.parseFloat(kmRetirada.getText().toString()));
+            //locacao.getCliente().setCpf(cpfCliente.getText().toString());
+            //locacao.getVeiculo().setPlaca(placaCarro.getText().toString());
+            inserir();
+        }
 
+    }
+
+    private void inserir() {
         bd = new Banco(this);
         try{
             conexao = bd.getWritableDatabase();
             ContentValues values = new ContentValues();
-            values.put("ID_CLIENTE_LOCACAO",locacao.getCliente().getId());
-            values.put("PLACA_CARRO", locacao.getVeiculo().getPlaca());
-            values.put("DATA_LOCACAO", locacao.getDataRetirada());
-            values.put("KM_LOCACAO", locacao.getKmFinal());
+            values.put("dataLocacao", locacao.getDataRetirada());
+            values.put("quilometragem", locacao.getKmFinal());
             if(locacao.getId()<=0)
-                conexao.insertOrThrow("Locacao",null,values);
+                conexao.insertOrThrow("locacao",null,values);
             else
-                conexao.update("LOCACAO", values,"ID=?",new String[]{locacao.getId()+""});
+                conexao.update("locacao", values,"id=?",new String[]{locacao.getId()+""});
             conexao.close();
             Toast.makeText(this, "Yeahh",Toast.LENGTH_SHORT).show();
         }catch (SQLException e){
             Toast.makeText(this, "erro na inserção",Toast.LENGTH_SHORT).show();
         }
     }
+
+    private boolean valida() {
+        return  true;
+    }
+
     public void cancelar(View view){
 
     }
