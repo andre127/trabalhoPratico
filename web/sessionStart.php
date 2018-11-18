@@ -1,6 +1,5 @@
 <?php
 session_start();
-$entrou;
 $login = $_POST['login'];
 $senha = $_POST['senha'];
 include "utils.php";
@@ -12,11 +11,13 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $_SESSION['login'] = $login;
     $_SESSION['senha'] = $senha;
-    $entrou = true;
+    $_SESSION['entrou'] = true;
     header('location:index.php');
+    
 } else {
     unset($_SESSION['login']);
     unset($_SESSION['senha']);
-    $entrou = false;
+    $_SESSION['entrou'] = false;
+    header('location:login.php');
 }
 ?>
