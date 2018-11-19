@@ -6,8 +6,6 @@
          <title>Gerenciamento de Veiculo</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         
-        
         <!-- CSS  -->
               <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
               <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -39,25 +37,30 @@
                           <th>VALORSEGURO</th>
                           <th>VALORLOCACAO</th>  
                           <th>COR</th>
-                          <!--<th>VALORLOCACAO</th>    
-                          <th>VALORLOCACAO</th> -->      
+                          <th>ATIVO</th>
+                          <th>MARCA</th>
+                          <th>IMAGEM</th>
                       </tr>
                     </thead>
 
                     <tbody>
                     <?php
-                        $sql = "SELECT `carro`.`id`,`carro`.`placa`,`carro`.`nome`,`carro`.`modelo`,`carro`.`valorSeguro`,`carro`.`valorLocacao`, `carro`.`cor` FROM `carro` WHERE 1";
+                        $sql = "SELECT `carro`.`id`,`carro`.`placa`,`carro`.`nome`,`carro`.`modelo`,`carro`.`valorSeguro`,`carro`.`valorLocacao`, `carro`.`cor`,"
+                                . " `carro`.`ativo`, `carro`.`marca`, `carro`.`img` FROM `carro` WHERE 1";
                         $result = $conn->query($sql);
                         if($result->num_rows>0){
                             while($row = $result->fetch_assoc()){
                                 echo "<tr data-id='".$row['id']."' class='linhas'>";
-                                echo "<td>".$row['id']."</td>";
-                                echo "<td>".$row['placa']."</td>";
-                                echo "<td>".$row['nome']."</td>";
-                                echo "<td>".$row['modelo']."</td>";
-                                echo "<td>".$row['valorSeguro']."</td>";
-                                echo "<td>".$row['valorLocacao']."</td>";
-                                echo "<td>".$row['cor']."</td>";
+                                    echo "<td>".$row['id']."</td>";
+                                    echo "<td>".$row['placa']."</td>";
+                                    echo "<td>".$row['nome']."</td>";
+                                    echo "<td>".$row['modelo']."</td>";
+                                    echo "<td>".$row['valorSeguro']."</td>";
+                                    echo "<td>".$row['valorLocacao']."</td>";
+                                    echo "<td>".$row['cor']."</td>";
+                                    echo "<td>".$row['ativo']."</td>";
+                                    echo "<td>".$row['marca']."</td>";
+                                    echo "<td>".$row['img']."</td>";
                                 echo "</tr>";
                             }
                         }
@@ -71,8 +74,7 @@
         <!--  Scripts-->
                 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
                 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-                <!--<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
-                <script src="js/materialize.js"></script>
+                <script src="js/materialize.min.js"></script>
                 <script src="js/init.js"></script>
     </body>
 </html>
