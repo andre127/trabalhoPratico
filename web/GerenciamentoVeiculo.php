@@ -51,7 +51,7 @@
                         $result = $conn->query($sql);
                         if($result->num_rows>0){
                             while($row = $result->fetch_assoc()){
-                                echo "<tr data-id='".$row['id']."' class='linhas'>";
+                                echo "<tr data-id='".$row['id']."' class='linhasVei'>";
                                     echo "<td>".$row['id']."</td>";
                                     echo "<td>".$row['placa']."</td>";
                                     echo "<td>".$row['nome']."</td>";

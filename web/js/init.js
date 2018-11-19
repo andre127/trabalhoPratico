@@ -20,6 +20,18 @@
         }
     });
     
+    $('.linhasVei').click(function () {
+        var linha = $(this);
+        if (confirm("Deseja Editar o Veículo " + $(this).find(":nth-child(3)").html() + "?")) {
+            //Exclui a pessoa
+            $.post('UploadVeiculo.php', {tipo: "carro", acao: 'excluir', id: $(this).children().first().html()}).done(function (data) {
+                if (data == "") {
+                    linha.remove();
+                }
+            });
+        }
+    });
+    
     $(function(){
         $('').val(' ')
         
