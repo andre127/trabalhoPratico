@@ -24,6 +24,7 @@
         <div class="container">
             <br><br>
             <a class="waves-effect waves-light btn" href="CadastroVeiculo.php">Cadastrar</a>
+            <a class="waves-effect waves-light btn" href="EditarVeiculo.php">Editar</a>
             <br><br>
             <div class="row">
                 <div class="col s12">
