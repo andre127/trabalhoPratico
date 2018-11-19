@@ -26,7 +26,6 @@
         <div class="container">
             <br><br>
             <a class="waves-effect waves-light btn" href="CadastroCliente.php">Cadastrar</a>
-            <a class="waves-effect waves-light btn">Editar</a>
             <br><br>
             <div class="row">
                 <div class="col s12">
@@ -50,7 +49,7 @@
 
                         if($result->num_rows>0){
                             while($row = $result->fetch_assoc()){
-                                echo "<tr data-id='".$row['id']."' class='linhas'  >";
+                                echo "<tr data-id='".$row['id']."' class='linhas' >";
                                 echo "<td id= 'tb'>".$row['id']."</td>";
                                 echo "<td>".$row['nome']."</td>";
                                 echo "<td>".$row['rg']."</td>";

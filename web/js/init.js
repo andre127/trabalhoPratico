@@ -9,15 +9,22 @@
     
     // end of document ready
     $('.linhas').click(function () {
-        var linha = $(this);
-        if (confirm("Deseja mesmo exluir " + $(this).find(":nth-child(1)").html() + "?")) {
-            //Exclui a pessoa
-            $.post('acoes.php', {tipo: "cliente", acao: 'excluir', id: $(this).children().first().html()}).done(function (data) {
-                if (data == "") {
-                    linha.remove();
-                }
-            });
-        }
+       // var linha = $(this);
+       // if (confirm("Deseja mesmo exluir " + $(this).find(":nth-child(1)").html() + "?")) {
+           
+   
+            window.open("http://localhost/trabalhoPratico/web/CadastroCliente.php");
+             $('nomeCliente').val('teste');
+           
+           // $.post('acoes.php', {tipo: "cliente", acao: 'editar', id: $(this).children().first().html()})//.done(function (data) {
+           
+      
+ // 
+// if (data == "") {
+                   // linha.remove();
+                //}
+           // });
+     //   }
     });
     
     $(function(){
