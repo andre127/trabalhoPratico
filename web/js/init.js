@@ -8,7 +8,7 @@
     // end of document ready
     $('.linhas').click(function () {
         var linha = $(this);
-        if (confirm("Deseja mesmo exluir " + $(this).find(":nth-child(2)").html() + "?")) {
+        if (confirm("Deseja mesmo exluir " + $(this).find(":nth-child(1)").html() + "?")) {
             //Exclui a pessoa
             $.post('acoes.php', {tipo: "cliente", acao: 'excluir', id: $(this).children().first().html()}).done(function (data) {
                 if (data == "") {
@@ -16,6 +16,11 @@
                 }
             });
         }
+    });
+    
+    $(function(){
+        $('').val(' ')
+        
     });
 
 })(jQuery); // end of jQuery name space

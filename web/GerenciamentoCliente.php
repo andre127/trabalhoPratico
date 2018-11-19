@@ -14,10 +14,10 @@
               <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
     <body>
-        <nav class="light-blue lighten-1" role="navigation">         
+        <nav class="light-blue lighten-1" role="navigation" style="z-index: 1">         
             <div class=""><a id="logo-container" href="#" class="brand-logo"><img src="img/logoPequeno.png"></a>
                 <ul class="right hide-on-med-and-down">
-                    <li class="modal-trigger" data-target="modalLogin"><a href="$">Gerenciamento de Cliente</a></li>
+                    <li><a>Gerenciamento de Cliente</a></li>
                 </ul>
             </div>
         </nav>
@@ -30,7 +30,7 @@
             <br><br>
             <div class="row">
                 <div class="col s12">
-                <table  class="bordered" class="responsive-table">
+                <table  class="bordered striped "class="responsive-table">
                     <thead>
                       <tr>
                           <th>ID</th>
@@ -50,13 +50,14 @@
 
                         if($result->num_rows>0){
                             while($row = $result->fetch_assoc()){
-                                echo "<tr data-id='".$row['id']."' class='linhas'>";
-                                echo "<td>".$row['id']."</td>";
+                                echo "<tr data-id='".$row['id']."' class='linhas'  >";
+                                echo "<td id= 'tb'>".$row['id']."</td>";
                                 echo "<td>".$row['nome']."</td>";
                                 echo "<td>".$row['rg']."</td>";
                                 echo "<td>".$row['cpf']."</td>";
                                 echo "<td>".$row['cnh']."</td>";
                                 echo "<td>".$row['endereco']."</td>";
+                                echo "<td ><i  class='material-icons prefix'></i> </td>";
                                 echo "</tr>";
                             }
                         }

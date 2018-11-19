@@ -90,3 +90,6 @@ body{
 .listaAnuncios a{
    color: black;
 }
+.campo1 {
+   float:left;
+}
