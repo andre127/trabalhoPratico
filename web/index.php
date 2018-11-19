@@ -1,7 +1,11 @@
 <?php
 include "utils.php";
+session_start();
+ 
+if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
+    header("Location: login.php");
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -15,7 +19,19 @@ include "utils.php";
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
     <body>
-        <nav class ="color-navbar-footer" role="navigation"" style="z-index: 1">
+        <?php
+            if ($_SESSION["entrou"] == true){
+                echo "<nav class ='color-navbar-footer' role='navigation' style='z-index: 1'>
+                            <div><a id='logo-container' href='#' class='brand-logo'><img src='img/logoEscritoNavbar.png' width='80%' height='80%'></a>
+                                <ul class='right hide-on-med-and-down'>
+                                    <li><a href='#'>".$_SESSION["login"]."</a></li>
+                                </ul>
+                            </div>
+                        </nav>";
+            }
+        ?>
+        <!--
+        <nav class ="color-navbar-footer" role="navigation" style="z-index: 1">
             <div><a id="logo-container" href="#" class="brand-logo"><img src="img/logoEscritoNavbar.png" width="80%" height="80%"></a>
                 <ul class="right hide-on-med-and-down">
                     <li class="modal-trigger" data-target="modalLogin"><a href="$">Entrar</a></li>
@@ -23,7 +39,7 @@ include "utils.php";
                 </ul>
             </div>
         </nav>
-        <br><br>
+        -->
         <!-- Slider Topo -->
         <div class="slider" style="z-index: 0">
             <ul class="slides">
@@ -51,14 +67,10 @@ include "utils.php";
                     </div>
                 </li>
             </ul>
-        </div>     
-        <button id="teste">testes</button>
-        <script>alert("<?php echo$entrou?>");</script>
-        
-        
-        
-        
-        
+        </div>
+
+
+
         <div class="section no-pad-bot" id="index-banner">
             <div class="container center">
                 <br><br>
@@ -70,34 +82,29 @@ include "utils.php";
 
             </div>
         </div>
-        
-        <div>
-            <h3>Blablablabla</h3>
-        </div>
 
         <!-- Anuncios -->
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">aff</i></a>
         <div class="row center">
-            <?php
-            $sql = "SELECT * FROM carro WHERE 1";
-            $result = $conn->query($sql);
+        <?php
+        $sql = "SELECT * FROM carro WHERE 1";
+        $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<ul data-id='" . $row['id'] . "'class = 'listaAnuncios linhas'>";
-                    echo "<a href='#'><li class = 'card-panel anuncios col s3'>" .
-                    "<div class='div-img-anuncio'>"
-                    . "<img class='img-anuncio' src ='img/" . $row['img'] . "'>"
-                    . "</div>" .
-                    "<div class='info-anuncio'>" .
-                    "<h4>" . $row['nome'] . "</h4>" .
-                    "<h5>R$" . $row['valorLocacao'] . "</h5>" .
-                    "</div>" .
-                    "</li>";
-                    echo "</ul></a>";
-                }
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<ul data-id='" . $row['id'] . "'class = 'listaAnuncios'>";
+                echo "<a href='GerenciarLocacoes.php'><li class = 'card-panel anuncios col s3'>" .
+                "<div class='div-img-anuncio'>"
+                . "<img class='img-anuncio' src ='img/" . $row['img'] . "'>"
+                . "</div>" .
+                "<div class='info-anuncio'>" .
+                "<h4>" . $row['nome'] . "</h4>" .
+                "<h5>R$" . $row['valorLocacao'] . "</h5>" .
+                "</div>" .
+                "</li>";
+                echo "</ul></a>";
             }
-            ?>
+        }
+        ?>
         </div>
 
         <!-- Footer -->
@@ -123,42 +130,6 @@ include "utils.php";
                 </div>
             </div>
         </footer>
-        
-        <!-- Modal para login -->
-        <div id="modalLogin" class="modal modal-dialog modal-lg">
-            <div class="modal-content">
-                <div align="center">
-                    <img src="img/logoRender.png" height="100%" width="100%" align="top">
-                </div>
-                <!-- campos-->
-                <div class="row"> 
-                    <form method= "post" action ="sessionStart.php" class="col s12" id="formLogin" name="formLogin">
-                        <div class="row">
-                            <div class="col s12">
-                                <input name="login" type="text" class="form-control" id="login" placeholder="Login" required>
-                            </div>
-                        </div> 
-                        <div class="row">
-                            <div class="col s12">
-                                <input name="senha" type="text" class="form-control" id="senha" placeholder="Password" required>
-
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col s6">
-                                <a href="lostPassword">Esqueceu sua senha?</a>
-                            </div>
-                        </div> 
-                        <!-- botoes-->
-                        <div class ="row" align = "center">
-                            <input id ="btn_login" type="submit" value="Entrar" class="light-blue darken-4 btn"/>
-                            <button class="light-blue darken-4 btn modal-trigger modal-close">Fechar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
 
     </div>
@@ -168,7 +139,6 @@ include "utils.php";
 <!--  Scripts-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-<!--<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
 <script src="js/materialize.js"></script>
 <script src="js/init.js"></script>
 
