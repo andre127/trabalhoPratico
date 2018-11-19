@@ -10341,7 +10341,24 @@ $jscomp.polyfill = function (e, r, p, m) {
        * Setup counter element
        */
 
-    },  {
+    }, {
+      key: "_setupCounter",
+      value: function _setupCounter() {
+        this.counterEl = document.createElement('span');
+        $(this.counterEl).addClass('character-counter').css({
+          float: 'right',
+          'font-size': '12px',
+          height: 1
+        });
+
+        this.$el.parent().append(this.counterEl);
+      }
+
+      /**
+       * Remove counter element
+       */
+
+    }, {
       key: "_removeCounter",
       value: function _removeCounter() {
         $(this.counterEl).remove();
@@ -10351,14 +10368,29 @@ $jscomp.polyfill = function (e, r, p, m) {
        * Update counter
        */
 
-    }, 
+    }, {
+      key: "updateCounter",
+      value: function updateCounter() {
+        var maxLength = +this.$el.attr('data-length'),
+            actualLength = this.el.value.length;
+        this.isValidLength = actualLength <= maxLength;
+        var counterString = actualLength;
+
+        if (maxLength) {
+          counterString += '/' + maxLength;
+          this._validateInput();
+        }
+
+        $(this.counterEl).html(counterString);
+      }
 
       /**
        * Add validation classes
        */
 
     }, {
-      key: "_validateInput", value: function _validateInput() {
+      key: "_validateInput",
+      value: function _validateInput() {
         if (this.isValidLength && this.isInvalid) {
           this.isInvalid = false;
           this.$el.removeClass('invalid');

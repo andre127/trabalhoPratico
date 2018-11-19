@@ -9,25 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Principal">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CadastrarFuncionario" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Principal"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CadastrarFuncionario" />
         <activity android:name=".CadastrarVeiculo" />
         <activity android:name="unigran.projeto.br.Listagem.ListarCliente" />
         <activity android:name="unigran.projeto.br.gerenciamentoLocacao.LocacaoRetirada" />
         <activity android:name="unigran.projeto.br.Listagem.ListarLocacao" />
         <activity android:name="unigran.projeto.br.Listagem.ListarVeiculo" />
         <activity android:name="unigran.projeto.br.gerenciamento.GerVeiculo" />
-        <activity android:name=".CadastroCliente"></activity>
+        <activity android:name=".CadastroCliente" />
     </application>
 
 </manifest>

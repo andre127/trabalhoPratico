@@ -4,7 +4,9 @@
         $('.parallax').parallax();
         $('.carousel').carousel();
         $('.slider').slider();
+        $('.sidenav').sidenav();
     });
+    
     // end of document ready
     $('.linhas').click(function () {
         var linha = $(this);

@@ -1,5 +1,8 @@
 package unigran.projeto.br.locaplus;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +15,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+
+import java.util.LinkedList;
+import java.util.List;
+
+import unigran.projeto.br.Classes.Cliente;
+import unigran.projeto.br.Listagem.ListarCliente;
+import unigran.projeto.br.Listagem.ListarVeiculo;
+import unigran.projeto.br.Pesistencia.Banco;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -80,12 +93,16 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_carros) {
+            Intent it = new Intent(MainActivity.this, ListarVeiculo.class);
+            startActivity(it);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+            Intent it = new Intent(this, Principal.class);
+            startActivity(it);
         } else if (id == R.id.nav_slideshow) {
-
+            Intent it = new Intent(this, ListarCliente.class);
+            startActivity(it);
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {

@@ -1,9 +1,14 @@
 <!DOCTYPE html>
+<?php
+   include "utils.php";
+   
+?>
 <html lang="en">
+    
 <head>
   <meta http-equiv=Content-Type" content="text/html; "/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Cadastro Veiculo</title>
+  <title>Formulário Cadastro Veículo</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -11,86 +16,91 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="shortcut icon" type="image/ico" href="form.ico"/>
 </head>
+
 <body>  
-<div class="container">
-	<div class="section">
-	    <div class="row">
-		    <form id="Formulario" action="action.php">
-			    <div class="col s6 offset-s3">
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="placa" name="placa" type="text" class="form validate">
-							<label for="placa">Placa</label>
-						</div>          
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<select id="uf" name="uf" class="form">              
-								<option value="1" selected>MS</option>
-								<option value="2">MT</option>
-								<option value="3">MG</option>
-                                                                <option value="3">SP</option>
-							</select>
-							<label>UF</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="cidade" name="cidade" type="text" class="form validate">
-							<label for="cidade">Cidade</label>
-						</div>          
-					</div>
-				    <div class="row">
-						<div class="input-field col s12">
-							<input id="nome" name="nome" type="text" class="form validate">
-							<label for="nome">Nome</label>
-						</div>          
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="marca" name="marca" type="text" class="form validate">
-							<label for="marca">Marca</label>
-						</div>          
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="modelo" name="modelo" type="text" class="form validate">
-							<label for="modelo">Modelo</label>
-						</div>          
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="seguro" name="seguro" type="text" class="form validate">
-							<label for="seguro">Valor Seguro</label>
-						</div>          
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="valor" name="valor" type="text" class="form validate">
-							<label for="valor">Valor Locação</label>
-						</div>          
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="cor" name="cor" type="text" class="form validate">
-							<label for="cor">Cor</label>
-						</div>          
-					</div>
-					<div class="row">
-						<button class="btn waves-effect waves-light" type="submit" name="action">Salvar</button>
-						<button class="btn waves-effect waves-light" type="reset" name="action">Limpar</button>
-						<button class="btn waves-effect waves-light" type="back" name="action">Voltar</button>
-					</div>
-			    </div>
-		    </form>
-		</div>
+    <div class="container">
+        <div class="section">
+	    <div class="card-panel z-depth-5" >
+                <form  method="POST" id="FormVei" action="acoes.php" enctype="multipart/form-data">
+                    <h4>Formulário Cadastro Veículo</h4>
+		    <div class="col s6 offset-s3">
+			<div class="row">
+			    <div class="input-field col s6">
+				<input id="placa" name="placa" type="text" class="form validate">
+				<label for="placa">Placa</label>
+			    </div>          
+			</div>
+		        <div class="row">
+			    <div class="input-field col s6">
+				<input id="nome" name="nome" type="text" class="form validate">
+				<label for="nome">Nome</label>
+			    </div>          
+			</div>
+			<div class="row">
+			    <div class="input-field col s6">
+				<input id="marca" name="marca" type="text" class="form validate">
+				<label for="marca">Marca</label>
+			    </div>          
+			</div>
+			<div class="row">
+			    <div class="input-field col s6">
+				<input id="modelo" name="modelo" type="text" class="form validate">
+				<label for="modelo">Modelo</label>
+			    </div>          
+			</div>
+                        <div class="row">
+			    <div class="input-field col s6">
+				<input id="cor " name="cor" type="text" class="form validate">
+				<label for="cor">Cor</label>
+			    </div>          
+			</div>
+			<div class="row">
+			    <div class="input-field col s6">
+				<input id="valorSeguro" name="valorSeguro" type="text" class="form validate">
+				<label for="valorSeguro">Valor Seguro</label>
+			    </div>          
+			</div>
+			<div class="row">
+			    <div class="input-field col s6">
+				<input id="valorLocacao" name="valorLocacao" type="text" class="form validate">
+				<label for="valorLocacao">Valor Locação</label>
+			    </div>          
+			</div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select id="ativo" name="ativo">
+                                    <option value="" disabled selected>Status</option>
+                                    <option value="1">Ativo</option>
+                                    <option value="0">Desativado</option>
+                                </select>
+                            </div>       
+			</div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <label for="img">Imagem</label><br><br>
+				<input id="img" name="img" type="file" class="form validate">
+			    </div>          
+			</div>
+			<div class="row">
+			    <button class="btn waves-effect waves-light" type="submit" name="acao" value="salvar">Salvar</button>
+			    <button class="btn waves-effect waves-light" type="reset" name="limparVei">Limpar</button>
+			    <button class="btn waves-effect waves-light" type="back" name="voltarVei">Voltar</button>
+                            <input type="hidden" name="tipo" value="veiculo">
+			</div>
+		    </div>
+		</form>
+	    </div>
 	</div>
-  </div>
+    </div>
+    <!--  Scripts <script src="js/jquery-3.3.1.js"></script>-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
+    <script src="js/init.js"></script>
+</body>
 
-  <!--  Scripts-->
-  <script src="js/jquery-3.3.1.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-
-  </body>
 </html>
