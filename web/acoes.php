@@ -1,13 +1,5 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: Andre Luiz 
- * Date: 11/11/2018
- * Time: 16:00
- */
 include "utils.php";
-
 
 $acao = filter_input(INPUT_POST, 'acao', FILTER_SANITIZE_SPECIAL_CHARS);
 $tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -37,6 +29,22 @@ if ($acao == "salvar") {
         $sql = "INSERT INTO cliente(cnh, numeroDependentes,idPessoa) VALUES ('$cnh', '$dependente','$id')";
         $result = $conn->query($sql);
         header("Location: GerenciamentoCliente.php");
+    }
+    if ($tipo == "veiculo") {
+        $placa = $_POST['placa'];
+        $nome = $_POST['nome']; 
+        $modelo = $_POST['modelo'];
+        $valorSeguro = $_POST['valorSeguro'];
+        $valorLocacao = $_POST['valorLocacao'];
+        $cor = $_POST['cor'];
+        $ativo = $_POST['ativo'];
+        $marca = $_POST['marca'];
+        $img = $_POST['img'];
+
+        $sql = "INSERT INTO carro(placa, nome, modelo, valorSeguro, valorLocacao, cor, ativo, marca, img) VALUES "
+                . "('$placa', '$nome', '$modelo', '$valorSeguro', '$valorLocacao', '$cor', '$ativo', '$marca', '$img')";
+        $result = $conn->query($sql);
+        header("Location: GerenciamentoVeiculo.php");
     }
 }
 
