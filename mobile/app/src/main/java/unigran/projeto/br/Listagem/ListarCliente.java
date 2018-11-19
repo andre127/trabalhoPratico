@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
+
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class ListarCliente extends AppCompatActivity {
         conexao=bd.getReadableDatabase();
         List clientes = new LinkedList();
         Cursor res= conexao.rawQuery("SELECT * FROM CLIENTE", null);
+
         if(res.getCount()>0){
             res.moveToFirst();
             do{
@@ -93,8 +95,8 @@ public class ListarCliente extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ArrayAdapter<Cliente> arrayAdapter = new ArrayAdapter<Cliente>(ListarCliente.this,android.R.layout.simple_list_item_1,listar());
-        lista.setAdapter(arrayAdapter);
+        ArrayAdapter<Cliente> arrayAdapter = new ArrayAdapter<Cliente>(ListarCliente.this,android.R.layout.simple_gallery_item,listar());
+       lista.setAdapter(arrayAdapter);
     }
 
 }
