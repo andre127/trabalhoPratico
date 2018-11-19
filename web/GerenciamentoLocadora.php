@@ -26,9 +26,9 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
                     <div class="background">
                         <img src="img/logoEscrito.png">
                     </div>
-                    <a href="#user"><img class="circle" src="img/carro1.png"></a>
-                    <a href="#name"><span class="name"><?php echo $_SESSION['login']?></span></a>
-                    <a href="#email"><span class="email">jdandturk@gmail.com</span></a>
+                    <br>
+                    <a href="#name"><span class="name"><?php echo $_SESSION['nome']?></span></a>
+                    <a href="#email"><span class="email"><?php echo $_SESSION['login']?></span></a>
                 </div>
             </li>
             <!-- Menu suspenso -->

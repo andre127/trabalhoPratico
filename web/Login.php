@@ -27,10 +27,7 @@ session_start();
                 <img src="img/logoRender.png" style="width:50%;  height:50%" class="header center orange-text">
             </div>
         </div>
-        
-        
-        
-        
+        <div class="container">
             <form method= "post" action ="sessionStart.php" class="col s12" id="formLogin" name="formLogin">
                 <div class = "row">
                     <div class="col s4 offset-s4">
@@ -55,7 +52,7 @@ session_start();
                     <button class="light-blue darken-4 btn modal-trigger modal-close">Fechar</button>
                 </div>
             </form>
-
+        </div>
 
 
 

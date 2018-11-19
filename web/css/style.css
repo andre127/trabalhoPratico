@@ -71,15 +71,16 @@ footer.page-footer {
     height:60%;
 }
 .div-img-anuncio{
+    padding-top: 10px;
 }
 listaAnuncios ol{
     list-style: none;
 }
 .slides li img{
-    opacity: 0.2;
+    opacity: 0.6;
 }
 .anuncios{
-    
+    border: 1px solid black;
 }
 .color-navbar-footer{
     background-color:#29b6f6;
@@ -89,4 +90,7 @@ body{
 }
 .listaAnuncios a{
    color: black;
+}
+nav{
+    position: fixed;
 }
