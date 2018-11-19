@@ -95,7 +95,7 @@ public class ListarCliente extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ArrayAdapter<Cliente> arrayAdapter = new ArrayAdapter<Cliente>(ListarCliente.this,android.R.layout.simple_gallery_item,listar());
+        ArrayAdapter<Cliente> arrayAdapter = new ArrayAdapter<Cliente>(ListarCliente.this,android.R.layout.simple_expandable_list_item_1, listar());
        lista.setAdapter(arrayAdapter);
     }
 
