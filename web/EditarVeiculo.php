@@ -8,7 +8,7 @@
 <head>
   <meta http-equiv=Content-Type" content="text/html; "/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Formulário Cadastro Veículo</title>
+  <title>Formulário Editar Cadastro Veículo</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -22,7 +22,7 @@
         <div class="section">
 	    <div class="card-panel z-depth-5" >
                 <form  method="POST" id="FormVei" action="UploadVeiculo.php" enctype="multipart/form-data">
-                    <h4>Formulário Cadastro Veículo</h4>
+                    <h4>Formulário Editar Cadastro Veículo</h4>
 		    <div class="col s6 offset-s3">
 			<div class="row">
 			    <div class="input-field col s6">
