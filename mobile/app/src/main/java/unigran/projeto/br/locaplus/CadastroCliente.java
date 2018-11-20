@@ -99,7 +99,6 @@ public class CadastroCliente extends AppCompatActivity {
         try {
             conexao=bd.getWritableDatabase();
             ContentValues  values= new ContentValues();
-
             values.put("NOME",cliente.getNome());
             values.put("ENDERECO",cliente.getEndereco());
             values.put("CPF", cliente.getCpf());

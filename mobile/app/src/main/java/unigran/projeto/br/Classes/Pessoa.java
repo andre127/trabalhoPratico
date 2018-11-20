@@ -42,6 +42,6 @@ public class Pessoa implements Serializable {
 
     @Override
     public String toString() {
-        return "Nome: "+getNome()+"RG: "+getRg() ;
+        return "Nome:  "+getNome()+"\nEndereço:  "+getEndereco()+"\nRG:  "+getRg()+"  CPF:  "+getCpf() ;
     }
 }

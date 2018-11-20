@@ -10,7 +10,13 @@ public class Banco extends SQLiteOpenHelper {
  }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql ="";
+        String sql ="CREATE TABLE IF NOT EXISTS CLIENTE(" +"ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
+                +"NOME VARCHAR(45),"
+                +" ENDERECO VARCHAR(15),"
+                +" CPF VARCHAR(15),"
+                +" RG VARCHAR(15),"
+                +" CNH VARCHAR(15),"
+                + "NUMERODEPENDENTES INTEGER);";
 
         sqLiteDatabase.execSQL(sql);
     }

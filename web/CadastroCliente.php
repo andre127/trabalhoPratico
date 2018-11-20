@@ -31,7 +31,7 @@
                         <div class="row">
                           <div class="input-field col s12">  
                               <i class="material-icons prefix">account_circle </i>
-                              <input id="nome" name="nome" type="text" class="form validate" required="required">
+                              <input id="nomeCliente" name="nomeCliente" type="text" class="form validate" required="required" value="">
                             <label for="nome">Digite seu Nome</label>
                           </div>          
                         </div>
@@ -95,7 +95,10 @@
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
             <!--<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
             <script src="js/materialize.js"></script>
-            <script src="js/init.js">           
+            <script src="js/init.js">  
+              $(function(){
+               $('#endereco').val('Nome do Computador')
+                });
             </script> 
           
   </body>

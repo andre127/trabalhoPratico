@@ -1,10 +1,7 @@
 <?php
 include "utils.php";
 
-<<<<<<< HEAD
- 
-=======
->>>>>>> 515f1216866563f12422bf40b28ee5b2b41243f5
+ var_dump ($_POST);
 $acao = filter_input(INPUT_POST, 'acao', FILTER_SANITIZE_SPECIAL_CHARS);
 $tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_SPECIAL_CHARS);
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -39,9 +36,9 @@ if ($acao == "salvar") {
         //var_dump ($ultimo);
        // var_dump ($_POST);   
     }
-<<<<<<< HEAD
+
     
-=======
+
     if ($tipo == "veiculo") {
         $placa = $_POST['placa'];
         $nome = $_POST['nome']; 
@@ -58,7 +55,12 @@ if ($acao == "salvar") {
         $result = $conn->query($sql);
         header("Location: GerenciamentoVeiculo.php");
     }
->>>>>>> 515f1216866563f12422bf40b28ee5b2b41243f5
 }
+if ($acao == "editar") {
+     if ($tipo == "cliente") {
+        header("Location: CadastroCliente.php");
+        
+    }
 
+}
         
