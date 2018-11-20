@@ -43,5 +43,10 @@
         $('').val(' ')
         
     });
-
+    $('.tabelaLocacao').click(function () {
+        alert('ihuuul');
+//        $('#CPF_Cliente').val($(this).find(":nth-child(1)").html());
+$.post('UploadVeiculo.php', {tipo: "as", acao: 'savlvar')done();
+    });
+    
 })(jQuery); // end of jQuery name space

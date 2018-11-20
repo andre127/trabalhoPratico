@@ -1,10 +1,12 @@
 <?php
+
 include "utils.php";
 
- var_dump ($_POST);
+
 $acao = filter_input(INPUT_POST, 'acao', FILTER_SANITIZE_SPECIAL_CHARS);
 $tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_SPECIAL_CHARS);
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
+var_dump($_POST);
 
 if ($acao == "excluir") {
     if ($tipo == "cliente") {
@@ -13,7 +15,6 @@ if ($acao == "excluir") {
         $sql = "DELETE FROM `pessoa` WHERE `id`=" . $id;
         $result = $conn->query($sql);
     }
-    
 }
 
 if ($acao == "salvar") {
@@ -24,8 +25,8 @@ if ($acao == "salvar") {
         $cpf = $_POST['cpf'];
         $cnh = $_POST['cnh'];
         $dependente = $_POST['dependente'];
-        $login=$_POST['login'];
-        $senha=$_POST['senha'];
+        $login = $_POST['login'];
+        $senha = $_POST['senha'];
 
         $sql = "INSERT INTO pessoa(nome, rg, cpf, endereco, tipo, login, senha) VALUES ('$nome', '$rg', '$cpf', '$endereco','$tipo', '$login', '$senha')";
         $result = $conn->query($sql);
@@ -34,14 +35,14 @@ if ($acao == "salvar") {
         $result = $conn->query($sql);
         header("Location: GerenciamentoCliente.php");
         //var_dump ($ultimo);
-       // var_dump ($_POST);   
+        // var_dump ($_POST);   
     }
 
-    
+
 
     if ($tipo == "veiculo") {
         $placa = $_POST['placa'];
-        $nome = $_POST['nome']; 
+        $nome = $_POST['nome'];
         $modelo = $_POST['modelo'];
         $valorSeguro = $_POST['valorSeguro'];
         $valorLocacao = $_POST['valorLocacao'];
@@ -55,12 +56,25 @@ if ($acao == "salvar") {
         $result = $conn->query($sql);
         header("Location: GerenciamentoVeiculo.php");
     }
-}
-if ($acao == "editar") {
-     if ($tipo == "cliente") {
-        header("Location: CadastroCliente.php");
-        
-    }
+    if ($tipo == "locacao") {
+        $CPF_Cliente = $_POST['CPF_Cliente'];
+        $placa = $_POST['placa'];
+        $dataLocacao = $_POST['dataLoc'];
+        $KmRetirada = $_POST['KmRetirada'];
+        $dataDevolucao = $_POST['dataDevolucao'];
+        $sql = "SELECT * FROM pessoa WHERE cpf = '$CPF_Cliente' AND tipo = 'cliente'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $sql = "INSERT INTO `locacao`(`dataLocacao`, `dataDevolucao`, `kmInicial`, `idCliente`, `idFuncionario`, `kmFinal`) "
+                        . "VALUES ('$dataLocacao','$dataDevolucao','$KmRetirada'," . $row['id'] . ",'0','0')";
+            }
+            $result = $conn->query($sql);
+//            header("Location: CadastroLocacao.php");
+        } else {
 
+//            header("Location: index.php");
+        }
+    }
 }
-        
+
