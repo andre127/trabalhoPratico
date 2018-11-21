@@ -57,14 +57,14 @@ include "utils.php";
                             <div class="row">
                                 <div class="col s2">
                                     <div class="row">
-                                        <button  class="btn waves-effect waves-light cadastroLoc" type="submit">Salvar
+                                        <button  name = "acao" value ="salvarLocacao"class="btn waves-effect waves-light cadastroLoc" type="submit">Salvar
                                             <i class="material-icons right"></i>                        
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                            <input type="hidden" name="acao" value="salvar">
-                            <input type="hidden" name="tipo" value="locacao">
+<!--                            <input type="hidden" name="acao" value="salvar">
+                            <input type="hidden" name="tipo" value="locacao">-->
                             </form>
                         </div>
                 </div>

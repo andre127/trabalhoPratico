@@ -2,11 +2,10 @@
 
 include "utils.php";
 
-
+var_dump($_POST);
 $acao = filter_input(INPUT_POST, 'acao', FILTER_SANITIZE_SPECIAL_CHARS);
 $tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_SPECIAL_CHARS);
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
-var_dump($_POST);
 
 if ($acao == "excluir") {
     if ($tipo == "cliente") {
@@ -56,7 +55,8 @@ if ($acao == "salvar") {
         $result = $conn->query($sql);
         header("Location: GerenciamentoVeiculo.php");
     }
-    if ($tipo == "locacao") {
+}
+if ($acao == "salvarLocacao") {
         $CPF_Cliente = $_POST['CPF_Cliente'];
         $placa = $_POST['placa'];
         $dataLocacao = $_POST['dataLoc'];
@@ -76,5 +76,4 @@ if ($acao == "salvar") {
 //            header("Location: index.php");
         }
     }
-}
-
+    
