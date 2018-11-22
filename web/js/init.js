@@ -6,30 +6,27 @@
         $('.slider').slider();
         $('.sidenav').sidenav();
     });
-    
-    // end of document ready
-    $('.linhas').click(function () {
-       // var linha = $(this);
-       // if (confirm("Deseja mesmo exluir " + $(this).find(":nth-child(1)").html() + "?")) {
-           
-   
-            window.open("http://localhost/trabalhoPratico/web/CadastroCliente.php");
-             $('nomeCliente').val('teste');
-           
-           // $.post('acoes.php', {tipo: "cliente", acao: 'editar', id: $(this).children().first().html()})//.done(function (data) {
-           
-      
- // 
-// if (data == "") {
-                   // linha.remove();
-                //}
-           // });
-     //   }
+    $('#teste').click(function (){
+        $('#nomeCliente').val('teste');
     });
     
     $(function(){
-        $('').val(' ')
-        
-    });
+         $('.linhas').click(function (){
+          var linha = $(this);
+          if(confirm("Deseja mesmo exluir "+$(this).find(":nth-child(2)").html()+"?")){
+            //Exclui a pessoa
+              $.post('GerenciamentoCliente.php',{tipo:"funcionario",acao:'excluir',id:$(this).children().first().html()}).done(function (data) {
+                  if(data==""){
+                    linha.remove();
+                  }
+              });
+          }
+      });
+     
+  }); // end of document ready
+ 
+
+    
+    
 
 })(jQuery); // end of jQuery name space
