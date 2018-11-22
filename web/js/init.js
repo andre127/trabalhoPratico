@@ -6,6 +6,30 @@
         $('.slider').slider();
         $('.sidenav').sidenav();
     });
+<<<<<<< HEAD
+    $('#teste').click(function (){
+        $('#nomeCliente').val('teste');
+    });
+    
+    $(function(){
+         $('.linhas').click(function (){
+          var linha = $(this);
+          if(confirm("Deseja mesmo exluir "+$(this).find(":nth-child(2)").html()+"?")){
+            //Exclui a pessoa
+              $.post('GerenciamentoCliente.php',{tipo:"funcionario",acao:'excluir',id:$(this).children().first().html()}).done(function (data) {
+                  if(data==""){
+                    linha.remove();
+                  }
+              });
+          }
+      });
+     
+  }); // end of document ready
+ 
+
+    
+    
+=======
 
     // end of document ready
     $('.linhas').click(function () {
@@ -59,9 +83,13 @@
     $('#btncancelar').click(function () {
         window.location.replace("Locacao.php");
     });
+<<<<<<< HEAD
     $('#teste').click(function(){
        
        alert("teste"); 
     });
+=======
+>>>>>>> 23af77efd701e6eeccaf24080a1ff7b3534ffdc5
+>>>>>>> 6b5c0162b14e0c76fa05ca06c95c1d8315d3cc17
 
 })(jQuery); // end of jQuery name space
