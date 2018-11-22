@@ -5,6 +5,7 @@ session_start();
 if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
     header("Location: login.php");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +28,8 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
                         <img src="img/logoEscrito.png">
                     </div>
                     <br>
-                    <a href="#name"><span class="name"><?php echo $_SESSION['nome']?></span></a>
-                    <a href="#email"><span class="email"><?php echo $_SESSION['login']?></span></a>
+                    <a href="#name"><span class="name"><?php echo $_SESSION['nome'] ?></span></a>
+                    <a href="#email"><span class="email"><?php echo $_SESSION['login'] ?></span></a>
                 </div>
             </li>
             <!-- Menu suspenso -->
@@ -46,13 +47,8 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
             </ul>
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header">Clientes<i class="material-icons">people</i></a>
+                    <a href = "GerenciamentoCliente.php"class="collapsible-header">Clientes<i class="material-icons">people</i></a>
                     <div class="collapsible-body">
-                        <ul>
-                            <li><a href="CadastroCliente.php">Cadastrar Cliente</a></li>
-                            <li><a href="#!">Editar Cliente</a></li>
-                            <li><a href="#!">Listar Clientes</a></li>
-                        </ul>
                     </div>
                 </li>
             </ul>
@@ -80,20 +76,6 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
                     </div>
                 </li>
             </ul>
-            <ul class="collapsible collapsible-accordion">
-                <li>
-                    <a class="collapsible-header">Configurações<i class="material-icons">settings</i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#!">First</a></li>
-                            <li><a href="#!">Second</a></li>
-                            <li><a href="#!">Third</a></li>
-                            <li><a href="#!">Fourth</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-
         </ul>
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
@@ -110,31 +92,6 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
 
             </div>
         </div>
-
-
-        <!-- Footer -->
-        <footer class="page-footer color-navbar-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Company Bio</h5>
-                        <p class="grey-text text-lighten-4">Loren Ipmsum</p>
-                    </div>
-                    <div class="col l3 s12">
-                        <h5 class="white-text">Settings</h5>
-                        <ul>
-                            <li><a class="white-text" href="#!">Link 1</a></li>
-                        </ul>
-                    </div>
-                    <div class="col l3 s12">
-                        <h5 class="white-text">Connect</h5>
-                        <ul>
-                            <li><a class="white-text" href="#!">Link 1</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
 
 
 

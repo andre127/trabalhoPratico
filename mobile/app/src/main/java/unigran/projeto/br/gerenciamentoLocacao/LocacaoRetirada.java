@@ -1,7 +1,6 @@
 package unigran.projeto.br.gerenciamentoLocacao;
 
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -14,8 +13,8 @@ import unigran.projeto.br.Classes.Locacao;
 import unigran.projeto.br.Pesistencia.Banco;
 import unigran.projeto.br.locaplus.R;
 
-public class LocacaoRetirada extends AppCompatActivity {
-    private EditText cpfCliente, cpfFuncionario, placaCarro, dataRetirada, kmRetirada;
+public class LocacaoRetirada extends AppCompatActivity{
+    private EditText idCliente, idFuncionario,placaCarro, dataRetirada,dataDevolucao, kmInicial,kmFinal;
     private SQLiteDatabase conexao;
     private Banco bd;
     private Locacao locacao;
@@ -24,39 +23,42 @@ public class LocacaoRetirada extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_locacao_retirada);
-        cpfCliente = findViewById(R.id.etCpfCliente);
-        cpfFuncionario = findViewById(R.id.etCpfFuncionario);
+        idFuncionario = findViewById(R.id.etIdFuncionario);
+        idCliente = findViewById(R.id.etIdCliente);
         placaCarro = findViewById(R.id.etPlacaCarro);
         dataRetirada = findViewById(R.id.etDataRetirada);
-        kmRetirada = findViewById(R.id.etKmRetirada);
+        kmInicial = findViewById(R.id.etKmInicial);
+        kmFinal = findViewById(R.id.etKmFinal);
+        dataDevolucao = findViewById(R.id.etDataDevolucao);
 
-        locacao =(Locacao) getIntent().getSerializableExtra("locacao");
+        locacao =(Locacao)getIntent().getSerializableExtra("locacao");
         if(locacao!=null){
-            cpfCliente.setText(locacao.getCliente().getCpf());
-            //cpfFuncionario.setText(locacao.get);
-            placaCarro.setText(locacao.getVeiculo().getPlaca());
+            idCliente.setText(locacao.getIdCliente());
+            idFuncionario.setText(locacao.getIdFuncionario());
+            placaCarro.setText(locacao.getPlacaCarro());
             dataRetirada.setText(locacao.getDataRetirada().toString());
-            kmRetirada.setText(locacao.getKmFinal().toString());
-
+            kmInicial.setText(locacao.getKmInicial().toString());
+            kmFinal.setText(locacao.getKmFinal().toString());
+            dataDevolucao.setText(locacao.getDataDevolucao().toString());
         }
+
     }
-    public void confirmar(View view){
+    /*public void confirmar(View view){
         Toast.makeText(this, "foiiii", Toast.LENGTH_SHORT).show();
         if(valida()){
             if(locacao==null)
                 locacao = new Locacao();
             locacao.setDataRetirada(Float.parseFloat(dataRetirada.getText().toString()));
-            locacao.setKmFinal(Float.parseFloat(kmRetirada.getText().toString()));
-            //locacao.getCliente().setCpf(cpfCliente.getText().toString());
+            //locacao.setKmFinal(Float.parseFloat(kmRetirada.getText().toString()));
+            //locacao.getCliente().setCpf(idCliente.getText().toString());
             //locacao.getVeiculo().setPlaca(placaCarro.getText().toString());
             inserir();
         }
 
     }
-
-    private void inserir() {
+*/
+   /* private void inserir() {
         bd = new Banco(this);
         try{
             conexao = bd.getWritableDatabase();
@@ -73,7 +75,7 @@ public class LocacaoRetirada extends AppCompatActivity {
             Toast.makeText(this, "erro na inserção",Toast.LENGTH_SHORT).show();
         }
     }
-
+*/
     private boolean valida() {
         return  true;
     }

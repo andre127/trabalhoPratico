@@ -1,6 +1,8 @@
 package unigran.projeto.br.Classes;
 
-public class Veiculo {
+import java.io.Serializable;
+
+public class Veiculo implements Serializable {
     private Integer id;
     private String placa;
     private String nome;
@@ -9,7 +11,21 @@ public class Veiculo {
     private String cor;
     private Float valorSeguro;
     private Float valorLocacao;
-    private Boolean status;
+    private Integer status;
+    private String img;
+
+    @Override
+    public String toString() {
+        return nome+"\nValor:"+valorLocacao+"\nImagem:"+img;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     public Integer getId() {
         return id;
@@ -75,13 +91,11 @@ public class Veiculo {
         this.valorLocacao = valorLocacao;
     }
 
-    public Boolean getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
-
-
 }

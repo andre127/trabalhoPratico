@@ -59,5 +59,9 @@
     $('#btncancelar').click(function () {
         window.location.replace("Locacao.php");
     });
+    $('#teste').click(function(){
+       
+       alert("teste"); 
+    });
 
 })(jQuery); // end of jQuery name space

@@ -35,7 +35,9 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
                     <form id="Formulario" method="POST" action="acoes.php" id="teste" >
                         <div class="col s6 offset-s3">                       
                             <div class="row">
-                                <div class="input-field col s12">               
+                                <div class="input-field col s12">    
+                                    <input type="hidden" id="id_Pessoa" name="id_Pessoa" value="<?php echo $_SESSION['id_pessoa'];?>">
+                                    <input type="hidden" id="id_Cliente" name="id_Cliente"value="<?php echo $_SESSION['id_cliente'];?>">
                                     <input id="nome" name="nome" type="text" class="form validate" value="<?php echo $_SESSION['nome'];?>">
                                     <label for="nome">Digite seu Nome</label>
                                 </div>          
@@ -60,6 +62,24 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
+                                    <input id="login" type="text" name="login" class="form validate" value="<?php echo $_SESSION['login'];?>">
+                                    <label for="nome">Digite seu login</label>
+                                </div>          
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="senha" type="text" name="senha" class="form validate" value="<?php echo $_SESSION['senha'];?>">
+                                    <label for="nome">Digite sua senha</label>
+                                </div>          
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="tipo" type="text" name="tipo" class="form validate" value="<?php echo $_SESSION['tipo'];?>">
+                                    <label for="nome">Insira o tipo</label>
+                                </div>          
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
                                     <input id="cnh" type="text" name="cnh" class="form validate" value="<?php echo $_SESSION['cnh'];?>">
                                     <label for="nome">Digite sua CNH</label>
                                 </div>
@@ -69,11 +89,10 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
                                 </div>                              
                             </div>
                             <div class="row">
-                                <button  class="btn waves-effect waves-light" type="submit">Salvar</button>
+                                <button  id="teste" class="btn waves-effect waves-light" type="submit">Salvar</button>
                             </div>
                         </div>
-                        <input type="hidden" name="acao" value="salvar">
-                        <input type="hidden" name="tipo" value="cliente">
+                        <input type="hidden" name="acao" value="editarPerfilCliente">
                     </form>
                 </div>
             </div>

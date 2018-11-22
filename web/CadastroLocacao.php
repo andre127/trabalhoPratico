@@ -1,5 +1,16 @@
 <?php
+session_start();
 include "utils.php";
+   if(!empty($_GET["id"])){
+   $id= $_GET["id"];
+   $sql = "SELECT * FROM carro WHERE id='$id'";
+   $result = $conn->query($sql);
+   $row = $result->fetch_assoc();
+   
+   $valid=$row['id'];
+   } else {
+     $valid='novo';
+}
 ?>
 
 <html lang="en">
@@ -23,14 +34,14 @@ include "utils.php";
                         <div class="col s6 offset-s3">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" data-target="modalClientes">
+                                    <input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" data-target="modalClientes" value="<?php if(!empty($_SESSION['cpf']))echo $_SESSION['cpf'] ?>">
                                     <label for="numero">CPF Cliente</label>
                     
                                 </div>          
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="placa" name="placa" type="text" class="form validate">
+                                    <input id="placa" name="placa" type="text" class="form validate" value="<?php if(!empty($row['placa']))echo $row['placa'] ?>">
                                     <label for="placa">Placa do carro</label>
                                 </div>          
                             </div>

@@ -1,8 +1,8 @@
 <?php
 
+session_start();
 include "utils.php";
 
-var_dump($_POST);
 $acao = filter_input(INPUT_POST, 'acao', FILTER_SANITIZE_SPECIAL_CHARS);
 $tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_SPECIAL_CHARS);
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -57,23 +57,42 @@ if ($acao == "salvar") {
     }
 }
 if ($acao == "salvarLocacao") {
-        $CPF_Cliente = $_POST['CPF_Cliente'];
-        $placa = $_POST['placa'];
-        $dataLocacao = $_POST['dataLoc'];
-        $KmRetirada = $_POST['KmRetirada'];
-        $dataDevolucao = $_POST['dataDevolucao'];
-        $sql = "SELECT * FROM pessoa WHERE cpf = '$CPF_Cliente' AND tipo = 'cliente'";
+    $CPF_Cliente = $_POST['CPF_Cliente'];
+    $placa = $_POST['placa'];
+    $dataLocacao = $_POST['dataLoc'];
+    $KmRetirada = $_POST['KmRetirada'];
+    $dataDevolucao = $_POST['dataDevolucao'];
+    $sql = "SELECT * FROM pessoa WHERE cpf = '$CPF_Cliente' AND tipo = 'cliente'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $sql = "INSERT INTO `locacao`(`dataLocacao`, `dataDevolucao`, `kmInicial`, `idCliente`, `idFuncionario`, `kmFinal`) "
+                    . "VALUES ('$dataLocacao','$dataDevolucao','$KmRetirada'," . $row['id'] . ",'0','0')";
+        }
         $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $sql = "INSERT INTO `locacao`(`dataLocacao`, `dataDevolucao`, `kmInicial`, `idCliente`, `idFuncionario`, `kmFinal`) "
-                        . "VALUES ('$dataLocacao','$dataDevolucao','$KmRetirada'," . $row['id'] . ",'0','0')";
-            }
-            $result = $conn->query($sql);
 //            header("Location: CadastroLocacao.php");
-        } else {
+    } else {
 
 //            header("Location: index.php");
-        }
     }
+}
+if ($acao == "editarPerfilCliente") {
+    $id_pessoa = $_POST['id_Pessoa'];
+    $id_cliente = $_POST['id_Cliente'];
+    $tipo = $_POST['tipo'];
+    $nome = $_POST['nome'];
+    $endereco = $_POST['endereco'];
+    $rg = $_POST['rg'];
+    $cpf = $_POST['cpf'];
+    $cnh = $_POST['cnh'];
+    $dependente = $_POST['dependente'];
+    $login = $_POST['login'];
+    $senha = $_POST['senha'];
+
+    $sql = "UPDATE pessoa SET nome_Pessoa='$nome',rg='$rg',cpf='$cpf',endereco='$endereco',tipo='$tipo',login='$login',senha='$senha' WHERE id_Pessoa= '$id_pessoa'";
+    $result = $conn->query($sql);
+    $sql = "UPDATE cliente SET cnh='$cnh',numeroDependentes='$dependente' WHERE id_Cliente='$id_cliente'";
+    $result = $conn->query($sql);
+    header("Location: index.php");     
+}
     
