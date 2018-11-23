@@ -51,8 +51,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void entrar(View view){
-        comparaLogin= login.getText().toString();
-        conexao=bd.getReadableDatabase();
         Cursor res= conexao.rawQuery("SELECT * FROM cliente WHERE LOGIN = ? AND SENHA = ?",new String[]{login.getText().toString(), senha.getText().toString()});
         if(res.getCount()>0){
             Intent it = new Intent(this, MainActivity.class);

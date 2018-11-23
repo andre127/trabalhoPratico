@@ -16,7 +16,7 @@ public class Veiculo implements Serializable {
 
     @Override
     public String toString() {
-        return nome+"\nValor:"+valorLocacao+"\nImagem:"+img;
+        return nome+"\nValor:"+valorLocacao+"\nPlaca:"+placa;
     }
 
     public String getImg() {
