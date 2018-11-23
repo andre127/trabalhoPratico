@@ -43,21 +43,27 @@
         $('').val(' ')
 
     });
-    $('.tabelaLocacao').click(function () {
-
-//       $('#CPF_Cliente').val($(this).find(":nth-child(2)").html());
-//       document.getElementById("btnCadastro").style = 'visibility: hidden';
-        //style = 'visibility: hidden';
-// document.getElementById("save-button").disabled = true;
-//        document.getElementById("edit-button").disabled = false;
-        document.getElementById("listar").style = 'visibility: hidden';
-        document.getElementById("btnSalvar").style = 'visibility: hidden';
-        document.getElementById("insercao").style = 'visibility: visible';
-        document.getElementById("btnEditar").style = 'visibility: visible';
-        window.location.replace("#insercao");
+    $('#asd').click(function (){
+        alert('Para editar clique no ID da locacao que deseja Finalizar locacao/Editar');
+ 
     });
-    $('#btncancelar').click(function () {
-        window.location.replace("Locacao.php");
-    });
+    
+    //testes feitos para locacao
+//   $('.edicao').click(function () {
+//        document.getElementById("confirmar").value = 'editarLocacao';
+//////       $('#CPF_Cliente').val($(this).find(":nth-child(2)").html());
+//////       document.getElementById("btnCadastro").style = 'visibility: hidden';
+////        //style = 'visibility: hidden';
+////// document.getElementById("save-button").disabled = true;
+//////        document.getElementById("edit-button").disabled = false;
+////        document.getElementById("listar").style = 'visibility: hidden';
+////        document.getElementById("btnSalvar").style = 'visibility: hidden';
+////        document.getElementById("insercao").style = 'visibility: visible';
+////        document.getElementById("btnEditar").style = 'visibility: visible';
+////        window.location.replace("#insercao");
+////    });
+////    $('#btncancelar').click(function () {
+////        window.location.replace("Locacao.php");
+//  });
 
 })(jQuery); // end of jQuery name space

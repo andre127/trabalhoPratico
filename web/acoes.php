@@ -57,23 +57,59 @@ if ($acao == "salvar") {
     }
 }
 if ($acao == "salvarLocacao") {
-        $CPF_Cliente = $_POST['CPF_Cliente'];
-        $placa = $_POST['placa'];
-        $dataLocacao = $_POST['dataLoc'];
-        $KmRetirada = $_POST['KmRetirada'];
-        $dataDevolucao = $_POST['dataDevolucao'];
-        $sql = "SELECT * FROM pessoa WHERE cpf = '$CPF_Cliente' AND tipo = 'cliente'";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $sql = "INSERT INTO `locacao`(`dataLocacao`, `dataDevolucao`, `kmInicial`, `idCliente`, `idFuncionario`, `kmFinal`) "
-                        . "VALUES ('$dataLocacao','$dataDevolucao','$KmRetirada'," . $row['id'] . ",'0','0')";
-            }
-            $result = $conn->query($sql);
-//            header("Location: CadastroLocacao.php");
-        } else {
-
-//            header("Location: index.php");
+    $CPF_Cliente = $_POST['CPF_Cliente'];
+    $placa = $_POST['placa'];
+    $dataLocacao = $_POST['dataLoc'];
+    $Km = $_POST['Km'];
+    $dataDevolucao = $_POST['dataDevolucao'];
+    $result = $conn->query("SELECT * FROM `pessoa` INNER JOIN cliente on cpf='" . $CPF_Cliente . "' and cliente.idPessoa=pessoa.id_Pessoa");
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $idCliente = $row['id_Cliente'];
         }
     }
-    
+    $result = $conn->query("SELECT * FROM `carro` WHERE placa='" . $placa . "' ");
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $idCarro = $row['id'];
+        }
+    } 
+    if($idCarro!=0 && $idCliente!=0) {
+        $sql = "INSERT INTO `locacao`( `dataLocacao`, `dataDevolucao`, `km`, `situacao`, `idCliente`,`idCarro`, `idFuncionario`)"
+                . " VALUES ('$dataLocacao','$dataDevolucao','$Km','ativo','$idCliente','$idCarro','1')";
+         $result = $conn->query($sql);
+         header("Location: Locacao.php");
+    } else {
+        echo "asdasdasdasdasdasd";
+    }
+}
+if ($acao == "editarLocacao") {
+    $CPF_Cliente = $_POST['CPF_Cliente'];
+    $placa = $_POST['placa'];
+    $dataLocacao = $_POST['dataLoc'];
+    $Km = $_POST['Km'];
+    $atv=$_POST['atv'];
+    $dataDevolucao = $_POST['dataDevolucao'];
+    $result = $conn->query("SELECT * FROM `pessoa` INNER JOIN cliente on cpf='" . $CPF_Cliente . "' and cliente.idPessoa=pessoa.id_Pessoa");
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $idCliente = $row['id_Cliente'];
+        }
+    }
+    $result = $conn->query("SELECT * FROM `carro` WHERE placa='" . $placa . "' ");
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $idCarro = $row['id'];
+        }
+    } 
+    if($idCarro!=0 && $idCliente!=0) {
+        $sql = "INSERT INTO `locacao`( `dataLocacao`, `dataDevolucao`, `km`, `situacao`, `idCliente`,`idCarro`, `idFuncionario`)"
+                . " VALUES ('$dataLocacao','$dataDevolucao','$Km','$atv','$idCliente','$idCarro','1')";
+         $result = $conn->query($sql);
+         header("Location: Locacao.php");
+    } else {
+        echo "asdasdasdasdasdasd";
+    }
+}
+
+
