@@ -92,7 +92,14 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
 
             </div>
         </div>
-
+        <footer class="page-footer color-navbar-footer">
+            <div class="container">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Grupo 06</h5>
+                        <p class="grey-text text-lighten-4"><i class=" tiny material-icons">copyright</i>André Luiz; Abner Rodrigues; Diego Chiavelli; Junes Anderson; Leonardo Maciel.</p>
+                    </div>
+            </div>
+        </footer>
 
 
     </div>

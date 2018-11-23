@@ -1,16 +1,7 @@
 <?php
-
 session_start();
 include "utils.php";
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
- var_dump ($_POST); 
-=======
 var_dump($_POST);
->>>>>>> 23af77efd701e6eeccaf24080a1ff7b3534ffdc5
->>>>>>> 6b5c0162b14e0c76fa05ca06c95c1d8315d3cc17
 $acao = filter_input(INPUT_POST, 'acao', FILTER_SANITIZE_SPECIAL_CHARS);
 $tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_SPECIAL_CHARS);
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -26,7 +17,6 @@ if ($acao == "excluir") {
 
 if ($acao == "salvar") {
     if ($tipo == "cliente") {
-<<<<<<< HEAD
          $nome = $_POST['nomeCliente'];
          $endereco = $_POST['enderecoCliente'];
          $rg = $_POST['rgCliente'];
@@ -44,7 +34,6 @@ if ($acao == "salvar") {
                 header("Location: GerenciamentoCliente.php");
                  //var_dump ($ultimo);
                  
-            
         } else {
             var_dump ($_POST);
                 $sql = "UPDATE `pessoa` SET `nome`='$nome',`rg`='$rg',`cpf`='$cpf',`endereco`='$endereco',`tipo`='$tipo',`login`='$login',`senha`='$senha' WHERE `id`= '$id'";
@@ -54,8 +43,6 @@ if ($acao == "salvar") {
                 $result = $conn->query($sql);
                 header("Location: GerenciamentoCliente.php");
         }
-        
-=======
         $nome = $_POST['nome'];
         $endereco = $_POST['endereco'];
         $rg = $_POST['rg'];
@@ -76,8 +63,6 @@ if ($acao == "salvar") {
     }
 
 
->>>>>>> 23af77efd701e6eeccaf24080a1ff7b3534ffdc5
-
     if ($tipo == "veiculo") {
         $placa = $_POST['placa'];
         $nome = $_POST['nome'];
@@ -95,11 +80,9 @@ if ($acao == "salvar") {
         header("Location: GerenciamentoVeiculo.php");
     }
 }
-<<<<<<< HEAD
 
-}
+
       
-=======
 if ($acao == "salvarLocacao") {
     $CPF_Cliente = $_POST['CPF_Cliente'];
     $placa = $_POST['placa'];
@@ -137,7 +120,8 @@ if ($acao == "editarPerfilCliente") {
     $result = $conn->query($sql);
     $sql = "UPDATE cliente SET cnh='$cnh',numeroDependentes='$dependente' WHERE id_Cliente='$id_cliente'";
     $result = $conn->query($sql);
-    header("Location: index.php");     
+    unset($_SESSION['login']);
+    unset($_SESSION['senha']);
+    $_SESSION['entrou'] = false;
+    header('location:login.php');
 }
-    
->>>>>>> 23af77efd701e6eeccaf24080a1ff7b3534ffdc5
