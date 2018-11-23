@@ -5,23 +5,42 @@ import java.io.Serializable;
 public class Locacao implements Serializable {
     private Float dataDevolucao, dataRetirada;
     private Integer id;
-    private Float kmFinal;
-    private Cliente cliente;
-    private Veiculo veiculo;
-    //private  funcio
+    private Float kmInicial, kmFinal;
+    private Integer idCliente;
+    private String placaCarro;
+    private Integer idFuncionario;
 
-    public Veiculo getVeiculo() {
-        return veiculo;
+    public String getPlacaCarro() {
+        return placaCarro;
     }
-    public void setVeiculo(Veiculo veiculo) {
-        this.veiculo = veiculo;
+
+    public void setPlacaCarro(String placaCarro) {
+        this.placaCarro = placaCarro;
     }
-    public Cliente getCliente() {
-        return cliente;
+
+
+
+    public Integer getIdFuncionario() {
+        return idFuncionario;
     }
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+
+    public void setIdFuncionario(Integer idFuncionario) {
+        this.idFuncionario = idFuncionario;
     }
+
+    public Integer getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
+    }
+
+
+
+//private  funcio
+
+
     public Float getDataDevolucao() {
         return dataDevolucao;
     }
@@ -55,5 +74,13 @@ public class Locacao implements Serializable {
     }
     public void selecionarLocacao(){
 
+    }
+
+    public Float getKmInicial() {
+        return kmInicial;
+    }
+
+    public void setKmInicial(Float kmInicial) {
+        this.kmInicial = kmInicial;
     }
 }

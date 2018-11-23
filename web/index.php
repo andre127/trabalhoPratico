@@ -24,6 +24,7 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
                             <div><a id='logo-container' href='#' class='brand-logo'><img src='img/logoEscritoNavbar.png' width='80%' height='80%'></a>
                                 <ul class='right hide-on-med-and-down'>
                                     <li><a href='EditarPerfilCliente.php'>".$_SESSION["nome"]."</a></li>
+                                    <li><a href='finalizarSession.php'>Sair</a></li> 
                                 </ul>
                             </div>
                         </nav>";
@@ -32,7 +33,8 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
                             <div><a id='logo-container' href='#' class='brand-logo'><img src='img/logoEscritoNavbar.png' width='80%' height='80%'></a>
                                 <ul class='right hide-on-med-and-down'>
                                     <li><a href='#'>".$_SESSION["nome"]."</a></li>
-                                    <li><a href='GerenciamentoLocadora'>Painel de controle</a></li>   
+                                    <li><a href='GerenciamentoLocadora.php'>Painel de controle</a></li>
+                                    <li><a href='finalizarSession.php'>Sair</a></li> 
                                 </ul>
                             </div>
                         </nav>";                
@@ -97,11 +99,10 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
         <?php
         $sql = "SELECT * FROM carro WHERE 1";
         $result = $conn->query($sql);
-
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<ul data-id='" . $row['id'] . "'class = 'listaAnuncios'>";
-                echo "<a href='GerenciarLocacoes.php'><li class = 'card-panel anuncios col s2'>" .
+                echo "<a href='CadastroLocacao.php?id=".$row['id']."'><li class = 'card-panel anuncios col s2'>" .
                 "<div class='div-img-anuncio'>"
                 . "<img class='img-anuncio' src ='img/" . $row['img'] . "'>"
                 . "</div>" .

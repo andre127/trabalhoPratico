@@ -1,5 +1,6 @@
 <?php
    include "utils.php";
+ 
 ?>
 <html>
     <head>
@@ -48,16 +49,15 @@
                         $result = $conn->query($sql);
 
                         if($result->num_rows>0){
-                            while($row = $result->fetch_assoc()){
-                                echo "<tr data-id='".$row['id']."' class='linhas' >";
-                                echo "<td id= 'tb'>".$row['id']."</td>";
-                                echo "<td>".$row['nome']."</td>";
-                                echo "<td>".$row['rg']."</td>";
-                                echo "<td>".$row['cpf']."</td>";
-                                echo "<td>".$row['cnh']."</td>";
-                                echo "<td>".$row['endereco']."</td>";
-                                echo "<td ><i  class='material-icons prefix'></i> </td>";
-                                echo "</tr>";
+                            while($row = $result->fetch_assoc()){ 
+                               echo "</tr>";
+                                  echo "<td ><a href='CadastroCliente.php?id=".$row['id']."'>".$row['id']."</a></td>";
+                                  echo "<td ><a href='CadastroCliente.php?id=".$row['id']."'>".$row['nome']."</a></td>";
+                                  echo "<td ><a href='CadastroCliente.php?id=".$row['id']."'>".$row['rg']."</a></td>";
+                                  echo "<td ><a href='CadastroCliente.php?id=".$row['id']."'>".$row['cpf']."</a></td>";
+                                  echo "<td ><a href='CadastroCliente.php?id=".$row['id']."'>".$row['cnh']."</a></td>";
+                                  echo "<td ><a href='CadastroCliente.php?id=".$row['id']."'>".$row['endereco']."</a></td>";
+                               echo "</tr>";
                             }
                         }
                     ?>
@@ -67,14 +67,7 @@
             </div>
            </div>
        </div> 
-        
-        
-        
-        
-        
-        
-        
-        
+            
         <!--  Scripts-->
                 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
                 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>

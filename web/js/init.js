@@ -7,12 +7,28 @@
         $('.sidenav').sidenav();
     });
 
-    // end of document ready
+    $('#teste').click(function (){
+        $('#nomeCliente').val('teste');
+    });
+    
+    $(function(){
+         $('.linhas').click(function (){
+          var linha = $(this);
+          if(confirm("Deseja mesmo exluir "+$(this).find(":nth-child(2)").html()+"?")){
+            //Exclui a pessoa
+              $.post('GerenciamentoCliente.php',{tipo:"funcionario",acao:'excluir',id:$(this).children().first().html()}).done(function (data) {
+                  if(data==""){
+                    linha.remove();
+                  }
+              });
+          }
+      });
+     
+  });
+
     $('.linhas').click(function () {
         // var linha = $(this);
         // if (confirm("Deseja mesmo exluir " + $(this).find(":nth-child(1)").html() + "?")) {
-
-
         window.open("http://localhost/trabalhoPratico/web/CadastroCliente.php");
         $('nomeCliente').val('teste');
 
@@ -65,5 +81,9 @@
 ////    $('#btncancelar').click(function () {
 ////        window.location.replace("Locacao.php");
 //  });
+
+    $('#btnEditarCliente').click(function(){
+       alert ("Informações alteradas com sucesso, por favor faça o login novamente"); 
+    });
 
 })(jQuery); // end of jQuery name space

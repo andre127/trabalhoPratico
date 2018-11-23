@@ -1,5 +1,16 @@
 <?php
+session_start();
 include "utils.php";
+   if(!empty($_GET["id"])){
+   $id= $_GET["id"];
+   $sql = "SELECT * FROM carro WHERE id='$id'";
+   $result = $conn->query($sql);
+   $row = $result->fetch_assoc();
+   
+   $valid=$row['id'];
+   } else {
+     $valid='novo';
+}
 ?>
 
 <html lang="en">
@@ -41,6 +52,7 @@ include "utils.php";
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">account_circle</i>
                                     <input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" data-target="modalClientes" value="<?php if (!empty($row['id_Locacao'])) echo $row['cpf'] ?>">
+                                    <input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" data-target="modalClientes" value="<?php if(!empty($_SESSION['cpf']))echo $_SESSION['cpf'] ?>">
                                     <label for="numero">CPF Cliente</label>
                                 </div>          
                             </div>

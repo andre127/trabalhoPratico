@@ -7,7 +7,36 @@
     tools:context="unigran.projeto.br.gerenciamentoLocacao.LocacaoRetirada">
 
     <EditText
-        android:id="@+id/etCpfCliente"
+        android:id="@+id/etDataDevolucao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Data Devolução"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etKmFinal" />
+
+    <EditText
+        android:id="@+id/etKmFinal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Km Final"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etKmInicial" />
+
+    <EditText
+        android:id="@+id/etIdCliente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -20,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCpfFuncionario" />
+        app:layout_constraintTop_toBottomOf="@+id/etIdFuncionario" />
 
     <EditText
         android:id="@+id/etPlacaCarro"
@@ -36,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCpfCliente" />
+        app:layout_constraintTop_toBottomOf="@+id/etIdCliente" />
 
     <EditText
         android:id="@+id/etDataRetirada"
@@ -53,14 +82,14 @@
         app:layout_constraintTop_toBottomOf="@+id/etPlacaCarro" />
 
     <EditText
-        android:id="@+id/etKmRetirada"
+        android:id="@+id/etKmInicial"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="Km"
+        android:hint="Km Inicial"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -72,26 +101,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="148dp"
         android:layout_marginEnd="8dp"
         android:onClick="confirmar"
         android:text="Confirmar"
         app:layout_constraintEnd_toStartOf="@+id/btnCancelar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etKmRetirada" />
+        app:layout_constraintTop_toBottomOf="@+id/etKmInicial" />
 
     <Button
         android:id="@+id/btnCancelar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="144dp"
         android:layout_marginEnd="8dp"
         android:onClick="cancelar"
         android:text="Cancelar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnConfirmar"
-        app:layout_constraintTop_toBottomOf="@+id/etKmRetirada" />
+        app:layout_constraintTop_toBottomOf="@+id/etKmInicial" />
 
     <TextView
         android:id="@+id/tvRetirada"
@@ -107,14 +136,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etCpfFuncionario"
+        android:id="@+id/etIdFuncionario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="CPF do Funcionario"
+        android:hint="ID do Funcionario"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

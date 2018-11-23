@@ -50,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etNomeCliente" />
 
     <EditText
-        android:id="@+id/etCpfCliente"
+        android:id="@+id/etIdCliente"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -75,7 +75,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCpfCliente" />
+        app:layout_constraintTop_toBottomOf="@+id/etIdCliente" />
 
     <EditText
         android:id="@+id/etCnhCliente"
