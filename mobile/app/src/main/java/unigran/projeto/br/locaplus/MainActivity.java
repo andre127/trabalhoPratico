@@ -1,6 +1,7 @@
 package unigran.projeto.br.locaplus;
 
 import android.app.AlertDialog;
+import android.arch.lifecycle.LifecycleOwner;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -39,16 +40,16 @@ public class MainActivity extends AppCompatActivity
     private ListView lista;
     private SQLiteDatabase conexao;
     private Banco bd;
+    private LoginActivity loginActivity = new LoginActivity();
+    private String entrou;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         lista=findViewById(R.id.listarVeiculosMain);
 
-        acoes();
+        //acoes();
         conexaoBD();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void acoes() {
+    /*private void acoes() {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
                 Toast.makeText(MainActivity.this, "id:"+i, Toast.LENGTH_LONG).show();
@@ -89,6 +90,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
+    */
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -156,8 +158,8 @@ public class MainActivity extends AppCompatActivity
             Intent it = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(it);
         } else if (id == R.id.nav_carros) {
-            Intent it = new Intent(MainActivity.this, ListarVeiculo.class);
-            startActivity(it);
+                Intent it = new Intent(MainActivity.this, ListarVeiculo.class);
+                startActivity(it);
         } else if (id == R.id.nav_clientes) {
             Intent it = new Intent(this, ListarCliente.class);
             startActivity(it);
@@ -166,9 +168,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(it);
         } else if (id == R.id.nav_funcionarios) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_exit) {
+            this.finishAffinity();
 
         }
 

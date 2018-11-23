@@ -5,9 +5,9 @@ include "utils.php";
    $id= $_GET["id"];
    $sql = "SELECT * FROM carro WHERE id='$id'";
    $result = $conn->query($sql);
-   $row = $result->fetch_assoc();
+   $row1 = $result->fetch_assoc();
    
-   $valid=$row['id'];
+   $valid=$row1['id'];
    } else {
      $valid='novo';
 }
@@ -51,7 +51,7 @@ include "utils.php";
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">account_circle</i>
-                                    <input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" data-target="modalClientes" value="<?php if (!empty($row['id_Locacao'])) echo $row['cpf'] ?>">
+                                    <!--<input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" data-target="modalClientes" value="<?php //if (!empty($row['id_Locacao'])) echo $row['cpf'] ?>">-->
                                     <input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" data-target="modalClientes" value="<?php if(!empty($_SESSION['cpf']))echo $_SESSION['cpf'] ?>">
                                     <label for="numero">CPF Cliente</label>
                                 </div>          
@@ -59,7 +59,8 @@ include "utils.php";
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">directions_car</i>
-                                    <input id="placa" name="placa" type="text" class="form validate" value="<?php if (!empty($row['id_Locacao'])) echo $row['placa'] ?>">
+                                    <input id="placa" name="placa" type="text" class="form validate" value="<?php if(!empty($row1['placa']))echo $row1['placa'] ?>">
+                                    <!--<input id="placa" name="placa" type="text" class="form validate" value="<?php //if (!empty($row['id_Locacao'])) echo $row['placa'] ?>">-->
                                     <label for="placa">Placa do carro</label>
                                 </div>          
                             </div>
