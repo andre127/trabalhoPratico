@@ -27,7 +27,7 @@ if ($acao == "salvar") {
         $login = $_POST['loginCliente'];
         $senha = $_POST['senhaCliente'];
         if ($id == "novo") {
-            $sql = "INSERT INTO pessoa(nome, rg, cpf, endereco, tipo, login, senha) VALUES ('$nome', '$rg', '$cpf', '$endereco','$tipo', '$login', '$senha')";
+            $sql = "INSERT INTO pessoa(nome_Pessoa, rg, cpf, endereco, tipo, login, senha) VALUES ('$nome', '$rg', '$cpf', '$endereco','$tipo', '$login', '$senha')";
             $result = $conn->query($sql);
             $ultimo = mysqli_insert_id($conn);
             $sql = "INSERT INTO cliente(cnh, numeroDependentes,idPessoa) VALUES ('$cnh', '$dependente','$ultimo')";
@@ -35,31 +35,15 @@ if ($acao == "salvar") {
             header("Location: GerenciamentoCliente.php");
             //var_dump ($ultimo);
         } else {
-            var_dump($_POST);
-            $sql = "UPDATE `pessoa` SET `nome`='$nome',`rg`='$rg',`cpf`='$cpf',`endereco`='$endereco',`tipo`='$tipo',`login`='$login',`senha`='$senha' WHERE `id`= '$id'";
+            //var_dump($_POST);
+            $sql = "UPDATE `pessoa` SET `nome_Pessoa`='$nome',`rg`='$rg',`cpf`='$cpf',`endereco`='$endereco',`tipo`='$tipo',`login`='$login',`senha`='$senha' WHERE `id_Pessoa`= '$id'";
             $result = $conn->query($sql);
 
             $sql = "UPDATE `cliente` SET `cnh`='$cnh',`numeroDependentes`='$dependente' WHERE `idPessoa`='$id'";
             $result = $conn->query($sql);
             header("Location: GerenciamentoCliente.php");
         }
-        $nome = $_POST['nome'];
-        $endereco = $_POST['endereco'];
-        $rg = $_POST['rg'];
-        $cpf = $_POST['cpf'];
-        $cnh = $_POST['cnh'];
-        $dependente = $_POST['dependente'];
-        $login = $_POST['login'];
-        $senha = $_POST['senha'];
-
-        $sql = "INSERT INTO pessoa(nome, rg, cpf, endereco, tipo, login, senha) VALUES ('$nome', '$rg', '$cpf', '$endereco','$tipo', '$login', '$senha')";
-        $result = $conn->query($sql);
-        $ultimo = mysqli_insert_id($conn);
-        $sql = "INSERT INTO cliente(cnh, numeroDependentes,idPessoa) VALUES ('$cnh', '$dependente','$ultimo')";
-        $result = $conn->query($sql);
-        header("Location: GerenciamentoCliente.php");
-        //var_dump ($ultimo);
-        // var_dump ($_POST);   
+         
     }
 
 
