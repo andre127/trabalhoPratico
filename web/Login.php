@@ -17,11 +17,12 @@ session_start();
     <body>
         <nav class ="color-navbar-footer" role="navigation">
             <div><a id="logo-container" href="#" class="brand-logo"><img src="img/logoEscritoNavbar.png" width="80%" height="80%"></a>
+            <ul class="right hide-on-med-and-down">
+                    <li><a href="CadastroCliente.php">Registrar-se</a></li>
+                </ul>
             </div>
+
         </nav>
-
-
-
         <div class="section no-pad-bot" id="index-banner">
             <div class="container center">
                 <img src="img/logoRender.png" style="width:50%;  height:50%" class="header center orange-text">
@@ -47,9 +48,9 @@ session_start();
                     </div>
                 </div> 
                 <!-- botoes-->
-                <div class ="row" align = "center">
+
+                <div class ="row" align="center">
                     <input id ="btn_login" type="submit" value="Entrar" class="light-blue darken-4 btn"/>
-                    <button class="light-blue darken-4 btn modal-trigger modal-close">Fechar</button>
                 </div>
             </form>
         </div>
@@ -64,10 +65,10 @@ session_start();
         <!-- Footer -->
         <footer class="page-footer color-navbar-footer">
             <div class="container">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Grupo 06</h5>
-                        <p class="grey-text text-lighten-4"><i class=" tiny material-icons">copyright</i>André Luiz; Abner Rodrigues; Diego Chiavelli; Junes Anderson; Leonardo Maciel.</p>
-                    </div>
+                <div class="col l6 s12">
+                    <h5 class="white-text">Grupo 06</h5>
+                    <p class="grey-text text-lighten-4"><i class=" tiny material-icons">copyright</i>André Luiz; Abner Rodrigues; Diego Chiavelli; Junes Anderson; Leonardo Maciel.</p>
+                </div>
             </div>
         </footer>
 

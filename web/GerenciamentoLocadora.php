@@ -35,13 +35,8 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
             <!-- Menu suspenso -->
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header">Carros<i class="material-icons">directions_car</i></a>
+                    <a href = "GerenciamentoVeiculo.php"class="collapsible-header">Veiculos<i class="material-icons">directions_car</i></a>
                     <div class="collapsible-body">
-                        <ul>
-                            <li><a href="CadastroVeiculo.php">Cadastrar Carro</a></li>
-                            <li><a href="#!">Editar Carro</a></li>
-                            <li><a href="#!">Listar Carros</a></li>
-                        </ul>
                     </div>
                 </li>
             </ul>

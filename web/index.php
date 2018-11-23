@@ -18,6 +18,7 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
     <body>
+        <!-- NavBar personalizada de acordo com usuario -->
         <?php
             if ($_SESSION['tipo'] == 'cliente'){
                 echo "<nav class ='color-navbar-footer' role='navigation' style='z-index: 1'>
@@ -41,16 +42,6 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
             }
         ?>
         <br><br>
-        <!--
-        <nav class ="color-navbar-footer" role="navigation" style="z-index: 1">
-            <div><a id="logo-container" href="#" class="brand-logo"><img src="img/logoEscritoNavbar.png" width="80%" height="80%"></a>
-                <ul class="right hide-on-med-and-down">
-                    <li class="modal-trigger" data-target="modalLogin"><a href="$">Entrar</a></li>
-                    <li><a href="CadastroCliente.php">Registrar-se</a></li>
-                </ul>
-            </div>
-        </nav>
-        -->
         <!-- Slider Topo -->
         <div class="slider" style="z-index: 0">
             <ul class="slides">
@@ -72,7 +63,7 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
                     </div>
                 </li>
                 <li>
-                    <img src="img/impala.jpg"> <!-- random image -->
+                    <img src="img/impala.jpg">
                     <div class="caption right-align">
                         <h3>Nas melhores condições</h3>
                     </div>
