@@ -1,6 +1,7 @@
 package unigran.projeto.br.locaplus;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import unigran.projeto.br.Classes.Cliente;
+import unigran.projeto.br.Listagem.ListarCliente;
 import unigran.projeto.br.Pesistencia.Banco;
 
 public class CadastroCliente extends AppCompatActivity {
@@ -21,6 +23,8 @@ public class CadastroCliente extends AppCompatActivity {
     private EditText rg;
     private EditText cnh;
     private EditText dependentes;
+    private EditText login;
+    private EditText senha;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +35,8 @@ public class CadastroCliente extends AppCompatActivity {
         rg=findViewById(R.id.etRgCliente);
         cnh= findViewById(R.id.etCnhCliente);
         dependentes=findViewById(R.id.etDependentes);
+        login= findViewById(R.id.editLoginCliente);
+        senha= findViewById(R.id.editSenhaCliente);
 
         cliente= (Cliente)getIntent().getSerializableExtra("cliente");
         if(cliente!=null){
@@ -40,6 +46,8 @@ public class CadastroCliente extends AppCompatActivity {
             rg.setText(cliente.getRg());
             cnh.setText(cliente.getCnh());
             dependentes.setText(cliente.getNumeroDependentes().toString());
+            login.setText(cliente.getLogin());
+            senha.setText(cliente.getSenha());
         }
     }
     public void salvar(View view){
@@ -52,7 +60,8 @@ public class CadastroCliente extends AppCompatActivity {
             cliente.setRg(rg.getText().toString());
             cliente.setCnh(cnh.getText().toString());
             cliente.setNumeroDependentes(Integer.parseInt(dependentes.getText().toString()));
-
+            cliente.setLogin(login.getText().toString());
+            cliente.setSenha(senha.getText().toString());
            inserir();
            finish();
         }
@@ -84,12 +93,27 @@ public class CadastroCliente extends AppCompatActivity {
             return false;
         }
         if(TextUtils.isEmpty(dependentes.getText())){
-            Toast.makeText(this,"Entre com o numerp de dependentes",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Entre com o numero de dependentes",Toast.LENGTH_LONG).show();
             dependentes.requestFocus();
+            return false;
+        }
+        if(TextUtils.isEmpty(login.getText())){
+            Toast.makeText(this,"Entre um Nome de login",Toast.LENGTH_LONG).show();
+            login.requestFocus();
+            return false;
+        }
+        if(TextUtils.isEmpty(senha.getText())){
+            Toast.makeText(this,"Entre com uma Senha",Toast.LENGTH_LONG).show();
+            senha.requestFocus();
             return false;
         }
 
         return true;
+    }
+    public void cancelaCadastroCliente(View view){
+
+        Intent it = new Intent(CadastroCliente.this,ListarCliente.class);
+        startActivity(it);
     }
 
     private SQLiteDatabase conexao;
@@ -105,6 +129,8 @@ public class CadastroCliente extends AppCompatActivity {
             values.put("RG",cliente.getRg());
             values.put("CNH",cliente.getCnh());
             values.put("NUMERODEPENDENTES", cliente.getNumeroDependentes());
+            values.put("LOGIN",cliente.getLogin());
+            values.put("SENHA",cliente.getSenha());
             if(cliente.getId()==null)
                 conexao.insertOrThrow("CLIENTE",null,values);
             else

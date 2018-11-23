@@ -19,6 +19,7 @@ import java.util.List;
 import unigran.projeto.br.Classes.Cliente;
 import unigran.projeto.br.Pesistencia.Banco;
 import unigran.projeto.br.locaplus.CadastroCliente;
+import unigran.projeto.br.locaplus.MainActivity;
 import unigran.projeto.br.locaplus.R;
 
 public class ListarCliente extends AppCompatActivity {
@@ -43,7 +44,8 @@ public class ListarCliente extends AppCompatActivity {
                 p.setRg(res.getString(res.getColumnIndexOrThrow("RG")));
                 p.setCnh(res.getString(res.getColumnIndexOrThrow("CNH")));
                 p.setNumeroDependentes(res.getInt(res.getColumnIndexOrThrow("NUMERODEPENDENTES")));
-
+                p.setLogin(res.getString(res.getColumnIndexOrThrow("LOGIN")));
+                p.setSenha(res.getString(res.getColumnIndexOrThrow("SENHA")));
 
                 clientes.add(p);
             }while (res.moveToNext());
@@ -89,6 +91,11 @@ public class ListarCliente extends AppCompatActivity {
     public void novoCadastroCliente(View view){
 
         Intent it = new Intent(ListarCliente.this,CadastroCliente.class);
+        startActivity(it);
+    }
+    public void telaInicialCliente(View view){
+
+        Intent it = new Intent(ListarCliente.this,MainActivity.class);
         startActivity(it);
     }
 

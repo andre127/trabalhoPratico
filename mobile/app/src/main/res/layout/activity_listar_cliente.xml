@@ -8,28 +8,52 @@
 
     <Button
         android:id="@+id/LpBotaoCadastrarCliente"
-        android:layout_width="135dp"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="233dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="160dp"
+        android:background="@color/colorPrimary"
+        android:backgroundTint="@color/design_default_color_primary_dark"
         android:onClick="novoCadastroCliente"
         android:text="Novo"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tbnHome"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/listarCliente"
-        android:layout_width="368dp"
-        android:layout_height="387dp"
+        android:layout_width="0dp"
+        android:layout_height="444dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="24dp"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@color/design_default_color_primary_dark"
+        android:entries="@android:color/holo_blue_dark"
+        android:scrollbars="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LpBotaoCadastrarCliente"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/LpBotaoCadastrarCliente" />
+
+    <Button
+        android:id="@+id/tbnHome"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/colorPrimary"
+        android:backgroundTint="@color/design_default_color_primary_dark"
+        android:onClick="telaInicialCliente"
+        android:text="Home"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toStartOf="@+id/LpBotaoCadastrarCliente"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
