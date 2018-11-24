@@ -102,7 +102,7 @@ public class LocacaoRetirada extends AppCompatActivity{
     }
     public void listarCliente(View view){
        Intent it = new Intent(this, ListarCpfCliente.class);
-       startActivity(it);
+       startActivityForResult(it,34);
     }
     public void listarVeiculo(View view){
        // Intent it = new Intent(this, ListarVeiculo.class);

@@ -29,12 +29,13 @@ public class ListarCpfCliente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_cpf_cliente);
+        lista=findViewById(R.id.lvLocacoes);
         acoes();
         conexaoBD();
     }
     private List listar(){
         conexao=bd.getReadableDatabase();
-        List clientes = new LinkedList();
+        List cpfs = new LinkedList();
         Cursor res= conexao.rawQuery("SELECT * FROM CLIENTE", null);
 
         if(res.getCount()>0){
@@ -51,10 +52,10 @@ public class ListarCpfCliente extends AppCompatActivity {
                 p.setLogin(res.getString(res.getColumnIndexOrThrow("LOGIN")));
                 p.setSenha(res.getString(res.getColumnIndexOrThrow("SENHA")));
 
-                clientes.add(p);
+                cpfs.add(p);
             }while (res.moveToNext());
         }
-        return  clientes;
+        return  cpfs;
     }
     private void conexaoBD() {
         try {
