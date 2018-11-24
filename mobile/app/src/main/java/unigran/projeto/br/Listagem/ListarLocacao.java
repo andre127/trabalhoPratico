@@ -35,7 +35,7 @@ public class ListarLocacao extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_locacao);
         listaLocacao = findViewById(R.id.lvLocacoes);//mapeando listview
-        acoes();
+        //acoes();
         BancoDados();
     }
     //funçao para listar na tela as locacaçoes ativas e inativas
@@ -77,23 +77,23 @@ public class ListarLocacao extends AppCompatActivity {
         }
     }
 
-    private void acoes() {
+  /*  private void acoes() {
         //ao clicar no item da lista puxar os dados e a tela de cadastro preenchendo com os dados do BD, permitindo editar
         listaLocacao.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
 
             public void onItemClick(AdapterView adapterView,View view, int i, long l){
-                Intent it = new Intent(ListarLocacao.this, LocacaoRetirada.class);
+                Intent edicao = new Intent(ListarLocacao.this, LocacaoRetirada.class);
                 Locacao locacao = (Locacao) adapterView.getItemAtPosition(i);
-                it.putExtra("LOCACAO", locacao);
-                startActivity(it);
+                edicao.putExtra("locar", locacao);
+                startActivity(edicao);
             }
         });
-    }
+    }*/
 
-    public  void cadastrar(View view){
+    public  void home(View view){
         //chama a tela de cadastro
-        Intent it = new Intent(this, LocacaoRetirada.class);
+        Intent it = new Intent(ListarLocacao.this,MainActivity.class);
         startActivity(it);
 
     }
@@ -101,7 +101,6 @@ public class ListarLocacao extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //adapter para passar da lista ara o bd
         ArrayAdapter<Locacao> arrayAdapter = new ArrayAdapter<Locacao>(ListarLocacao.this,android.R.layout.simple_list_item_1,listar());
         listaLocacao.setAdapter(arrayAdapter);
     }

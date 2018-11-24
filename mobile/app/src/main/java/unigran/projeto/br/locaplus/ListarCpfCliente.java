@@ -55,8 +55,8 @@ public class ListarCpfCliente extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listar_cliente);
-        lista=findViewById(R.id.listarCliente);
+        setContentView(R.layout.activity_listar_cpf_cliente);
+        lista=findViewById(R.id.lvListarCpfCliente);
         acoes();
         conexaoBD();
     }
@@ -80,9 +80,9 @@ public class ListarCpfCliente extends AppCompatActivity {
                 Intent it = new Intent(ListarCpfCliente.this,LocacaoRetirada.class);
                 Cliente cliente = (Cliente) adapterView.getItemAtPosition(i);
                 it.putExtra("cpf", cliente.getCpf());
-                setResult(50);
+                //setResult(50);
                 finish();
-               startActivityForResult(it,50);
+               //startActivityForResult(it,50);
             }
         });
 

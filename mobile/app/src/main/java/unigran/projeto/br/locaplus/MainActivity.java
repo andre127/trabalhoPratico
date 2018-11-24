@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
                 Toast.makeText(MainActivity.this, "id:"+i, Toast.LENGTH_LONG).show();
                 Intent it = new Intent(MainActivity.this, LocacaoRetirada.class);
-                Veiculo locacao = (Veiculo) adapterView.getItemAtPosition(i);
-                it.putExtra("locacao", locacao);
+                Veiculo veiculo = (Veiculo) adapterView.getItemAtPosition(i);
+                it.putExtra("locacao", veiculo);
                 startActivity(it);
             }
         });

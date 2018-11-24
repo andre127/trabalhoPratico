@@ -44,7 +44,8 @@ public class LocacaoRetirada extends AppCompatActivity{
             locacao.setPlacaCarro(veiculo.getPlaca());
 
         }
-// Locacao locacao =(Locacao) getIntent().getSerializableExtra("locar");
+
+        // Locacao locacao =(Locacao) getIntent().getSerializableExtra("locar");
         if(locacao!=null){
            if(locacao.getCpfCliene()!=null) cpfCliente.setText(locacao.getCpfCliene());
             if(locacao.getCpfFuncionario()!=null) cpfFuncionario.setText(locacao.getCpfFuncionario());
@@ -60,9 +61,9 @@ public class LocacaoRetirada extends AppCompatActivity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode==50){
+        //if (resultCode==50){
             cpfCliente.setText(data.getStringExtra("cpf"));
-        }
+       // }
     }
 
     public void confirmar(View view){
