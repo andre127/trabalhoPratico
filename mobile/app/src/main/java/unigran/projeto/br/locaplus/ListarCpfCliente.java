@@ -25,17 +25,11 @@ public class ListarCpfCliente extends AppCompatActivity {
     private ListView lista;
     private SQLiteDatabase conexao;
     private Banco bd;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listar_cpf_cliente);
-        lista=findViewById(R.id.lvLocacoes);
-        acoes();
-        conexaoBD();
-    }
+
     private List listar(){
+
         conexao=bd.getReadableDatabase();
-        List cpfs = new LinkedList();
+        List clientes = new LinkedList();
         Cursor res= conexao.rawQuery("SELECT * FROM CLIENTE", null);
 
         if(res.getCount()>0){
@@ -52,10 +46,19 @@ public class ListarCpfCliente extends AppCompatActivity {
                 p.setLogin(res.getString(res.getColumnIndexOrThrow("LOGIN")));
                 p.setSenha(res.getString(res.getColumnIndexOrThrow("SENHA")));
 
-                cpfs.add(p);
+                clientes.add(p);
             }while (res.moveToNext());
         }
-        return  cpfs;
+        return  clientes;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_listar_cliente);
+        lista=findViewById(R.id.listarCliente);
+        acoes();
+        conexaoBD();
     }
     private void conexaoBD() {
         try {
@@ -79,7 +82,7 @@ public class ListarCpfCliente extends AppCompatActivity {
                 it.putExtra("cpf", cliente.getCpf());
                 setResult(50);
                 finish();
-               // startActivityForResult(it,50);
+               startActivityForResult(it,50);
             }
         });
 

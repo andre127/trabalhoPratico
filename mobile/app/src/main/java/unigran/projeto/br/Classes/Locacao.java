@@ -3,54 +3,34 @@ package unigran.projeto.br.Classes;
 import java.io.Serializable;
 
 public class Locacao implements Serializable {
-    private Float dataDevolucao, dataRetirada;
+    //criação dos atributos de locação
+    private Integer dataDevolucao, dataRetirada;
     private Integer id;
-    private Float kmInicial, kmFinal;
-    private Integer idCliente;
-    private String placaCarro;
-    private Integer idFuncionario;
+    private Integer km;
+    private Integer cpfCliene, cpfFuncionario;
+    private String placaCarro, situaçaos;
 
+    //get e set dos atributos
+
+    public String getSituaçaos() {
+        return situaçaos;
+    }
+    public void setSituaçaos(String situaçaos) {
+        this.situaçaos = situaçaos;
+    }
     public String getPlacaCarro() {
         return placaCarro;
     }
-
-    public void setPlacaCarro(String placaCarro) {
-        this.placaCarro = placaCarro;
-    }
-
-
-
-    public Integer getIdFuncionario() {
-        return idFuncionario;
-    }
-
-    public void setIdFuncionario(Integer idFuncionario) {
-        this.idFuncionario = idFuncionario;
-    }
-
-    public Integer getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
-    }
-
-
-
-//private  funcio
-
-
-    public Float getDataDevolucao() {
+    public Integer getDataDevolucao() {
         return dataDevolucao;
     }
-    public void setDataDevolucao(Float dataDevolucao) {
+    public void setDataDevolucao(Integer dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
-    public Float getDataRetirada() {
+    public Integer getDataRetirada() {
         return dataRetirada;
     }
-    public void setDataRetirada(Float dataRetirada) {
+    public void setDataRetirada(Integer dataRetirada) {
         this.dataRetirada = dataRetirada;
     }
     public Integer getId() {
@@ -59,28 +39,39 @@ public class Locacao implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Float getKmFinal() {
-        return kmFinal;
+    public Integer getKm() {
+        return km;
     }
-    public void setKmFinal(Float kmFinal) {
-        this.kmFinal = kmFinal;
+    public void setKm(Integer km) {
+        this.km = km;
     }
-
-    public void encerrarLocacao(Integer data, Float km){
-
+    public void setPlacaCarro(String placaCarro) {
+        this.placaCarro = placaCarro;
     }
-    public void manterLocacao(){
-
+    public Integer getCpfCliene() {
+        return cpfCliene;
     }
-    public void selecionarLocacao(){
-
-    }
-
-    public Float getKmInicial() {
-        return kmInicial;
+    public void setCpfCliene(Integer cpfCliene) {
+        this.cpfCliene = cpfCliene;
     }
 
-    public void setKmInicial(Float kmInicial) {
-        this.kmInicial = kmInicial;
+    public Integer getCpfFuncionario() {
+        return cpfFuncionario;
+    }
+
+    public void setCpfFuncionario(Integer cpfFuncionario) {
+        this.cpfFuncionario = cpfFuncionario;
+    }
+
+
+    //tostring para mostrar apenas esses dados no listar
+    @Override
+    public String toString() {
+        return "CPF Cliente:  "+getCpfCliene()+
+                "\nData Locação:  "+getDataRetirada()+
+                "\nData Devolução:  "+getDataDevolucao()+
+                "\nPlaca: "+getPlacaCarro()+
+                "\nKM :"+getKm()+
+                "\n Situação: "+getSituaçaos();
     }
 }

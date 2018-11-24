@@ -22,6 +22,7 @@ import unigran.projeto.br.Classes.Locacao;
 import unigran.projeto.br.Pesistencia.Banco;
 import unigran.projeto.br.gerenciamentoLocacao.LocacaoRetirada;
 import unigran.projeto.br.locaplus.CadastroCliente;
+import unigran.projeto.br.locaplus.MainActivity;
 import unigran.projeto.br.locaplus.R;
 
 public class ListarLocacao extends AppCompatActivity {
@@ -33,12 +34,36 @@ public class ListarLocacao extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_locacao);
-        listaLocacao = findViewById(R.id.lvLocacoes);
+        listaLocacao = findViewById(R.id.lvLocacoes);//mapeando listview
         acoes();
         BancoDados();
     }
+    //funçao para listar na tela as locacaçoes ativas e inativas
+    private List listar() {
+        conexao=bd.getReadableDatabase();
+        List locacoes = new LinkedList();
+        Cursor res= conexao.rawQuery("SELECT * FROM LOCACAO", null);
+        if(res.getCount()>0){
+            res.moveToFirst();
+            do{
+                //pegando dados do banco e passadno para uma lista para listar
+                Locacao loc = new Locacao();
+                loc.setId(res.getInt(res.getColumnIndexOrThrow("ID_LOCACAO")));
+                loc.setDataRetirada(res.getInt(res.getColumnIndexOrThrow("DATALOCACAO")));
+                loc.setDataDevolucao(res.getInt(res.getColumnIndexOrThrow("DATADEVOLUCAO")));
+                loc.setKm(res.getInt(res.getColumnIndexOrThrow("QUILOMETRAGEM")));
+                loc.setCpfCliene(res.getInt(res.getColumnIndexOrThrow("CPFCLIENTE")));
+                loc.setCpfFuncionario(res.getInt(res.getColumnIndexOrThrow("CPFFUNCIONARIO")));
+                loc.setPlacaCarro(res.getString(res.getColumnIndexOrThrow("PLACACARRO")));
+                loc.setSituaçaos(res.getString(res.getColumnIndexOrThrow("SITUACAO")));
+                locacoes.add(loc);
+            }while (res.moveToNext());
+        }
+        return  locacoes;//retornado a lista
+    }
 
     private void BancoDados() {
+        //tratanto caso de erro na conexao
         try {
             bd= new Banco(this);
             Toast.makeText(this,"Conexão ok",Toast.LENGTH_LONG).show();
@@ -53,45 +78,31 @@ public class ListarLocacao extends AppCompatActivity {
     }
 
     private void acoes() {
+        //ao clicar no item da lista puxar os dados e a tela de cadastro preenchendo com os dados do BD, permitindo editar
         listaLocacao.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
 
             public void onItemClick(AdapterView adapterView,View view, int i, long l){
-                Intent it = new Intent(ListarLocacao.this,LocacaoRetirada.class);
+                Intent it = new Intent(ListarLocacao.this, LocacaoRetirada.class);
                 Locacao locacao = (Locacao) adapterView.getItemAtPosition(i);
-                it.putExtra("locacao", locacao);
+                it.putExtra("LOCACAO", locacao);
                 startActivity(it);
             }
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        ArrayAdapter<Locacao> arrayAdapter = new ArrayAdapter<Locacao>(this,android.R.layout.simple_list_item_1,listar());
-        listaLocacao.setAdapter(arrayAdapter);
-    }
-
-    private List listar() {
-        conexao=bd.getReadableDatabase();
-        List locacoes = new LinkedList();
-        Cursor res= conexao.rawQuery("SELECT * FROM locacao", null);
-        if(res.getCount()>0){
-            res.moveToFirst();
-            do{
-                Locacao loc = new Locacao();
-                loc.setId(res.getInt(res.getColumnIndexOrThrow("ID")));
-                loc.setDataRetirada(res.getFloat(res.getColumnIndexOrThrow("dataDevolucao")));
-                loc.setKmFinal(res.getFloat(res.getColumnIndexOrThrow("quilometragem")));
-                locacoes.add(loc);
-            }while (res.moveToNext());
-        }
-        return  locacoes;
-    }
-
     public  void cadastrar(View view){
+        //chama a tela de cadastro
         Intent it = new Intent(this, LocacaoRetirada.class);
         startActivity(it);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //adapter para passar da lista ara o bd
+        ArrayAdapter<Locacao> arrayAdapter = new ArrayAdapter<Locacao>(ListarLocacao.this,android.R.layout.simple_list_item_1,listar());
+        listaLocacao.setAdapter(arrayAdapter);
     }
 }
