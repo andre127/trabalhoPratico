@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etNomeCliente" />
 
     <EditText
-        android:id="@+id/etIdCliente"
+        android:id="@+id/etICpfCliente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -76,7 +76,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/etCnhCliente"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etIdCliente" />
+        app:layout_constraintTop_toBottomOf="@+id/etICpfCliente" />
 
     <EditText
         android:id="@+id/etCnhCliente"
@@ -103,7 +103,7 @@
         android:hint="DEPENDENTES"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etIdCliente"
+        app:layout_constraintStart_toEndOf="@+id/etICpfCliente"
         app:layout_constraintTop_toBottomOf="@+id/etEnderecoCliente" />
 
     <EditText

@@ -36,7 +36,8 @@
         <activity android:name="unigran.projeto.br.Listagem.ListarVeiculo" />
         <activity android:name="unigran.projeto.br.gerenciamento.GerVeiculo" />
         <activity android:name=".CadastroCliente" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ListarCpfCliente"></activity>
     </application>
 
 </manifest>

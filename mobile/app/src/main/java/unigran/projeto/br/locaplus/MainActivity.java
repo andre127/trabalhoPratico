@@ -31,6 +31,7 @@ import java.util.List;
 import unigran.projeto.br.Classes.Locacao;
 import unigran.projeto.br.Classes.Veiculo;
 import unigran.projeto.br.Listagem.ListarCliente;
+import unigran.projeto.br.Listagem.ListarLocacao;
 import unigran.projeto.br.Listagem.ListarVeiculo;
 import unigran.projeto.br.Pesistencia.Banco;
 import unigran.projeto.br.gerenciamentoLocacao.LocacaoRetirada;
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         lista=findViewById(R.id.listarVeiculosMain);
 
-        //acoes();
         conexaoBD();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        acoes();
+
     }
     private void conexaoBD() {
         try {
@@ -79,18 +81,18 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    /*private void acoes() {
+    private void acoes() {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
                 Toast.makeText(MainActivity.this, "id:"+i, Toast.LENGTH_LONG).show();
                 Intent it = new Intent(MainActivity.this, LocacaoRetirada.class);
-                Locacao locacao = (Locacao)adapterView.getItemAtPosition(i);
+                Veiculo locacao = (Veiculo) adapterView.getItemAtPosition(i);
                 it.putExtra("locacao", locacao);
                 startActivity(it);
             }
         });
     }
-    */
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -164,7 +166,7 @@ public class MainActivity extends AppCompatActivity
             Intent it = new Intent(this, ListarCliente.class);
             startActivity(it);
         } else if (id == R.id.nav_locacoes) {
-            Intent it = new Intent(this, ListarCliente.class);
+            Intent it = new Intent(this, ListarLocacao.class);
             startActivity(it);
         } else if (id == R.id.nav_funcionarios) {
 

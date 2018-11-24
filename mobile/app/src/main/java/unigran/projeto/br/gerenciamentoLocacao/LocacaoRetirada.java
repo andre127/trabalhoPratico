@@ -1,20 +1,21 @@
 package unigran.projeto.br.gerenciamentoLocacao;
 
-import android.content.ContentValues;
-import android.database.SQLException;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import unigran.projeto.br.Classes.Locacao;
+import unigran.projeto.br.Classes.Veiculo;
 import unigran.projeto.br.Pesistencia.Banco;
+import unigran.projeto.br.locaplus.ListarCpfCliente;
 import unigran.projeto.br.locaplus.R;
 
 public class LocacaoRetirada extends AppCompatActivity{
-    private EditText idCliente, idFuncionario,placaCarro, dataRetirada,dataDevolucao, kmInicial,kmFinal;
+    private EditText cpfCliente, idFuncionario,placaCarro, dataRetirada,dataDevolucao, kmInicial,kmFinal;
     private SQLiteDatabase conexao;
     private Banco bd;
     private Locacao locacao;
@@ -25,39 +26,55 @@ public class LocacaoRetirada extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locacao_retirada);
         idFuncionario = findViewById(R.id.etIdFuncionario);
-        idCliente = findViewById(R.id.etIdCliente);
+        cpfCliente = findViewById(R.id.etICpfCliente);
         placaCarro = findViewById(R.id.etPlacaCarro);
         dataRetirada = findViewById(R.id.etDataRetirada);
         kmInicial = findViewById(R.id.etKmInicial);
         kmFinal = findViewById(R.id.etKmFinal);
         dataDevolucao = findViewById(R.id.etDataDevolucao);
 
-        locacao =(Locacao)getIntent().getSerializableExtra("locacao");
+        Veiculo veiculo =(Veiculo) getIntent().getSerializableExtra("locacao");
+       // Locacao locacao =(Locacao) getIntent().getSerializableExtra("locar");
+        if(locacao==null) {
+            locacao = new Locacao();
+            locacao.setPlacaCarro(veiculo.getPlaca());
+
+        }
+
         if(locacao!=null){
-            idCliente.setText(locacao.getIdCliente());
-            idFuncionario.setText(locacao.getIdFuncionario());
-            placaCarro.setText(locacao.getPlacaCarro());
-            dataRetirada.setText(locacao.getDataRetirada().toString());
-            kmInicial.setText(locacao.getKmInicial().toString());
-            kmFinal.setText(locacao.getKmFinal().toString());
-            dataDevolucao.setText(locacao.getDataDevolucao().toString());
+           if(locacao.getIdCliente()!=null) cpfCliente.setText(locacao.getIdCliente());
+            if(locacao.getIdFuncionario()!=null) idFuncionario.setText(locacao.getIdFuncionario());
+            if(locacao.getPlacaCarro()!=null) placaCarro.setText(locacao.getPlacaCarro());
+            if(locacao.getDataRetirada()!=null) dataRetirada.setText(locacao.getDataRetirada().toString());
+            if(locacao.getKmInicial()!=null) kmInicial.setText(locacao.getKmInicial().toString());
+            if(locacao.getKmFinal()!=null)kmFinal.setText(locacao.getKmFinal().toString());
+            if(locacao.getDataDevolucao()!=null) dataDevolucao.setText(locacao.getDataDevolucao().toString());
         }
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode==50){
+            cpfCliente.setText(data.getStringExtra("cpf"));
+        }
+    }
+
     /*public void confirmar(View view){
-        Toast.makeText(this, "foiiii", Toast.LENGTH_SHORT).show();
-        if(valida()){
-            if(locacao==null)
-                locacao = new Locacao();
-            locacao.setDataRetirada(Float.parseFloat(dataRetirada.getText().toString()));
-            //locacao.setKmFinal(Float.parseFloat(kmRetirada.getText().toString()));
-            //locacao.getCliente().setCpf(idCliente.getText().toString());
-            //locacao.getVeiculo().setPlaca(placaCarro.getText().toString());
-            inserir();
-        }
+                Toast.makeText(this, "foiiii", Toast.LENGTH_SHORT).show();
+                if(valida()){
+                    if(locacao==null)
+                        locacao = new Locacao();
+                    locacao.setDataRetirada(Float.parseFloat(dataRetirada.getText().toString()));
+                    //locacao.setKmFinal(Float.parseFloat(kmRetirada.getText().toString()));
+                    //locacao.getCliente().setCpf(idCliente.getText().toString());
+                    //locacao.getVeiculo().setPlaca(placaCarro.getText().toString());
+                    inserir();
+                }
 
-    }
-*/
+            }
+        */
    /* private void inserir() {
         bd = new Banco(this);
         try{
@@ -84,8 +101,8 @@ public class LocacaoRetirada extends AppCompatActivity{
 
     }
     public void listarCliente(View view){
-       // Intent it = new Intent(this, ListarCliente.class);
-       // startActivity(it);
+       Intent it = new Intent(this, ListarCpfCliente.class);
+       startActivity(it);
     }
     public void listarVeiculo(View view){
        // Intent it = new Intent(this, ListarVeiculo.class);

@@ -31,7 +31,7 @@ public class CadastroCliente extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_cliente);
         nome= findViewById(R.id.etNomeCliente);
         endereco=findViewById(R.id.etEnderecoCliente);
-        cpf=findViewById(R.id.etIdCliente);
+        cpf=findViewById(R.id.etICpfCliente);
         rg=findViewById(R.id.etRgCliente);
         cnh= findViewById(R.id.etCnhCliente);
         dependentes=findViewById(R.id.etDependentes);
