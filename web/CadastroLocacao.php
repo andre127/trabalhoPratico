@@ -34,10 +34,7 @@ include "utils.php";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
             $acao = "editarLocacao";
-            if ($row['situacao']=='ativo') {
-                $ati='inativo';                
-            }else
-                $ati='ativo'; 
+            
         } else {
             $acao = "salvarLocacao";
             
@@ -52,14 +49,14 @@ include "utils.php";
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">account_circle</i>
                                     <!--<input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" data-target="modalClientes" value="<?php //if (!empty($row['id_Locacao'])) echo $row['cpf'] ?>">-->
-                                    <input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" data-target="modalClientes" value="<?php if(!empty($_SESSION['cpf']))echo $_SESSION['cpf'] ?>">
+                                    <input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" required="required" data-target="modalClientes" value="<?php if(!empty($_SESSION['cpf'])){echo $_SESSION['cpf'];}if (!empty($row['id_Locacao'])) echo $row['cpf']; ?>">
                                     <label for="numero">CPF Cliente</label>
                                 </div>          
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">directions_car</i>
-                                    <input id="placa" name="placa" type="text" class="form validate" value="<?php if(!empty($row1['placa']))echo $row1['placa'] ?>">
+                                    <input id="placa" name="placa" type="text" class="form validate"  required="required" value="<?php if(!empty($row1['placa']))echo $row1['placa'] ?>">
                                     <!--<input id="placa" name="placa" type="text" class="form validate" value="<?php //if (!empty($row['id_Locacao'])) echo $row['placa'] ?>">-->
                                     <label for="placa">Placa do carro</label>
                                 </div>          
@@ -67,21 +64,28 @@ include "utils.php";
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">date_range</i>
-                                    <input id="dataLoc" name="dataLoc" type="date" class="datepicker form" value="<?php if (!empty($row['id_Locacao'])) echo $row['dataLocacao'] ?>">
+                                    <input id="dataLoc" name="dataLoc" type="date" class="datepicker form"  required="required" value="<?php if (!empty($row['id_Locacao'])) echo $row['dataLocacao'] ?>">
                                     <label for="dataLoc">Data Locação </label>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">account_circle</i>
-                                        <input id="dataDevolucao" name="dataDevolucao" type="date" class="datepicker form" value="<?php if (!empty($row['id_Locacao'])) echo $row['dataDevolucao'] ?>">
+                                        <input id="dataDevolucao" name="dataDevolucao" type="date" class="datepicker form"  required="required" value="<?php if (!empty($row['id_Locacao'])) echo $row['dataDevolucao'] ?>">
                                         <label for="dataDevolucao">Data Devolução </label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">compare_arrows</i>
-                                        <input id="Km" name="Km" type="number" class="form validate" value="<?php if (!empty($row['id_Locacao'])) echo $row['km'] ?>">
+                                        <input id="Km" name="Km" type="number" class="form validate"  required="required" value="<?php if (!empty($row['id_Locacao'])) echo $row['km'] ?>">
                                         <label for="Km">Km</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">check</i>
+                                        <input id="situacao" name="situacao" type="text" class="form validate"  required="required" value="<?php if (!empty($row['id_Locacao'])) echo $row['situacao'] ?>">
+                                        <label for="situacao">situacao (ativo or inativo)</label>
                                     </div>
                                 </div>
                                 
@@ -90,7 +94,7 @@ include "utils.php";
                                 <button id="confirmar" name = "acao" value ="<?php echo $acao ?>"class="btn waves-effect waves-light cadastroLoc" type="submit">Salvar
                                     <i class="material-icons right"></i>                        
                                 </button>
-                                <input id="atv" name="atv" type="hidden" class="form validate" value="<?php if (!empty($row['id_Locacao'])) echo $ati ?>">
+
 
                             </div>
                     </form>

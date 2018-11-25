@@ -26,15 +26,16 @@ include "utils.php";
                     <table  class="bordered" class="responsive-table">
                         <thead>
                             <tr>
-                                <th>ID Locacao</th>
+
                                 <th>Nome Cliente</th>
                                 <th>CPF cliente</th>
                                 <th>Carro</th>
                                 <th>Placa Carro</th>
                                 <th>Data de Locacao</th>
                                 <th>Data de Devolucao</th>
-                                <th>Km Inicial</th>
+                                <th>Km</th>
                                 <th>Situacao</th>
+                                <th>Editar</th>
 
                             </tr>
                         </thead>
@@ -48,7 +49,7 @@ include "utils.php";
                                 while ($row = $result->fetch_assoc()) {
 
                                     echo "<tr>";
-                                    echo "<td><a  class='waves-effect waves-light btn' href='CadastroLocacao.php?id=" . $row['id_Locacao'] . "'> " . $row['id_Locacao'] . "</a></td>";
+                             //       echo "<td><a  class='waves-effect waves-light btn' href='CadastroLocacao.php?id=" . $row['id_Locacao'] . "'> " . $row['id_Locacao'] . "</a></td>";
                                     echo "<td>" . $row['nome_Pessoa'] . "</td>";
                                     echo "<td>" . $row['cpf'] . "</td>";
                                     echo "<td>" . $row['nome'] . " | " . $row['modelo'] . "</td>";
@@ -57,6 +58,7 @@ include "utils.php";
                                     echo "<td>" . $row['dataDevolucao'] . "</td>";
                                     echo "<td>" . $row['km'] . "</td>";
                                     echo "<td>" . $row['situacao'] . "</td>";
+                                    echo "<td><a href='CadastroLocacao.php?id=" . $row['id_Locacao'] . "'><i class= material-icons prefix>edit</i></a> </td>";
 
                                     echo "</tr>";
                                 }
