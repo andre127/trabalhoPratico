@@ -72,6 +72,6 @@ public class Locacao implements Serializable {
                 "\nData Devolução:  "+getDataDevolucao()+
                 "\nPlaca: "+getPlacaCarro()+
                 "\nKM :"+getKm()+
-                "\n Situação: "+getSituaçaos();
+                "\nSituação: "+getSituaçaos();
     }
 }

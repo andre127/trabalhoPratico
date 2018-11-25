@@ -38,7 +38,7 @@ public class LocacaoRetirada extends AppCompatActivity{
         km = findViewById(R.id.etKm);
         dataDevolucao = findViewById(R.id.etDataDevolucao);
         situacao = findViewById(R.id.etSituacao);
-        Locacao locacao =(Locacao) getIntent().getSerializableExtra("editar");
+        locacao =(Locacao) getIntent().getSerializableExtra("editar");
         Veiculo veiculo =(Veiculo) getIntent().getSerializableExtra("locacao");
         if(locacao==null) {
             locacao = new Locacao();
@@ -157,6 +157,11 @@ public class LocacaoRetirada extends AppCompatActivity{
        Intent it = new Intent(LocacaoRetirada.this, ListarCpfCliente.class);
        startActivityForResult(it,50);
     }
+    public void listarFuncionarioCpf(View view){
+        Toast.makeText(this, "parte de Funcionario sem tabela", Toast.LENGTH_SHORT).show();
+    }
+
+
 
     public void situacao (View view){
         //mostrar as opçoes para ativar ou inativar locacao
@@ -165,5 +170,6 @@ public class LocacaoRetirada extends AppCompatActivity{
         msg.setMessage("Digitar 'ativo' ou 'inativo'");
         msg.setNegativeButton("ok",null);
         msg.show();
+
     }
 }
