@@ -59,8 +59,9 @@
         $('').val(' ')
 
     });
+    //função para informar maneira de editarlocação
     $('#asd').click(function (){
-        alert('Para editar clique no ID da locacao que deseja Finalizar locacao/Editar');
+        alert('Para editar clique no icone de edição da locacao que deseja Finalizar locacao/Editar');
  
     });
     
