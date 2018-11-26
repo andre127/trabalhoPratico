@@ -26,6 +26,7 @@ include "utils.php";
 
                     <div class="col s12" >
                         <br><br>
+                        <a class="waves-effect waves-light btn" href="index.php">Home</a>
                         <a class="waves-effect waves-light btn" href="CadastroCliente.php">Cadastrar</a>
                         <br><br>
                         <!-- Tabela para listar Clientes   -->
@@ -59,7 +60,7 @@ include "utils.php";
                                         echo "<td >" . $row['cpf'] . "</td>";
                                         echo "<td >" . $row['cnh'] . "</td>";
                                         echo "<td >" . $row['endereco'] . "</td>";
-                                        echo "<td ><a href='CadastroCliente.php?id=" . $row['id_Pessoa'] . "'><i class= material-icons prefix>edit</i></a> </td>";
+                                        echo "<td ><a href='CadastroCliente.php?id=" . $row['id_Pessoa'] . "'><i class= material-icons prefix>edit</i></a> </td>";// link do id do Cliente com o icone
                                         echo "</tr>";
                                     }
                                 }

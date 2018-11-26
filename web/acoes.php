@@ -3,10 +3,12 @@
 session_start();
 include "utils.php";
 var_dump($_POST);
-$acao = filter_input(INPUT_POST, 'acao', FILTER_SANITIZE_SPECIAL_CHARS);
-$tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_SPECIAL_CHARS);
-$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
+$acao = filter_input(INPUT_POST, 'acao', FILTER_SANITIZE_SPECIAL_CHARS);// usado para identificar a acão a ser feita 
+$tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_SPECIAL_CHARS);//usado para identificar o tipo 
+$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_SPECIAL_CHARS); // usado para identificar se o cliente existe 
+$url = filter_input(INPUT_POST, 'url', FILTER_SANITIZE_SPECIAL_CHARS);// usado para identificar a tela anterior
 
+// Função não habilitada pois em caso de exclusão do cliente pedesse o historico de locação
 if ($acao == "excluir") {
     if ($tipo == "cliente") {
         $sql = "DELETE FROM `cliente` WHERE `idPessoa`=" . $id;
@@ -15,9 +17,9 @@ if ($acao == "excluir") {
         $result = $conn->query($sql);
     }
 }
-
+// salva e edita cliente
 if ($acao == "salvar") {
-    if ($tipo == "cliente") {
+    if ($tipo == "cliente") {  
         $nome = $_POST['nomeCliente'];
         $endereco = $_POST['enderecoCliente'];
         $rg = $_POST['rgCliente'];
@@ -26,15 +28,18 @@ if ($acao == "salvar") {
         $dependente = $_POST['dependenteCliente'];
         $login = $_POST['loginCliente'];
         $senha = $_POST['senhaCliente'];
-        if ($id == "novo") {
+        if ($id == "novo") { //insert de um novo cliente 
             $sql = "INSERT INTO pessoa(nome_Pessoa, rg, cpf, endereco, tipo, login, senha) VALUES ('$nome', '$rg', '$cpf', '$endereco','$tipo', '$login', '$senha')";
             $result = $conn->query($sql);
-            $ultimo = mysqli_insert_id($conn);
+            $ultimo = mysqli_insert_id($conn); // retorna o o ultimo id inserido 
             $sql = "INSERT INTO cliente(cnh, numeroDependentes,idPessoa) VALUES ('$cnh', '$dependente','$ultimo')";
             $result = $conn->query($sql);
-            header("Location: GerenciamentoCliente.php");
-            //var_dump ($ultimo);
-        } else {
+            if($url=="http://localhost/trabalhoPratico/web/login.php"){ // caso a tela anterior seja a de login 
+                header("Location: login.php");
+            }else{ // caso a tela anterior seja GerenciamentoCliente 
+                header("Location: GerenciamentoCliente.php");
+            }
+        } else { // update do Cliente 
             //var_dump($_POST);
             $sql = "UPDATE `pessoa` SET `nome_Pessoa`='$nome',`rg`='$rg',`cpf`='$cpf',`endereco`='$endereco',`tipo`='$tipo',`login`='$login',`senha`='$senha' WHERE `id_Pessoa`= '$id'";
             $result = $conn->query($sql);
