@@ -26,43 +26,43 @@
 		    <div class="col s6 offset-s3">
 			<div class="row">
 			    <div class="input-field col s6">
-				<input id="placa" name="placa" type="text" class="form validate">
+				<input id="placa" name="placa" type="text" class="form validate" required>
 				<label for="placa">Placa</label>
 			    </div>          
 			</div>
 		        <div class="row">
 			    <div class="input-field col s6">
-				<input id="nome" name="nome" type="text" class="form validate">
+				<input id="nome" name="nome" type="text" class="form validate" required>
 				<label for="nome">Nome</label>
 			    </div>          
 			</div>
 			<div class="row">
 			    <div class="input-field col s6">
-				<input id="marca" name="marca" type="text" class="form validate">
+				<input id="marca" name="marca" type="text" class="form validate" required>
 				<label for="marca">Marca</label>
 			    </div>          
 			</div>
 			<div class="row">
 			    <div class="input-field col s6">
-				<input id="modelo" name="modelo" type="text" class="form validate">
+				<input id="modelo" name="modelo" type="text" class="form validate" required>
 				<label for="modelo">Modelo</label>
 			    </div>          
 			</div>
                         <div class="row">
 			    <div class="input-field col s6">
-				<input id="cor " name="cor" type="text" class="form validate">
+				<input id="cor " name="cor" type="text" class="form validate" required>
 				<label for="cor">Cor</label>
 			    </div>          
 			</div>
 			<div class="row">
 			    <div class="input-field col s6">
-				<input id="valorSeguro" name="valorSeguro" type="text" class="form validate">
+				<input id="valorSeguro" name="valorSeguro" type="text" class="form validate" required>
 				<label for="valorSeguro">Valor Seguro</label>
 			    </div>          
 			</div>
 			<div class="row">
 			    <div class="input-field col s6">
-				<input id="valorLocacao" name="valorLocacao" type="text" class="form validate">
+				<input id="valorLocacao" name="valorLocacao" type="text" class="form validate" required>
 				<label for="valorLocacao">Valor Locação</label>
 			    </div>          
 			</div>
@@ -78,7 +78,7 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <label for="img">Imagem</label><br><br>
-				<input id="img" name="img" type="file" class="form validate">
+				<input id="img" name="img" type="file" class="form validate" required>
 			    </div>          
 			</div>
 			<div class="row">
