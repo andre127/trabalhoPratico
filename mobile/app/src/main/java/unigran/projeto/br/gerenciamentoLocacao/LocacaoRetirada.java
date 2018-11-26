@@ -124,7 +124,7 @@ public class LocacaoRetirada extends AppCompatActivity{
             dataDevolucao.requestFocus();
             return false;
         }
-        if(!situacao.getText().equals("ativo") ||  !situacao.getText().equals("ATIVO") || !situacao.getText().equals("inaativo") || !situacao.getText().equals("INATIVO")){
+        if(TextUtils.isEmpty(situacao.getText())){
             Toast.makeText(this,"escreva ativo ou inativo",Toast.LENGTH_LONG).show();
             situacao.requestFocus();
             return false;
