@@ -26,15 +26,23 @@
     $ativo = filter_input(INPUT_GET, "ativo");
     $marca = filter_input(INPUT_GET, "marca");
     $img = filter_input(INPUT_GET, "img");
-    
   ?>
 </head>
 
-<body>  
+<body>
     <div class="container" >
+        <hearder class ='color-navbar-footer' role='navigation' style='z-index: 1'>
+            <div class="card-panel z-depth-5">
+                <a id='logo-container' href='index.php' class='brand-logo'><img src='img/logoEscritoNavbar.png' ></a>
+                <ul class='right hide-on-med-and-down'>
+                    <li><a href='GerenciamentoLocadora.php'>Painel de controle</a></li>
+                    <li><a href='finalizarSession.php'>Sair</a></li> 
+                </ul>
+            </div>
+        </header>
         <div class="section">
 	    <div class="card-panel z-depth-5">
-                <form  action="AtualizarVeiculo.php" enctype="multipart/form-data">
+                <form  posaction="AtualizarVeiculo.php" enctype="multipart/form-data">
                     <h4>Formulário Editar Cadastro Veículo</h4>
 		    <div class="col s6 offset-s3">
                         <div class="row">
@@ -97,7 +105,7 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <label for="img">Imagem:<?php echo $img?></label><br><br>
-                                <input id="img" name="img" type="file" value="<?php $img?>"required/>
+                                <input id="img" name="img" type="file" required/>
 			    </div>          
 			</div>
 			<div class="row">
@@ -108,8 +116,19 @@
 		    </div>
 		</form>
 	    </div>
+            </br>
+            <footer class=" card-panel z-depth-5 page-footer color-navbar-footer">
+                <div class="container">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Grupo 06</h5>
+                        <p class="grey-text text-lighten-4"><i class=" tiny material-icons">copyright</i>André Luiz; Abner Rodrigues; Diego Chiavelli; Junes Anderson; Leonardo Maciel.</p>
+                    </div>
+                </div>
+            </footer>
 	</div>
+       
     </div>
+        
     <!--  Scripts <script src="js/jquery-3.3.1.js"></script>-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>

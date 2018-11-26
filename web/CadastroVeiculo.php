@@ -19,11 +19,21 @@
 
 <body>  
     <div class="container">
-        <div class="section">
-	    <div class="card-panel z-depth-5" >
-                <form  method="POST" id="FormVei" action="UploadVeiculo.php" enctype="multipart/form-data">
+        <hearder class ='color-navbar-footer' role='navigation' style='z-index: 1'>
+            <div class="card-panel z-depth-5">
+                <a id='logo-container' href='index.php' class='brand-logo'><img src='img/logoEscritoNavbar.png' ></a>
+                <ul class='right hide-on-med-and-down'>
+                    <li><a href='GerenciamentoLocadora.php'>Painel de controle</a></li>
+                    <li><a href='finalizarSession.php'>Sair</a></li> 
+                </ul>
+            </div>
+        </header>
+        <div class="section" >
+	    <div class=" card-panel z-depth-5"  >
+            
+                <form   method="POST" id="FormVei" action="UploadVeiculo.php" enctype="multipart/form-data">
                     <h4>Formulário Cadastro Veículo</h4>
-		    <div class="col s6 offset-s3">
+		    <div class=" col  offset-s3">
 			<div class="row">
 			    <div class="input-field col s6">
 				<input id="placa" name="placa" type="text" class="form validate" required>
@@ -84,12 +94,21 @@
 			<div class="row">
 			    <button class="btn waves-effect waves-light" type="submit" name="acao" value="salvar">Salvar</button>
 			    <button class="btn waves-effect waves-light" type="reset" name="limparVei">Limpar</button>
-			    <button class="btn waves-effect waves-light" type="back" name="voltarVei">Voltar</button>
+			    <a class="waves-effect waves-light btn" href="GerenciamentoVeiculo.php">Voltar</a>
                         
 			</div>
 		    </div>
 		</form>
 	    </div>
+            </br>
+            <footer class=" card-panel z-depth-5 page-footer color-navbar-footer">
+                <div class="container">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Grupo 06</h5>
+                        <p class="grey-text text-lighten-4"><i class=" tiny material-icons">copyright</i>André Luiz; Abner Rodrigues; Diego Chiavelli; Junes Anderson; Leonardo Maciel.</p>
+                    </div>
+                </div>
+            </footer>
 	</div>
     </div>
     <!--  Scripts <script src="js/jquery-3.3.1.js"></script>-->
