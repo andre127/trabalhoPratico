@@ -29,6 +29,7 @@ public class CadastroCliente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_cliente);
+        // mapeamento da tela de cadastro
         nome= findViewById(R.id.etNomeCliente);
         endereco=findViewById(R.id.etEnderecoCliente);
         cpf=findViewById(R.id.etICpfCliente);
@@ -37,7 +38,7 @@ public class CadastroCliente extends AppCompatActivity {
         dependentes=findViewById(R.id.etDependentes);
         login= findViewById(R.id.editLoginCliente);
         senha= findViewById(R.id.editSenhaCliente);
-
+        // preenche os dados do Cliente na tela de cadastro para edição
         cliente= (Cliente)getIntent().getSerializableExtra("cliente");
         if(cliente!=null){
             nome.setText(cliente.getNome());
@@ -50,6 +51,7 @@ public class CadastroCliente extends AppCompatActivity {
             senha.setText(cliente.getSenha());
         }
     }
+    //pega os dados dos campos da tela cadastro e chama a função inserir
     public void salvar(View view){
        if(valida()){
             if (cliente==null)cliente= new Cliente();
@@ -66,6 +68,7 @@ public class CadastroCliente extends AppCompatActivity {
            finish();
         }
     }
+    //validação dos campos para que não sejam vazios
     private boolean valida() {
         if (TextUtils.isEmpty(nome.getText())) {
             Toast.makeText(this, "Entre com o nome", Toast.LENGTH_LONG).show();
@@ -110,6 +113,7 @@ public class CadastroCliente extends AppCompatActivity {
 
         return true;
     }
+    //botão cancelar cadastro
     public void cancelaCadastroCliente(View view){
 
         Intent it = new Intent(CadastroCliente.this,ListarCliente.class);
@@ -118,6 +122,7 @@ public class CadastroCliente extends AppCompatActivity {
 
     private SQLiteDatabase conexao;
     private Banco bd;
+    // grava no banco os dados coletados pelo função salvar
     private void inserir(){
         bd= new Banco(this);
         try {
@@ -131,16 +136,16 @@ public class CadastroCliente extends AppCompatActivity {
             values.put("NUMERODEPENDENTES", cliente.getNumeroDependentes());
             values.put("LOGIN",cliente.getLogin());
             values.put("SENHA",cliente.getSenha());
-            if(cliente.getId()==null)
-                conexao.insertOrThrow("CLIENTE",null,values);
+            if(cliente.getId()==null)  // validação para ver se o cliente ja existe
+                conexao.insertOrThrow("CLIENTE",null,values); // novo cliente
             else
-               conexao.update("CLIENTE",values,"ID=?",new String[]{cliente.getId()+""});
+               conexao.update("CLIENTE",values,"ID=?",new String[]{cliente.getId()+""}); // update no cliente
 
 
             conexao.close();
-            Toast.makeText(this, "Sucesso",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Sucesso",Toast.LENGTH_LONG).show();  // sucesso em grava os dados do cliente no banco
         } catch (SQLException ex){
-            Toast.makeText(this, "erro na inserção",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "erro na inserção",Toast.LENGTH_LONG).show();// erro em salvar os dados do cliente no banco
         }
     }
 

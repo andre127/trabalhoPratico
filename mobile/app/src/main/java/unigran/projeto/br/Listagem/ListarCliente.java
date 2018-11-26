@@ -27,6 +27,7 @@ public class ListarCliente extends AppCompatActivity {
     private SQLiteDatabase conexao;
     private Banco bd;
 
+    // Funcão para listar o cliente
     private List listar(){
 
         conexao=bd.getReadableDatabase();
@@ -61,6 +62,7 @@ public class ListarCliente extends AppCompatActivity {
         acoes();
         conexaoBD();
     }
+    // função para conectar com o banco
     private void conexaoBD() {
         try {
             bd= new Banco(this);
@@ -74,6 +76,7 @@ public class ListarCliente extends AppCompatActivity {
             msg.show();
         }
     }
+    //Função para mandar cliente selecionado para editar na tela de cadastro
     private void acoes() {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -98,7 +101,7 @@ public class ListarCliente extends AppCompatActivity {
         Intent it = new Intent(ListarCliente.this,MainActivity.class);
         startActivity(it);
     }
-
+    // Listagem do Cliente 
     @Override
     protected void onResume() {
         super.onResume();

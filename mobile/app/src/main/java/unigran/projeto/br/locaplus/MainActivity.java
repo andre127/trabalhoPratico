@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private List listar(){// metodo utilizado para listar todos os veiculos da locadora na pagina principal
-
+        conexao=bd.getReadableDatabase();
         List veiculos = new LinkedList();
         Cursor res= conexao.rawQuery("SELECT * FROM VEICULO", null);
         if(res.getCount()>0){
