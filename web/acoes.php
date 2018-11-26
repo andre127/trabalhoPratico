@@ -119,6 +119,7 @@ if ($acao == "editarLocacao") {
         echo "asdasdasdasdasdasd";
     }
 }
+//Ação utiliza atributos POST para dar um UPDATE com as novas informações do usuario
 if ($acao == "editarPerfilCliente") {
     $id_pessoa = $_POST['id_Pessoa'];
     $id_cliente = $_POST['id_Cliente'];

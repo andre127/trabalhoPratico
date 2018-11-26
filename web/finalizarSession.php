@@ -1,3 +1,4 @@
+<!-- Arquivo utilizado exclusivamente para o botão SAIR contido na NAVBAR do arquvio index.php -->
 <?php
 session_start();
     unset($_SESSION['login']);

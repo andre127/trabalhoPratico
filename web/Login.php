@@ -1,3 +1,4 @@
+<!--PAGINA UTILIZADA PARA REALIZAR LOGIN NA PLATAFORMA -->
 <?php
 include "utils.php";
 session_start();
@@ -47,20 +48,13 @@ session_start();
                         <a href="lostPassword">Esqueceu sua senha?</a>
                     </div>
                 </div> 
+                
                 <!-- botoes-->
-
-                <div class ="row" align="center">
+                <div class ="row" align="center"><!-- Passando as informações de login e senha via POST-->
                     <input id ="btn_login" type="submit" value="Entrar" class="light-blue darken-4 btn"/>
                 </div>
             </form>
         </div>
-
-
-
-
-
-
-
 
         <!-- Footer -->
         <footer class="page-footer color-navbar-footer">
