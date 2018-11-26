@@ -11,8 +11,12 @@ public class Veiculo implements Serializable {
     private String cor;
     private Float valorSeguro;
     private Float valorLocacao;
-    private Integer status;
+    private Boolean ativo;
     private String img;
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
 
     @Override
     public String toString() {
@@ -91,11 +95,6 @@ public class Veiculo implements Serializable {
         this.valorLocacao = valorLocacao;
     }
 
-    public Integer getStatus() {
-        return status;
-    }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+
 }

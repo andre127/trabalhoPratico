@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/etPlaca"
-        android:layout_width="133dp"
+        android:layout_width="177dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
@@ -16,16 +16,6 @@
         android:hint="Digite a Placa"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btPesquisar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="9dp"
-        android:text="pesquisa veiculo"
-        app:layout_constraintStart_toEndOf="@+id/etPlaca"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -54,7 +44,7 @@
 
     <EditText
         android:id="@+id/etNome"
-        android:layout_width="wrap_content"
+        android:layout_width="346dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
@@ -66,18 +56,17 @@
 
     <EditText
         android:id="@+id/etCor"
-        android:layout_width="123dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Cor"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btPesquisar" />
+        tools:layout_editor_absoluteY="12dp" />
 
     <EditText
-        android:id="@+id/editText13"
+        android:id="@+id/etValorSeguro"
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
@@ -89,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etMarca" />
 
     <EditText
-        android:id="@+id/editText14"
+        android:id="@+id/etValorLocacao"
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
@@ -98,25 +87,23 @@
         android:hint="Valor Locação"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText13" />
-
-    <TextView
-        android:id="@+id/tvStatus"
-        android:layout_width="350dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText14" />
+        app:layout_constraintTop_toBottomOf="@+id/etValorSeguro" />
 
     <Button
         android:id="@+id/btEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="279dp"
-        android:layout_marginTop="25dp"
         android:text="Editar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvStatus" />
+        tools:layout_editor_absoluteY="446dp" />
+
+    <Switch
+        android:id="@+id/stAtivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ativo"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="391dp" />
 
 </android.support.constraint.ConstraintLayout>
