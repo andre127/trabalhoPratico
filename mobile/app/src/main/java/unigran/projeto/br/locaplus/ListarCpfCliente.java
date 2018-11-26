@@ -1,5 +1,6 @@
 package unigran.projeto.br.locaplus;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -80,9 +81,12 @@ public class ListarCpfCliente extends AppCompatActivity {
                 Intent it = new Intent(ListarCpfCliente.this,LocacaoRetirada.class);
                 Cliente cliente = (Cliente) adapterView.getItemAtPosition(i);
                 it.putExtra("cpf", cliente.getCpf());
+                setResult(50, it);
                 //setResult(50);
                 finish();
                //startActivityForResult(it,50);
+
+
             }
         });
 

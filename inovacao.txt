@@ -1,0 +1,11 @@
+--- DESCRIÇÃO DA INOVAÇÃO ESCOLHIDA ---
+	---WEB---
+1º Acrescentado sistema de LOGIN e LOGOUT
+2º Plataforma para o CLIENTE (Contendo informações sobre a locadora, uma lista de carros disponiveis, suas fotos e respectivos valores)
+3º Na plataforma em questão é possivel o cliente locar o próprio carro sem a necessidade de se deslocar ou ligar para a locadora
+4º Nesta mesma plataforma é possivel o cliente editar o próprio perfil e os funcionarios administrarem a locadora
+
+	---MOBILE---
+1º Acrescentado SISTEMA DE LOGIN
+2º Plataforma para o CLIENTE (Contendo uma lista de carros disponiveis e respectivos valores)
+3º Na plataforma em questão é possivel o cliente locar o próprio carro sem a necessidade de se deslocar ou ligar para a locadora

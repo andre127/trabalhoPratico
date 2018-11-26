@@ -1,11 +1,11 @@
+<!--Pagina utilizada pelos funcionarios da locadora, onde podem manipular: Clientes, funcionarios, locações e veiculos -->
 <?php
 include "utils.php";
 session_start();
-
+//campo necessario para validar se alguem não esta tentando entrar na pagina sem ter feito login anteriormente
 if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
     header("Location: login.php");
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,11 +28,11 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
                         <img src="img/logoEscrito.png">
                     </div>
                     <br>
-                    <a href="#name"><span class="name"><?php echo $_SESSION['nome'] ?></span></a>
-                    <a href="#email"><span class="email"><?php echo $_SESSION['login'] ?></span></a>
+                    <a href="#name"><span class="name"><?php echo $_SESSION['nome'] ?></span></a><!-- Mostrando o nome do usuario na sidenav -->
+                    <a href="#email"><span class="email"><?php echo $_SESSION['login'] ?></span></a><!-- mostrando o login do usuario na sidenav -->
                 </div>
             </li>
-            <!-- Menu suspenso -->
+            <!-- Menu suspenso contendo os itens a serem gerenciados pelos funcionarios -->
             <ul class="collapsible collapsible-accordion">
                 <li>
                     <a href = "GerenciamentoVeiculo.php"class="collapsible-header">Veiculos<i class="material-icons">directions_car</i></a>
@@ -61,13 +61,8 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
             </ul>              
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header">Locações<i class="material-icons">assignment</i></a>
+                    <a href = "Locacao.php"class="collapsible-header">Locações<i class="material-icons">assignment</i></a>
                     <div class="collapsible-body">
-                        <ul>
-                            <li><a href="GerenciarLocacoes.php">Reservar Locação</a></li>
-                            <li><a href="#!">Alterar Locação</a></li>
-                            <li><a href="#!">Cancelar Locação</a></li>
-                        </ul>
                     </div>
                 </li>
             </ul>

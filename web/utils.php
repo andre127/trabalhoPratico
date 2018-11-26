@@ -1,9 +1,4 @@
 <?php
-/**
- * User: Andre Luiz
- * Date: 11/11/2018
- * Time: 16:13
- */
 
 $servername = "localhost";
 $username = "root";

@@ -1,3 +1,4 @@
+<!-- Pagina utilizada exclusivamente para o cliente editar o PRÓPRIO perfil -->
 <?php
 include "utils.php";
 session_start();
@@ -19,6 +20,7 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
         <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
     <body>
+        <!--NabBar personalizada com o nome do Cliente em questão -->
         <?php
         echo "<nav class ='color-navbar-footer' role='navigation' style='z-index: 1'>
             <div><a id='logo-container' href='#' class='brand-logo'><img src='img/logoEscritoNavbar.png' width='80%' height='80%'></a>
@@ -29,6 +31,7 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
         </nav>"; 
         ?>
         <br><br><br>
+        <!-- Campos para serem editados --> <!--Os campos abaixo irão receber automaticamente todas as informações do usuario logado no momento, todos eles serão passados atraves de variaveis $_SESSION que foram preenchidas no momento do login do usuario-->
         <div class="container">
             <div class="section">
                 <div class="row">
@@ -92,7 +95,7 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
                                 <button  id="btnEditarCliente" class="btn waves-effect waves-light" type="submit">Salvar</button>
                             </div>
                         </div>
-                        <input type="hidden" name="acao" value="editarPerfilCliente">
+                        <input type="hidden" name="acao" value="editarPerfilCliente"> <!-- campo necessario para tratar as informações aqui contidas diretamente no arquivo ACOES.PHP, informações tambem são passadas via POST-->
                     </form>
                 </div>
             </div>

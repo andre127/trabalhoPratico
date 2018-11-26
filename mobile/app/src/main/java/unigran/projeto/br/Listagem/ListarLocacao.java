@@ -35,7 +35,7 @@ public class ListarLocacao extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_locacao);
         listaLocacao = findViewById(R.id.lvLocacoes);//mapeando listview
-        //acoes();
+        acoes();
         BancoDados();
     }
     //funçao para listar na tela as locacaçoes ativas e inativas
@@ -77,7 +77,7 @@ public class ListarLocacao extends AppCompatActivity {
         }
     }
 
-  /*  private void acoes() {
+  private void acoes() {
         //ao clicar no item da lista puxar os dados e a tela de cadastro preenchendo com os dados do BD, permitindo editar
         listaLocacao.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -85,11 +85,16 @@ public class ListarLocacao extends AppCompatActivity {
             public void onItemClick(AdapterView adapterView,View view, int i, long l){
                 Intent edicao = new Intent(ListarLocacao.this, LocacaoRetirada.class);
                 Locacao locacao = (Locacao) adapterView.getItemAtPosition(i);
-                edicao.putExtra("locar", locacao);
+                AlertDialog.Builder msg= new AlertDialog.Builder(ListarLocacao.this);
+                msg.setTitle("Informação");
+                msg.setMessage("id "+locacao.getId());
+                msg.setNegativeButton("ok",null);
+                msg.show();
+                edicao.putExtra("editar", locacao);
                 startActivity(edicao);
             }
         });
-    }*/
+    }
 
     public  void home(View view){
         //chama a tela de cadastro

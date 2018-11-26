@@ -27,19 +27,17 @@ include "utils.php";
     </head>
     <body>
         <?php
-        if (!empty($_GET['id'])) {
-            $id = $_GET['id'];
+        //Verifica se caso clicou para editar locação
+        if (!empty($_GET['idLocEdit'])) {
+            $idlocedit= $_GET['idLocEdit'];
             $sql = "SELECT * FROM locacao INNER JOIN pessoa INNER JOIN carro INNER JOIN cliente on locacao.idCliente = cliente.id_Cliente"
-                    . " AND cliente.idPessoa = pessoa.id_Pessoa and pessoa.tipo = 'cliente' and locacao.id_Locacao ='".$id."' and carro.id = locacao.idCarro";
+                    . " AND cliente.idPessoa = pessoa.id_Pessoa and pessoa.tipo = 'cliente' and locacao.id_Locacao ='".$idlocedit."' and carro.id = locacao.idCarro";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
-            $acao = "editarLocacao";
-            if ($row['situacao']=='ativo') {
-                $ati='inativo';                
-            }else
-                $ati='ativo'; 
+            $acao = "editarLocacao";//passa por post para ser reconhecida a ação de editar la na tela acao.php
+            
         } else {
-            $acao = "salvarLocacao";
+            $acao = "salvarLocacao";//caso nao for de clicar passa por post para ser reconhecida a ação de salvar la na tela acao.php
             
         }
         ?>
@@ -50,47 +48,59 @@ include "utils.php";
                         <div class="col s6 offset-s3">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <i class="material-icons prefix">account_circle</i>
-                                    <!--<input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" data-target="modalClientes" value="<?php //if (!empty($row['id_Locacao'])) echo $row['cpf'] ?>">-->
-                                    <input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" data-target="modalClientes" value="<?php if(!empty($_SESSION['cpf']))echo $_SESSION['cpf'] ?>">
+                                    <i class="material-icons prefix">account_circle</i><!--Adicionando icones nos formulario-->
+<!--                                    para casso receba editar la em cima os campos da locação escolhida para ediar reeba os valores ja cadastrados para edição-->
+                                    <input id="CPF_Cliente" name="CPF_Cliente" type="number" class="form validate" required="required" data-target="modalClientes" value="<?php if ($acao=='editarLocacao'){echo $row['cpf'];}else{if(!empty($_SESSION['cpf'])){echo $_SESSION['cpf'];}}?>">
                                     <label for="numero">CPF Cliente</label>
                                 </div>          
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <i class="material-icons prefix">directions_car</i>
-                                    <input id="placa" name="placa" type="text" class="form validate" value="<?php if(!empty($row1['placa']))echo $row1['placa'] ?>">
-                                    <!--<input id="placa" name="placa" type="text" class="form validate" value="<?php //if (!empty($row['id_Locacao'])) echo $row['placa'] ?>">-->
+                                    <i class="material-icons prefix">directions_car</i><!--Adicionando icones nos formulario-->
+                                    <!--para casso receba editar la em cima os campos da locação escolhida para ediar reeba os valores ja cadastrados para edição-->
+                                    <input id="placa" name="placa" type="text" class="form validate"  required="required" value="<?php if ($acao=='editarLocacao'){echo $row['placa'];}else{if(!empty($row1['placa']))echo $row1['placa'] ;}?>">
                                     <label for="placa">Placa do carro</label>
                                 </div>          
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <i class="material-icons prefix">date_range</i>
-                                    <input id="dataLoc" name="dataLoc" type="date" class="datepicker form" value="<?php if (!empty($row['id_Locacao'])) echo $row['dataLocacao'] ?>">
+                                    <i class="material-icons prefix">date_range</i><!--Adicionando icones nos formulario-->
+                                    <!--para casso receba editar la em cima os campos da locação escolhida para ediar reeba os valores ja cadastrados para edição-->
+                                    <input id="dataLoc" name="dataLoc" type="date" class="datepicker form"  required="required" value="<?php if (!empty($row['id_Locacao'])) echo $row['dataLocacao'] ?>">
                                     <label for="dataLoc">Data Locação </label>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <i class="material-icons prefix">account_circle</i>
-                                        <input id="dataDevolucao" name="dataDevolucao" type="date" class="datepicker form" value="<?php if (!empty($row['id_Locacao'])) echo $row['dataDevolucao'] ?>">
+                                        <i class="material-icons prefix">account_circle</i><!--Adicionando icones nos formulario-->
+                                        <!--para casso receba editar la em cima os campos da locação escolhida para ediar reeba os valores ja cadastrados para edição-->
+                                        <input id="dataDevolucao" name="dataDevolucao" type="date" class="datepicker form"  required="required" value="<?php if (!empty($row['id_Locacao'])) echo $row['dataDevolucao'] ?>">
                                         <label for="dataDevolucao">Data Devolução </label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <i class="material-icons prefix">compare_arrows</i>
-                                        <input id="Km" name="Km" type="number" class="form validate" value="<?php if (!empty($row['id_Locacao'])) echo $row['km'] ?>">
+                                        <i class="material-icons prefix">compare_arrows</i><!--Adicionando icones nos formulario-->
+                                        <!--para casso receba editar la em cima os campos da locação escolhida para ediar reeba os valores ja cadastrados para edição-->
+                                        <input id="Km" name="Km" type="number" class="form validate"  required="required" value="<?php if (!empty($row['id_Locacao'])) echo $row['km'] ?>">
                                         <label for="Km">Km</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">check</i><!--Adicionando icones nos formulario-->
+                                        <!--para casso receba editar la em cima os campos da locação escolhida para ediar reeba os valores ja cadastrados para edição-->
+                                        <input id="situacao" name="situacao" type="text" class="form validate"  required="required" value="<?php if (!empty($row['id_Locacao'])) echo $row['situacao'] ?>">
+                                        <label for="situacao">situacao (ativo or inativo)</label>
                                     </div>
                                 </div>
                                 
                             </div>
                             <div align="center">
+                                <!--Adicionando o values do botao para dar submit de acordo com o escolhido em salvar ou editar-->
                                 <button id="confirmar" name = "acao" value ="<?php echo $acao ?>"class="btn waves-effect waves-light cadastroLoc" type="submit">Salvar
                                     <i class="material-icons right"></i>                        
                                 </button>
-                                <input id="atv" name="atv" type="hidden" class="form validate" value="<?php if (!empty($row['id_Locacao'])) echo $ati ?>">
+
 
                             </div>
                     </form>

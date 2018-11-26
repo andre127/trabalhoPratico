@@ -90,7 +90,7 @@ if (!isset($_SESSION["entrou"]) || $_SESSION["entrou"] != TRUE) {
         <?php
         $sql = "SELECT * FROM carro WHERE 1";
         $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
+        if ($result->num_rows > 0) { // Abaixo esta sendo descrita uma lista de carros presente no banco, ja puxando imagens e informações relevantes ao usuario
             while ($row = $result->fetch_assoc()) {
                 echo "<ul data-id='" . $row['id'] . "'class = 'listaAnuncios'>";
                 echo "<a href='CadastroLocacao.php?id=".$row['id']."'><li class = 'card-panel anuncios col s2'>" .

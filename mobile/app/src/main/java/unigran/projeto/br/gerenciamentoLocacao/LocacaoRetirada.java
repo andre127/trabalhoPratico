@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -37,22 +38,21 @@ public class LocacaoRetirada extends AppCompatActivity{
         km = findViewById(R.id.etKm);
         dataDevolucao = findViewById(R.id.etDataDevolucao);
         situacao = findViewById(R.id.etSituacao);
-
+        locacao =(Locacao) getIntent().getSerializableExtra("editar");
         Veiculo veiculo =(Veiculo) getIntent().getSerializableExtra("locacao");
         if(locacao==null) {
             locacao = new Locacao();
             locacao.setPlacaCarro(veiculo.getPlaca());
-
         }
 
-        // Locacao locacao =(Locacao) getIntent().getSerializableExtra("locar");
+
         if(locacao!=null){
-           if(locacao.getCpfCliene()!=null) cpfCliente.setText(locacao.getCpfCliene());
-            if(locacao.getCpfFuncionario()!=null) cpfFuncionario.setText(locacao.getCpfFuncionario());
+           if(locacao.getCpfCliene()!=null) cpfCliente.setText(locacao.getCpfCliene().toString());
+            if(locacao.getCpfFuncionario()!=null) cpfFuncionario.setText(locacao.getCpfFuncionario().toString());
             if(locacao.getPlacaCarro()!=null) placa.setText(locacao.getPlacaCarro());
-            if(locacao.getDataRetirada()!=null) dataRetirada.setText(locacao.getDataRetirada());
-            if(locacao.getKm()!=null) km.setText(locacao.getKm());
-            if(locacao.getDataDevolucao()!=null) dataDevolucao.setText(locacao.getDataDevolucao());
+            if(locacao.getDataRetirada()!=null) dataRetirada.setText(locacao.getDataRetirada().toString());
+            if(locacao.getKm()!=null) km.setText(locacao.getKm().toString());
+            if(locacao.getDataDevolucao()!=null) dataDevolucao.setText(locacao.getDataDevolucao().toString());
             if(locacao.getSituaçaos()!=null) situacao.setText(locacao.getSituaçaos());
         }
 
@@ -61,28 +61,71 @@ public class LocacaoRetirada extends AppCompatActivity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        //if (resultCode==50){
+        if (resultCode==50){
             cpfCliente.setText(data.getStringExtra("cpf"));
-       // }
+        }
     }
 
-    public void confirmar(View view){
-        Toast.makeText(this, "foiiii", Toast.LENGTH_SHORT).show();
-        if(locacao==null)
-            locacao = new Locacao();
-        //pegando os dados das variaveis mapeadas e passando apara a classe pessoa
-        locacao.setDataRetirada(Integer.parseInt(dataRetirada.getText().toString()));
-        locacao.setDataDevolucao(Integer.parseInt(dataDevolucao.getText().toString()));
-        locacao.setKm(Integer.parseInt(km.getText().toString()));
-        locacao.setCpfCliene(Integer.parseInt(cpfCliente.getText().toString()));
-        locacao.setCpfFuncionario(Integer.parseInt(cpfFuncionario.getText().toString()));
-        locacao.setPlacaCarro(placa.getText().toString());
-        locacao.setSituaçaos(situacao.getText().toString());
-        inserir();
-        finish();
-
+    public void salvarLocacao(View view){
+        if(valida()) {
+            if (locacao == null)
+                locacao = new Locacao();
+            //pegando os dados das variaveis mapeadas e passando apara a classe pessoa
+            locacao.setDataRetirada(Integer.parseInt(dataRetirada.getText().toString()));
+            locacao.setDataDevolucao(Integer.parseInt(dataDevolucao.getText().toString()));
+            locacao.setKm(Integer.parseInt(km.getText().toString()));
+            locacao.setCpfCliene(Integer.parseInt(cpfCliente.getText().toString()));
+            locacao.setCpfFuncionario(Integer.parseInt(cpfFuncionario.getText().toString()));
+            locacao.setPlacaCarro(placa.getText().toString());
+            locacao.setSituaçaos(situacao.getText().toString());
+            inserir();
+            finish();
+        }
 
     }
+
+    private boolean valida() {
+        if (TextUtils.isEmpty(cpfFuncionario.getText())) {
+            Toast.makeText(this, "Digite o cpf do fucionario", Toast.LENGTH_LONG).show();
+            cpfFuncionario.requestFocus();
+            return false;
+        }
+        if (TextUtils.isEmpty(cpfCliente.getText())) {
+            Toast.makeText(this, "Digite o cpf do cliente", Toast.LENGTH_LONG).show();
+            cpfCliente.requestFocus();
+            return false;
+        }
+        if (TextUtils.isEmpty(placa.getText())) {
+            Toast.makeText(this, "Digite a placa do carro", Toast.LENGTH_LONG).show();
+            placa.requestFocus();
+            return false;
+        }
+        if (TextUtils.isEmpty(dataRetirada.getText())) {
+            Toast.makeText(this, "Digite a data de locação", Toast.LENGTH_LONG).show();
+            dataRetirada.requestFocus();
+            return false;
+        }
+        if(TextUtils.isEmpty(km.getText())){
+            Toast.makeText(this,"Digite o km do carro",Toast.LENGTH_LONG).show();
+            km.requestFocus();
+            return false;
+        }
+        if(TextUtils.isEmpty(dataDevolucao.getText())){
+            Toast.makeText(this,"Digite a data de devolução",Toast.LENGTH_LONG).show();
+            dataDevolucao.requestFocus();
+            return false;
+        }
+        if(TextUtils.isEmpty(situacao.getText())){
+            Toast.makeText(this,"Ativo ou inativo",Toast.LENGTH_LONG).show();
+            situacao.requestFocus();
+            return false;
+        }
+
+
+        return true;
+    }
+
+
     private void inserir() {
         bd = new Banco(this);
         //verificaçao do bd
@@ -96,7 +139,7 @@ public class LocacaoRetirada extends AppCompatActivity{
             values.put("CPFFUNCIONARIO", locacao.getCpfFuncionario());// adicionando os dados na coluna do bd
             values.put("PLACACARRO", locacao.getPlacaCarro());// adicionando os dados na coluna do bd
             values.put("SITUACAO", locacao.getSituaçaos());// adicionando os dados na coluna do bd
-            if(locacao.getId()<=0)//validação para ediçao
+           if(locacao.getId()==null)//validação para ediçao
                 conexao.insertOrThrow("LOCACAO",null,values);
             else
                 conexao.update("LOCACAO", values,"ID_LOCACAO=?",new String[]{locacao.getId()+""});
@@ -114,6 +157,11 @@ public class LocacaoRetirada extends AppCompatActivity{
        Intent it = new Intent(LocacaoRetirada.this, ListarCpfCliente.class);
        startActivityForResult(it,50);
     }
+    public void listarFuncionarioCpf(View view){
+        Toast.makeText(this, "parte de Funcionario sem tabela", Toast.LENGTH_SHORT).show();
+    }
+
+
 
     public void situacao (View view){
         //mostrar as opçoes para ativar ou inativar locacao
@@ -122,5 +170,6 @@ public class LocacaoRetirada extends AppCompatActivity{
         msg.setMessage("Digitar 'ativo' ou 'inativo'");
         msg.setNegativeButton("ok",null);
         msg.show();
+
     }
 }

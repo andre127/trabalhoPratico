@@ -10,6 +10,7 @@ public class Banco extends SQLiteOpenHelper {
  }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        //definição dos SQL que serão utilizados na criação do banco de dados
         String sqlCliente ="CREATE TABLE IF NOT EXISTS CLIENTE(" +"ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
                 +"NOME VARCHAR(45),"
                 +"ENDERECO VARCHAR(15),"
@@ -67,7 +68,7 @@ public class Banco extends SQLiteOpenHelper {
 
 
 
-
+        //executando todos os SQL's acima, alem da criação do BD tambem esta sendo feita a inserção de dados para fins de teste
         sqLiteDatabase.execSQL(sqlCliente);
         sqLiteDatabase.execSQL(sqlVeiculo);
         sqLiteDatabase.execSQL(sqlLocacao);

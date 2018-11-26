@@ -8,17 +8,13 @@
 
     <EditText
         android:id="@+id/etCpfFuncionario"
-        android:layout_width="0dp"
+        android:layout_width="283dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="CPF do Cliente"
+        android:hint="CPF do Funcionario"
         android:inputType="number"
-        android:onClick="listarClienteCpf"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRetirada" />
 
@@ -39,16 +35,16 @@
 
     <EditText
         android:id="@+id/etCpfCliente"
-        android:layout_width="0dp"
+        android:layout_width="285dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="8dp"
+        android:editable="false"
         android:ems="10"
-        android:hint="CPF do Funcionario"
+        android:enabled="false"
+        android:hint="CPF do Cliente"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:onClick="listarClienteCpf"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etCpfFuncionario" />
 
@@ -60,6 +56,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
+        android:enabled="false"
         android:hint="Placa do carro"
         android:inputType="text|textPersonName"
         android:onClick="listarVeiculo"
@@ -104,7 +101,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:onClick="confirmar"
+        android:onClick="salvarLocacao"
         android:text="Confirmar"
         app:layout_constraintEnd_toStartOf="@+id/btnCancelar"
         app:layout_constraintStart_toStartOf="parent"
@@ -145,13 +142,43 @@
         android:layout_marginEnd="8dp"
         android:cursorVisible="false"
         android:ems="10"
-        android:hint="Situação"
+        android:enabled="true"
+        android:hint="ativo / inativo"
         android:inputType="textPersonName"
         android:onClick="situacao"
         android:shadowColor="@color/colorPrimaryDark"
-        android:text="ativo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etDataDevolucao" />
+
+    <Button
+        android:id="@+id/btnBuscarCpfCliente"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="listarClienteCpf"
+        android:text="Buscar"
+        app:layout_constraintBottom_toTopOf="@+id/etPlaca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etCpfCliente"
+        app:layout_constraintTop_toBottomOf="@+id/etCpfFuncionario" />
+
+    <Button
+        android:id="@+id/btnBuscarCpfFuncionario"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="listarFuncionarioCpf"
+        android:text="Buscar"
+        app:layout_constraintBottom_toTopOf="@+id/btnBuscarCpfCliente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etCpfFuncionario"
+        app:layout_constraintTop_toBottomOf="@+id/tvRetirada" />
 
 </android.support.constraint.ConstraintLayout>

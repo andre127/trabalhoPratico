@@ -3,7 +3,7 @@
 
    include "utils.php"; // conexao com o banco 
    
-   // Função para verificar esta sendo passado uma pessoa pra editar 
+   // Função para verificar se esta sendo passado uma pessoa pra editar 
     // ou esta sendo cadastrado uma nova pessoa 
    if(!empty($_GET["id"])){
    $id= $_GET["id"];
@@ -36,7 +36,7 @@
         <br><br><br>   
         <div class="container">
             <br><br>
-            <a class="waves-effect waves-light btn" href="GerenciamentoCliente.php">Voltar</a>
+            <a class="waves-effect waves-light btn" href="<?php echo $_SERVER['HTTP_REFERER']?>">Voltar</a>
             <div class="section">
 		<div class="row">
                     <!--  Para o envio dos dados esta sendo usado o metodo POST -->
@@ -104,13 +104,16 @@
                           <button  class="btn waves-effect waves-light" type="submit">Salvar
                             <i class="material-icons right"></i>                        
                           </button>
-                            <a class="waves-effect waves-light btn" href="GerenciamentoCliente.php">Cancelar</a>
+                            <a class="waves-effect waves-light btn" href="<?php echo $_SERVER['HTTP_REFERER']?>">Cancelar</a>
                         </div>
                       </div>
                          <!--  Manipulação do Post-->
                         <input type="hidden" name="acao" value="salvar">
                         <input type="hidden" name="tipo" value="cliente">
+                        <!--  recebo novo se for um novo cadasto ou pego o id caso seja um update-->
                         <input type="hidden" name="id" value=<?php echo $valid?>>
+                        <!--  pego a tela anterior Login ou gerenciamentoCliente-->
+                        <input type="hidden" name="url" value=<?php echo $_SERVER['HTTP_REFERER'];?>>
                     </form>
                     
 		</div>

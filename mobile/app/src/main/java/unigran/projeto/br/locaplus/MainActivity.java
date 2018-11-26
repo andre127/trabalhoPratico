@@ -34,6 +34,7 @@ import unigran.projeto.br.Listagem.ListarCliente;
 import unigran.projeto.br.Listagem.ListarLocacao;
 import unigran.projeto.br.Listagem.ListarVeiculo;
 import unigran.projeto.br.Pesistencia.Banco;
+import unigran.projeto.br.gerenciamento.GerVeiculo;
 import unigran.projeto.br.gerenciamentoLocacao.LocacaoRetirada;
 
 public class MainActivity extends AppCompatActivity
@@ -45,17 +46,17 @@ public class MainActivity extends AppCompatActivity
     private String entrou;
 
     @Override
+    //pagina principal do sistema, dentro dela estão listados os metodos de acesso a outras paginas do sistema
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //definindo a lista de veiculos
         lista=findViewById(R.id.listarVeiculosMain);
-
+        //estabelecendo a conexão com o banco de dados
         conexaoBD();
+        //atributos proprios desta activity que devem ser inicializados
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -64,14 +65,15 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //inicialização do metodo ações o qual reconhece o click do usuario na tabela
         acoes();
 
     }
+    //metodo utilizado para conexão com o banco de dados
     private void conexaoBD() {
         try {
             bd= new Banco(this);
             Toast.makeText(this,"Conexão ok",Toast.LENGTH_SHORT).show();
-
         }catch (SQLException ex){
             AlertDialog.Builder msg= new AlertDialog.Builder(this);
             msg.setTitle("Erro");
@@ -80,8 +82,7 @@ public class MainActivity extends AppCompatActivity
             msg.show();
         }
     }
-
-    private void acoes() {
+    private void acoes() {//este metodo reconhece o click do usuario sobre a tabela e passa as informações do veiculo diretamente para a pagina de locação
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
                 Toast.makeText(MainActivity.this, "id:"+i, Toast.LENGTH_LONG).show();
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed() {//atributo proprio deste tipo de Activity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -104,20 +105,15 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+    public boolean onCreateOptionsMenu(Menu menu) {//atributo proprio deste tipo de Activity
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+    public boolean onOptionsItemSelected(MenuItem item) {//atributo proprio deste tipo de Activity
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -125,12 +121,10 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private List listar(){
+    private List listar(){// metodo utilizado para listar todos os veiculos da locadora na pagina principal
 
-        conexao=bd.getReadableDatabase();
         List veiculos = new LinkedList();
         Cursor res= conexao.rawQuery("SELECT * FROM VEICULO", null);
-
         if(res.getCount()>0){
             res.moveToFirst();
             do{
@@ -152,15 +146,13 @@ public class MainActivity extends AppCompatActivity
     }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+    public boolean onNavigationItemSelected(MenuItem item) {//metodo que manipula o click do usuario sobre o menu lateral e o redireciona para a pagina desejada
         int id = item.getItemId();
-
         if (id == R.id.nav_login) {
             Intent it = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(it);
         } else if (id == R.id.nav_carros) {
-                Intent it = new Intent(MainActivity.this, ListarVeiculo.class);
+                Intent it = new Intent(MainActivity.this, GerVeiculo.class);
                 startActivity(it);
         } else if (id == R.id.nav_clientes) {
             Intent it = new Intent(this, ListarCliente.class);
@@ -174,7 +166,6 @@ public class MainActivity extends AppCompatActivity
             this.finishAffinity();
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

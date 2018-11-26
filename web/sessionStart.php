@@ -1,14 +1,16 @@
+<!-- Arquivo utilizado para tratar o login do usuario -->
+<!-- Ao realizar o login os codigos abaixos irão armazenar todas as informações do cliente -->
 <?php
 session_start();
 $login = $_POST['login'];
 $senha = $_POST['senha'];
 include "utils.php";
 
-$sql = "SELECT * FROM pessoa WHERE login = '$login' AND senha = '$senha'";
+$sql = "SELECT * FROM pessoa WHERE login = '$login' AND senha = '$senha'"; //verificando se o login e senha do usuario existem no banco de dados
 $result = $conn->query($sql);
 
 
-if ($result->num_rows > 0) {
+if ($result->num_rows > 0) {//caso o login e senha existam, variaveis do tipo $_SESSION serão povoadas com as informações do usuario
     $_SESSION['login'] = $login;
     $_SESSION['senha'] = $senha;
     $_SESSION['entrou'] = true;
@@ -31,7 +33,7 @@ if ($result->num_rows > 0) {
     }
     header('location:index.php');
     
-} else {
+} else {//caso não seja encontrado usuario e senha a pagina sera recarregada
     unset($_SESSION['login']);
     unset($_SESSION['senha']);
     $_SESSION['entrou'] = false;
