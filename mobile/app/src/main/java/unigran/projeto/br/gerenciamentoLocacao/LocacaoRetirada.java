@@ -17,6 +17,7 @@ import unigran.projeto.br.Classes.Locacao;
 import unigran.projeto.br.Classes.Veiculo;
 import unigran.projeto.br.Pesistencia.Banco;
 import unigran.projeto.br.locaplus.ListarCpfCliente;
+import unigran.projeto.br.locaplus.MainActivity;
 import unigran.projeto.br.locaplus.R;
 
 public class LocacaoRetirada extends AppCompatActivity{
@@ -38,15 +39,19 @@ public class LocacaoRetirada extends AppCompatActivity{
         km = findViewById(R.id.etKm);
         dataDevolucao = findViewById(R.id.etDataDevolucao);
         situacao = findViewById(R.id.etSituacao);
+        //recebe o editar por bundle, recebe os dados da locação selecionada
         locacao =(Locacao) getIntent().getSerializableExtra("editar");
+        //recebe o veiculo por bundle para pegar a placa do veiculo selecionado
         Veiculo veiculo =(Veiculo) getIntent().getSerializableExtra("locacao");
+        // caso for null ou seja um cadastro novo
         if(locacao==null) {
             locacao = new Locacao();
+            //locação recebe a placa do veiculo selecionado
             locacao.setPlacaCarro(veiculo.getPlaca());
         }
-
-
+        //caso exita exista loccação
         if(locacao!=null){
+            //todos os campos que forem diferente de vazio em locação,  passa os dados para os campos de edittext mapeados anteriormente
            if(locacao.getCpfCliene()!=null) cpfCliente.setText(locacao.getCpfCliene().toString());
             if(locacao.getCpfFuncionario()!=null) cpfFuncionario.setText(locacao.getCpfFuncionario().toString());
             if(locacao.getPlacaCarro()!=null) placa.setText(locacao.getPlacaCarro());
@@ -59,15 +64,18 @@ public class LocacaoRetirada extends AppCompatActivity{
     }
 
     @Override
+    //metodo sobrescrito para receber os dados da intent e fechar
+    //usado para listar os cpf dos clientes existentes e retornar um cpf selecionado
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode==50){
             cpfCliente.setText(data.getStringExtra("cpf"));
         }
     }
-
+    //função parao botão de confirmar o cadastro ou ediçao dos dados de locação
     public void salvarLocacao(View view){
         if(valida()) {
+            //caso for um cadastro de uma nov locação
             if (locacao == null)
                 locacao = new Locacao();
             //pegando os dados das variaveis mapeadas e passando apara a classe pessoa
@@ -78,12 +86,13 @@ public class LocacaoRetirada extends AppCompatActivity{
             locacao.setCpfFuncionario(Integer.parseInt(cpfFuncionario.getText().toString()));
             locacao.setPlacaCarro(placa.getText().toString());
             locacao.setSituaçaos(situacao.getText().toString());
+            //metodo para inserir os dados no BD
             inserir();
             finish();
         }
 
     }
-
+    //validação para todos os campos serem preenchidos corretamente
     private boolean valida() {
         if (TextUtils.isEmpty(cpfFuncionario.getText())) {
             Toast.makeText(this, "Digite o cpf do fucionario", Toast.LENGTH_LONG).show();
@@ -115,8 +124,8 @@ public class LocacaoRetirada extends AppCompatActivity{
             dataDevolucao.requestFocus();
             return false;
         }
-        if(TextUtils.isEmpty(situacao.getText())){
-            Toast.makeText(this,"Ativo ou inativo",Toast.LENGTH_LONG).show();
+        if(!situacao.getText().equals("ativo") ||  !situacao.getText().equals("ATIVO") || !situacao.getText().equals("inaativo") || !situacao.getText().equals("INATIVO")){
+            Toast.makeText(this,"escreva ativo ou inativo",Toast.LENGTH_LONG).show();
             situacao.requestFocus();
             return false;
         }
@@ -127,7 +136,7 @@ public class LocacaoRetirada extends AppCompatActivity{
 
 
     private void inserir() {
-        bd = new Banco(this);
+        bd = new Banco(this);//instancia o bd
         //verificaçao do bd
         try{
             conexao = bd.getWritableDatabase();//função para escrita no bd
@@ -151,13 +160,18 @@ public class LocacaoRetirada extends AppCompatActivity{
         }
     }
     public void cancelar(View view){
-
+        //acao ao clicar para cancelar cadastro chamando a tela principal
+        Intent it =  new Intent(LocacaoRetirada.this, MainActivity.class);
+        startActivity(it);
     }
     public void listarClienteCpf(View view){
+        //acao ao clicar que chama a tela de listagem de cpf dos clientes para escolha
        Intent it = new Intent(LocacaoRetirada.this, ListarCpfCliente.class);
        startActivityForResult(it,50);
     }
     public void listarFuncionarioCpf(View view){
+        //acao ao clicar que chama a tela de listagem de cpf dos funcionarios para escolha
+        //funcionarios nao foi feita a parte de listagem por isso nao funciona
         Toast.makeText(this, "parte de Funcionario sem tabela", Toast.LENGTH_SHORT).show();
     }
 

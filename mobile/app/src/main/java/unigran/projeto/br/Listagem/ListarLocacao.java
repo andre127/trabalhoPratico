@@ -35,6 +35,7 @@ public class ListarLocacao extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_locacao);
         listaLocacao = findViewById(R.id.lvLocacoes);//mapeando listview
+        // chama o metodo criado para ao clicar na linha do listview pegar as informações e editar na mesma tela de cadastro
         acoes();
         BancoDados();
     }
@@ -42,6 +43,7 @@ public class ListarLocacao extends AppCompatActivity {
     private List listar() {
         conexao=bd.getReadableDatabase();
         List locacoes = new LinkedList();
+        //sql para selecionar atabelaa de locaçao
         Cursor res= conexao.rawQuery("SELECT * FROM LOCACAO", null);
         if(res.getCount()>0){
             res.moveToFirst();
@@ -69,6 +71,7 @@ public class ListarLocacao extends AppCompatActivity {
             Toast.makeText(this,"Conexão ok",Toast.LENGTH_LONG).show();
 
         }catch (SQLException ex){
+            //informando erro
             AlertDialog.Builder msg= new AlertDialog.Builder(this);
             msg.setTitle("Erro");
             msg.setMessage("Erro de conexão");
@@ -86,10 +89,6 @@ public class ListarLocacao extends AppCompatActivity {
                 Intent edicao = new Intent(ListarLocacao.this, LocacaoRetirada.class);
                 Locacao locacao = (Locacao) adapterView.getItemAtPosition(i);
                 AlertDialog.Builder msg= new AlertDialog.Builder(ListarLocacao.this);
-                msg.setTitle("Informação");
-                msg.setMessage("id "+locacao.getId());
-                msg.setNegativeButton("ok",null);
-                msg.show();
                 edicao.putExtra("editar", locacao);
                 startActivity(edicao);
             }
@@ -106,6 +105,7 @@ public class ListarLocacao extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        //adapter para passa a lista de locações para o list view, pois o listview não recebe lista
         ArrayAdapter<Locacao> arrayAdapter = new ArrayAdapter<Locacao>(ListarLocacao.this,android.R.layout.simple_list_item_1,listar());
         listaLocacao.setAdapter(arrayAdapter);
     }

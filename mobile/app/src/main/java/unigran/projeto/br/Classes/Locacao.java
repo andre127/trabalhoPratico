@@ -64,7 +64,7 @@ public class Locacao implements Serializable {
     }
 
 
-    //tostring para mostrar apenas esses dados no listar
+    //tostring para filtar e mostrar apenas esses dados no listar
     @Override
     public String toString() {
         return "CPF Cliente:  "+getCpfCliene()+
